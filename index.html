@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+	<link rel="icon" href="logi.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hilamos SAS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* VARIABLES */
+
+:root{
+--gris:#687e8a;
+--morado1:#6d29a7;
+--morado2:#c416b6;
+--verde1:#00ac7f;
+--verde2:#00dec8;
+--blanco:#ffffff;
+
+--font-principal:'Nunito Sans',sans-serif;
+--font-secundaria:'Quicksand',sans-serif;
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:var(--font-principal);
+background:var(--blanco);
+color:var(--gris);
+scroll-behavior:smooth;
+}
+
+/* NAVBAR  ----------------------------------------------------------------------*/
+
+	.nav-logo img{
+height:35px;
+display:block;
+}
+.navbar{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:1rem 2rem;
+background:white;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+z-index:1000;
+
+}
+
+.nav-logo{
+
+font-weight:bold;
+font-size:1.3rem;
+color:var(--morado1);
+
+}
+
+.nav-links{
+
+display:flex;
+gap:2rem;
+align-items:center;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+color:var(--verde1);
+
+}
+
+/* BOTON */
+
+.nav-cta{
+
+background:var(--verde1);
+color:white;
+padding:.6rem 1.2rem;
+border-radius:6px;
+font-weight:bold;
+transition:.3s;
+
+}
+
+.nav-cta:hover{
+
+background:var(--morado1);
+
+}
+
+/* MOBILE */
+
+.menu-toggle{
+
+display:none;
+font-size:1.8rem;
+cursor:pointer;
+
+}
+
+@media(max-width:900px){
+
+.nav-links{
+
+position:absolute;
+top:70px;
+right:0;
+background:white;
+flex-direction:column;
+width:220px;
+padding:2rem;
+box-shadow:0 6px 20px rgba(0,0,0,0.15);
+display:none;
+
+}
+
+.nav-links.active{
+
+display:flex;
+
+}
+
+.menu-toggle{
+
+display:block;
+
+}
+
+}
+
+/* HERO  ----------------------------------------------------------------------*/
+
+.hero{
+height:100vh;
+background:
+linear-gradient(135deg,rgba(109,41,167,.85),rgba(0,172,127,.85)),
+url('uniformes-bg.jpg') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:2rem;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:radial-gradient(circle,rgba(255,255,255,.15),transparent 60%);
+animation:heroRotate 14s linear infinite;
+}
+
+@keyframes heroRotate{
+from{transform:rotate(0)}
+to{transform:rotate(360deg)}
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:700px;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:1rem;
+}
+
+.hero p{
+font-size:1.2rem;
+margin-bottom:2rem;
+opacity:.9;
+}
+
+/* CATALOGO  ----------------------------------------------------------------------*/
+
+.catalogo-interactivo{
+padding:4rem 2rem;
+text-align:center;
+}
+
+.filtros button,
+.carrusel-controles button{
+margin:.4rem;
+padding:.7rem 1.2rem;
+border:none;
+border-radius:6px;
+background:var(--verde1);
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+.filtros button:hover,
+.carrusel-controles button:hover{
+background:var(--verde2);
+}
+
+.uniforme-view img{
+width:320px;
+margin:2rem auto;
+display:block;
+transition:.3s;
+}
+
+/* CONOCENOS  ----------------------------------------------------------------------*/
+
+.conocenos{
+padding:4rem 2rem;
+}
+
+.conocenos-container{
+display:flex;
+flex-wrap:wrap;
+gap:2rem;
+max-width:1100px;
+margin:auto;
+align-items:center;
+}
+
+.conocenos-texto{
+flex:1;
+}
+
+.conocenos-texto h2{
+color:var(--morado1);
+margin-bottom:1rem;
+}
+
+.conocenos-texto p{
+line-height:1.7;
+margin-bottom:1rem;
+}
+
+.conocenos-imagen{
+flex:1;
+text-align:center;
+}
+
+.conocenos-imagen img{
+width:100%;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+/* LINEAS  ----------------------------------------------------------------------*/
+
+.lineas-negocio{
+margin-top:3rem;
+text-align:center;
+}
+
+.lineas-grid{
+display:flex;
+flex-wrap:wrap;
+gap:1rem;
+justify-content:center;
+margin-top:1.5rem;
+}
+
+.linea-card{
+background:var(--verde1);
+color:white;
+padding:1rem 1.5rem;
+border-radius:8px;
+font-weight:600;
+transition:.3s;
+}
+
+.linea-card:hover{
+background:var(--morado1);
+transform:translateY(-5px);
+}
+
+/* PORQUE  ----------------------------------------------------------------------*/
+
+.porque-elegirnos{
+padding:4rem 2rem;
+text-align:center;
+}
+
+.ventajas-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:2rem;
+max-width:1100px;
+margin:auto;
+}
+
+.ventaja-card{
+background:var(--gris);
+padding:2rem;
+border-radius:12px;
+color:white;
+transition:.3s;
+}
+
+.ventaja-card h3{
+color:var(--verde2);
+margin-bottom:.5rem;
+}
+
+.ventaja-card:hover{
+background:var(--morado1);
+transform:translateY(-8px);
+}
+
+/* CLIENTES  ----------------------------------------------------------------------*/
+
+.clientes{
+padding:4rem 2rem;
+text-align:center;
+overflow:hidden;
+}
+
+.logos-scroll{
+overflow:hidden;
+position:relative;
+}
+
+.logos-track{
+display:flex;
+gap:3rem;
+animation:scroll 35s linear infinite;
+}
+
+.logos-track img{
+height:60px;
+opacity:.7;
+transition:.3s;
+}
+
+.logos-track img:hover{
+opacity:1;
+transform:scale(1.15);
+}
+
+@keyframes scroll{
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
+}
+
+/* CONTACTO  ----------------------------------------------------------------------*/
+
+.contacto{
+padding:5rem 2rem;
+background:linear-gradient(135deg,var(--morado1),var(--verde1));
+color:white;
+}
+
+.contacto-container{
+display:flex;
+flex-wrap:wrap;
+gap:2rem;
+max-width:1100px;
+margin:auto;
+}
+
+.contacto-form{
+background:white;
+color:var(--gris);
+padding:2rem;
+border-radius:12px;
+flex:1;
+}
+
+.contacto-form input,
+.contacto-form textarea{
+width:100%;
+padding:.8rem;
+margin-bottom:1rem;
+border:2px solid var(--gris);
+border-radius:6px;
+}
+
+.contacto-form button{
+width:100%;
+padding:1rem;
+background:var(--verde1);
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.contacto-info{
+flex:1;
+padding:2rem;
+}
+
+
+
+/* ANIMACIONES SCROLL  ----------------------------------------------------------------------*/
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* RESPONSIVE ----------------------------------------------------------------------*/
+
+@media(max-width:900px){
+
+.menu-toggle{
+display:block;
+}
+
+nav ul{
+position:absolute;
+top:70px;
+right:0;
+background:white;
+flex-direction:column;
+width:220px;
+padding:1.5rem;
+transform:translateX(100%);
+transition:.3s;
+}
+
+nav ul.show{
+transform:translateX(0);
+}
+
+.hero h1{
+font-size:2.2rem;
+}
+
+.conocenos-container{
+flex-direction:column;
+}
+
+.contacto-container{
+flex-direction:column;
+}
+
+}
+/* FOOTER  ----------------------------------------------------------------------*/
+
+.footer{
+background:var(--gris);
+color:white;
+padding:3rem 2rem 1rem;
+font-family:var(--font-secundaria);
+}
+
+.footer-container{
+display:flex;
+flex-wrap:wrap;
+gap:3rem;
+max-width:1100px;
+margin:auto;
+justify-content:space-between;
+}
+
+.footer-logo img{
+height:45px;
+margin-bottom:1rem;
+}
+
+.footer-logo p{
+max-width:250px;
+font-size:.95rem;
+line-height:1.5;
+opacity:.9;
+}
+
+.footer-links h3,
+.footer-social h3{
+color:var(--verde2);
+margin-bottom:1rem;
+}
+
+.footer-links ul{
+list-style:none;
+}
+
+.footer-links li{
+margin-bottom:.5rem;
+}
+
+.footer-links a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+.footer-links a:hover{
+color:var(--verde1);
+padding-left:4px;
+}
+
+.social-icons{
+display:flex;
+gap:1rem;
+}
+
+.social-icons a{
+display:flex;
+align-items:center;
+justify-content:center;
+background:var(--morado1);
+width:40px;
+height:40px;
+border-radius:50%;
+transition:.3s;
+font-size:18px;
+}
+
+.social-icons a:hover{
+background:var(--morado2);
+transform:scale(1.1);
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:2rem;
+border-top:1px solid rgba(255,255,255,.2);
+padding-top:1rem;
+font-size:.85rem;
+opacity:.8;
+}
+	
+/* ESTADISTICAS ----------------------------------------------------------------------*/
+
+.estadisticas{
+padding:5rem 2rem;
+background:linear-gradient(135deg,var(--morado1),var(--verde1));
+color:white;
+text-align:center;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:2rem;
+max-width:1000px;
+margin:auto;
+margin-top:3rem;
+}
+
+.stat{
+background:rgba(255,255,255,0.1);
+padding:2rem;
+border-radius:12px;
+backdrop-filter:blur(6px);
+transition:.3s;
+}
+
+.stat:hover{
+transform:translateY(-6px);
+background:rgba(255,255,255,0.2);
+}
+
+.stat h3{
+font-size:2.8rem;
+color:var(--verde2);
+}
+
+/* SECTORES ----------------------------------------------------------------------*/
+
+.sectores{
+padding:5rem 2rem;
+text-align:center;
+}
+
+.sectores-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:1.5rem;
+max-width:900px;
+margin:auto;
+margin-top:2rem;
+}
+
+.sector{
+background:var(--verde1);
+color:white;
+padding:1.5rem;
+border-radius:10px;
+font-weight:bold;
+transition:.3s;
+}
+
+.sector:hover{
+background:var(--morado1);
+transform:translateY(-5px);
+}
+
+/* PROCESO  ----------------------------------------------------------------------*/
+
+.proceso{
+padding:5rem 2rem;
+background:#f7f7f7;
+text-align:center;
+}
+
+.proceso-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:2rem;
+max-width:900px;
+margin:auto;
+margin-top:3rem;
+}
+
+.paso{
+background:white;
+padding:2rem;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+transition:.3s;
+}
+
+.paso:hover{
+transform:translateY(-8px);
+}
+
+.paso h3{
+font-size:2rem;
+color:var(--morado1);
+margin-bottom:.5rem;
+}
+
+/* PRODUCTOS DESTACADOS  ----------------------------------------------------------------------*/
+
+.destacados{
+padding:5rem 2rem;
+text-align:center;
+}
+
+.productos-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:2rem;
+max-width:1100px;
+margin:auto;
+margin-top:3rem;
+}
+
+.producto{
+background:white;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,.1);
+overflow:hidden;
+transition:.3s;
+}
+
+.producto img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.producto:hover{
+transform:translateY(-8px);
+}
+
+.producto h3{
+padding:1rem;
+}
+
+/* TESTIMONIOS ----------------------------------------------------------------------*/
+
+.testimonios{
+padding:5rem 2rem;
+background:linear-gradient(135deg,var(--morado1),var(--verde1));
+color:white;
+text-align:center;
+}
+
+.testimonios-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:2rem;
+max-width:1000px;
+margin:auto;
+margin-top:3rem;
+}
+
+.testimonio{
+background:rgba(255,255,255,0.1);
+padding:2rem;
+border-radius:12px;
+backdrop-filter:blur(6px);
+}
+
+.testimonio p{
+font-style:italic;
+margin-bottom:1rem;
+}
+
+/* CTA FINAL ----------------------------------------------------------------------*/
+
+.cta-final{
+padding:5rem 2rem;
+text-align:center;
+background:#f7f7f7;
+}
+
+.cta-final h2{
+color:var(--morado1);
+margin-bottom:1rem;
+}
+
+.cta-final p{
+margin-bottom:2rem;
+}
+
+.cta{
+display:inline-block;
+background:var(--verde1);
+color:white;
+padding:1rem 2rem;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.cta:hover{
+background:var(--morado1);
+transform:translateY(-3px);
+box-shadow:0 8px 18px rgba(0,0,0,.2);
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<a href="#inicio">
+<div class="nav-logo">
+<img src="logo.png" alt="Hilamos">
+</div></a>
+
+<div class="menu-toggle" id="menu-toggle">
+☰
+</div>
+
+<div class="nav-links" id="nav-links">
+
+<a href="#inicio">Inicio</a>
+
+<a href="#catalogo">Catálogo</a>
+
+<a href="#Conocenos">Conócenos</a>
+
+<a href="#porque-elegirnos">Porque elegirnos</a>
+
+<a href="#clientes">Clientes</a>
+	
+<a href="#contacto">Contacto</a>
+
+<a href="#sectores">Sectores</a>
+
+<a href="#proceso">Proceso</a>
+
+<a href="#destacados">Destacados</a>
+	
+<a href="#testimonios">Testimonios</a>
+
+<a href="#contacto" class="nav-cta">Cotizar</a>
+
+</div>
+
+</nav>
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<h1>Uniformamos tu identidad,<br>potenciamos tu marca</h1>
+
+<p>Dotaciones y uniformes corporativos con calidad, diseño y personalización.</p>
+
+<a href="#catalogo" class="cta">Explora el catálogo</a>
+
+</div>
+
+</section>
+
+<section class="catalogo-interactivo reveal" id="catalogo">
+
+<h2>Catálogo Interactivo</h2>
+
+<p>Explora nuestros uniformes en 360°.</p>
+
+<div class="filtros">
+
+<button onclick="filtrar('salud')">Salud</button>
+<button onclick="filtrar('industria')">Industria</button>
+<button onclick="filtrar('corporativo')">Corporativo</button>
+<button onclick="filtrar('educacion')">Educación</button>
+
+</div>
+
+<div class="uniforme-view">
+
+<img id="uniforme360" src="salud1-1.png">
+
+</div>
+
+<div class="carrusel-controles">
+
+<button onclick="prevUniforme()">⟵ Uniforme anterior</button>
+<button onclick="nextUniforme()">Uniforme siguiente ⟶</button>
+
+</div>
+
+</section>
+	
+	
+	<section class="conocenos" id="Conocenos"> 
+		<div class="conocenos-container"> 
+			<div class="conocenos-texto"> 
+				<h2>Conócenos</h2> 
+				<p> En Hilamos SAS somos especialistas en diseñar, fabricar y comercializar prendas de vestir para diversos sectores empresariales, cumpliendo con las normativas técnicas y adaptándonos a las necesidades específicas de cada cliente. </p> 
+				<p> Ofrecemos productos de alta calidad que combinan comodidad, funcionalidad y estilo, con un compromiso social que respalda cada prenda. </p> 
+				<p> Nuestro objetivo es convertirnos en líderes en diseño y confección para el trabajo colombiano, con una visión de expansión internacional. </p> 
+			</div> 
+			<div class="conocenos-imagen"> 
+				<img src="equipo-hilamos.jpg" alt="Equipo Hilamos trabajando" loading="lazy"> 
+			</div> 
+		</div> 
+		<div class="lineas-negocio"> 
+			<h3>Líneas de negocio</h3> 
+			<div class="lineas-grid"> 
+				<div class="linea-card">Administrativo</div> 
+				<div class="linea-card">Asistencial</div> 
+				<div class="linea-card">Hotelería y recreación</div> 
+				<div class="linea-card">Operativo</div> 
+			</div> 
+		</div> 
+	</section> 
+	<section class="porque-elegirnos" id="porque-elegirnos"> 
+		<h2>¿Por qué elegirnos?</h2> 
+		<div class="ventajas-grid"> 
+			<div class="ventaja-card"> 
+				<h3>Calidad y tecnología</h3> 
+				<p>Textiles e insumos resistentes y especializados.</p> 
+			</div> 
+			<div class="ventaja-card"> 
+				<h3>Diseño corporativo</h3> 
+				<p>Últimas tendencias de moda empresarial.</p> 
+			</div> 
+			<div class="ventaja-card"> 
+			<h3>Renovación de imagen</h3> 
+			<p>Diferentes técnicas de acabado textil.</p> 
+			</div> 
+			<div class="ventaja-card"> 
+			<h3>Sostenibilidad</h3> 
+				<p>Procesos de producción comprometidos con el medio ambiente.</p> 
+			</div> 
+			<div class="ventaja-card"> 
+				<h3>Personalización</h3> 
+				<p>Diseños únicos alineados con tu identidad empresarial.</p> 
+			</div> 
+			<div class="ventaja-card"> 
+				<h3>Entregas oportunas</h3> 
+				<p>Atención personalizada y cumplimiento de tiempos.</p> 
+			</div> 
+		</div> 
+	</section>
+	<section class="clientes" id="clientes"> 
+		<h2>Clientes que confían en nosotros</h2>
+		<div class="logos-scroll"> 
+			<div class="logos-track"> 
+				<img src="logo-nexsys.png" alt="Nexsys"> 
+				<img src="logo-fontanar.png" alt="Fontanar"> 
+				<img src="logo-arkadia.png" alt="Arkadia"> 
+				<img src="logo-hyatt.png" alt="Hyatt Place"> 
+				<img src="logo-mariohernandez.png" alt="Mario Hernández"> 
+				<img src="logo-eldorado.png" alt="Hotel El Dorado"> 
+				<img src="logo-misterlee.png" alt="Mister Lee"> 
+				<img src="logo-misterribs.png" alt="Mister Ribs"> 
+				<img src="logo-supplies.png" alt="Supplies de Colombia"> 
+				<img src="logo-oea.png" alt="OEA"> 
+				<img src="logo-nexsys.png" alt="Nexsys"> 
+				<img src="logo-fontanar.png" alt="Fontanar"> 
+				<img src="logo-arkadia.png" alt="Arkadia"> 
+				<img src="logo-hyatt.png" alt="Hyatt Place"> 
+				<img src="logo-mariohernandez.png" alt="Mario Hernández"> 
+				<img src="logo-eldorado.png" alt="Hotel El Dorado"> 
+				<img src="logo-misterlee.png" alt="Mister Lee"> 
+				<img src="logo-misterribs.png" alt="Mister Ribs"> 
+				<img src="logo-supplies.png" alt="Supplies de Colombia"> 
+				<img src="logo-oea.png" alt="OEA"> 
+				</div> 
+		</div> 
+	</section> 
+	<section class="contacto" id="contacto"> 
+		<div class="contacto-container"> 
+			<div class="contacto-form"> 
+				<h2>Contáctanos</h2> 
+				<p>¿Quieres cotizar tus uniformes o tienes alguna pregunta? Escríbenos y te responderemos pronto.</p> 
+				<form> 
+					<input type="text" placeholder="Nombre" required> 
+					<input type="email" placeholder="Correo electrónico" required> 
+					<textarea placeholder="Mensaje" rows="5" required></textarea> 
+					<button type="submit" class="cta">Enviar mensaje</button> 
+				</form> 
+			</div> 
+			<div class="contacto-info"> 
+				<h3>Información de contacto</h3> 
+				<div class="info-item"> 
+					<p>+57 300 123 4567</p>
+				</div> 
+				<div class="info-item"> 
+					<p>contacto@hilamos.com</p> 
+				</div> 
+				<div class="info-item"> 
+				<p>Bogotá, Colombia</p> 
+				</div> 
+			</div> 
+		</div> 
+	</section>
+	
+	<section class="estadisticas reveal">
+
+<h2>Nuestra experiencia nos respalda</h2>
+
+<div class="stats-grid">
+
+<div class="stat">
+<h3 class="contador" data-target="10">0</h3>
+<p>Años de experiencia</p>
+</div>
+
+<div class="stat">
+<h3 class="contador" data-target="500">0</h3>
+<p>Empresas atendidas</p>
+</div>
+
+<div class="stat">
+<h3 class="contador" data-target="50000">0</h3>
+<p>Uniformes entregados</p>
+</div>
+
+<div class="stat">
+<h3>🇨🇴</h3>
+<p>Cobertura nacional</p>
+</div>
+
+</div>
+
+</section>
+	
+	<section class="sectores reveal" id="sectores">
+
+<h2>Sectores que atendemos</h2>
+
+<div class="sectores-grid">
+
+<div class="sector">Salud</div>
+<div class="sector">Industria</div>
+<div class="sector">Corporativo</div>
+<div class="sector">Educación</div>
+<div class="sector">Hotelería</div>
+<div class="sector">Gastronomía</div>
+
+</div>
+
+</section>
+	
+	<section class="proceso reveal" id="proceso">
+
+<h2>¿Cómo trabajamos?</h2>
+
+<div class="proceso-grid">
+
+<div class="paso">
+<h3>1</h3>
+<p>Asesoría personalizada</p>
+</div>
+
+<div class="paso">
+<h3>2</h3>
+<p>Diseño y personalización</p>
+</div>
+
+<div class="paso">
+<h3>3</h3>
+<p>Producción de uniformes</p>
+</div>
+
+<div class="paso">
+<h3>4</h3>
+<p>Entrega a tu empresa</p>
+</div>
+
+</div>
+
+</section>
+	
+	<section class="destacados reveal" id="destacados">
+
+<h2>Uniformes destacados</h2>
+
+<div class="productos-grid">
+
+<div class="producto">
+<img src="uniforme1.jpg">
+<h3>Uniforme médico</h3>
+</div>
+
+<div class="producto">
+<img src="uniforme2.jpg">
+<h3>Uniforme industrial</h3>
+</div>
+
+<div class="producto">
+<img src="uniforme3.jpg">
+<h3>Uniforme corporativo</h3>
+</div>
+
+<div class="producto">
+<img src="uniforme4.jpg">
+<h3>Uniforme hotelero</h3>
+</div>
+
+</div>
+
+</section>
+	
+	<section class="testimonios reveal" id="testimonios">
+
+<h2>Lo que dicen nuestros clientes</h2>
+
+<div class="testimonios-grid">
+
+<div class="testimonio">
+<p>"Excelente calidad y cumplimiento en las entregas."</p>
+<h4>Hotel El Dorado</h4>
+</div>
+
+<div class="testimonio">
+<p>"Los uniformes representan perfectamente nuestra marca."</p>
+<h4>Mister Ribs</h4>
+</div>
+
+<div class="testimonio">
+<p>"Servicio profesional y atención personalizada."</p>
+<h4>Nexsys</h4>
+</div>
+
+</div>
+
+</section>
+	
+	<section class="cta-final reveal">
+
+<h2>¿Listo para uniformar tu empresa?</h2>
+
+<p>Solicita una cotización personalizada para tus uniformes corporativos.</p>
+
+<a href="#contacto" class="cta">Solicitar cotización</a>
+
+</section>
+	
+	<footer class="footer">
+
+  <div class="footer-container">
+
+    <div class="footer-logo">
+      <img src="logo2.png" alt="Hilamos">
+      <p>Uniformamos tu identidad, potenciamos tu marca.</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Enlaces rápidos</h3>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#conocenos">Conócenos</a></li>
+        <li><a href="#porque-elegirnos">Por qué elegirnos</a></li>
+        <li><a href="#clientes">Clientes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+
+      <h3>Síguenos</h3>
+
+      <div class="social-icons">
+
+        <a href="#"><span>🌐</span></a>
+        <a href="#"><span>📘</span></a>
+        <a href="#"><span>📸</span></a>
+        <a href="#"><span>▶️</span></a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <p>© 2026 Hilamos SAS. Todos los derechos reservados.</p>
+
+  </div>
+
+</footer>
+<script>
+/* MENU MOBILE */
+
+/* MENU HAMBURGUESA */
+
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-links");
+
+toggle.addEventListener("click", () => {
+
+nav.classList.toggle("active");
+
+});
+
+/* ANIMACION SCROLL */
+
+const reveals=document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll",()=>{
+
+reveals.forEach(el=>{
+
+let windowHeight=window.innerHeight;
+let elementTop=el.getBoundingClientRect().top;
+
+if(elementTop<windowHeight-100){
+
+el.classList.add("active");
+
+}
+
+});
+
+});
+
+/* CATALOGO 360 */
+
+const secuencias={
+salud:[
+["salud1-1.png","salud1-2.png","salud1-3.png","salud1-4.png","salud1-5.png","salud1-6.png"],
+["salud2-1.png","salud2-2.png","salud2-3.png","salud2-4.png","salud2-5.png","salud2-6.png"],
+["salud3-1.png","salud3-2.png","salud3-3.png","salud3-4.png"]
+],
+industria:[
+["industria1.png","industria2.png","industria3.png","industria4.png"]
+],
+corporativo:[
+["corporativo1.png","corporativo2.png","corporativo3.png","corporativo4.png"]
+],
+educacion:[
+["educacion1.png","educacion2.png","educacion3.png","educacion4.png"]
+]
+};
+
+let sectorActual="salud";
+let uniformeActual=0;
+let frame=0;
+
+function filtrar(sector){
+
+sectorActual=sector;
+uniformeActual=0;
+frame=0;
+
+document.getElementById("uniforme360").src=
+secuencias[sector][uniformeActual][frame];
+
+}
+
+function nextUniforme(){
+
+uniformeActual=(uniformeActual+1)%secuencias[sectorActual].length;
+frame=0;
+
+document.getElementById("uniforme360").src=
+secuencias[sectorActual][uniformeActual][frame];
+
+}
+
+function prevUniforme(){
+
+uniformeActual=(uniformeActual-1+secuencias[sectorActual].length)%secuencias[sectorActual].length;
+frame=0;
+
+document.getElementById("uniforme360").src=
+secuencias[sectorActual][uniformeActual][frame];
+
+}
+
+setInterval(()=>{
+
+const frames=secuencias[sectorActual][uniformeActual];
+
+frame=(frame+1)%frames.length;
+
+document.getElementById("uniforme360").src=frames[frame];
+
+},1000);
+
+	/* CONTADOR ANIMADO */
+
+const counters = document.querySelectorAll(".contador");
+
+counters.forEach(counter => {
+
+counter.innerText = "0";
+
+const updateCounter = () => {
+
+const target = +counter.getAttribute("data-target");
+const c = +counter.innerText;
+
+const increment = target / 200;
+
+if(c < target){
+
+counter.innerText = `${Math.ceil(c + increment)}`;
+
+setTimeout(updateCounter,10);
+
+}else{
+
+counter.innerText = target;
+
+}
+
+};
+
+updateCounter();
+
+});
+</script>
+
+</body>
+</html>
