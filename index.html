@@ -628,16 +628,12 @@ body{
 
 @media(max-width:900px){
   .viewer-grid{
-    grid-template-columns:1fr;
+  display:block;
+  margin-bottom:8px;
+  font-weight:300;
   }
-}@media(min-width:900px){
-  .viewer-container img{
-  width:100%;
-  max-width:400px;
-  border-radius:20px;
-  transition:.3s ease;
 }
-}
+	
 
 
 
@@ -651,6 +647,204 @@ font-weight:bold;
 font-size:1.3rem;
 color:var(--morado1);
 
+}
+	
+	
+	/* ================= catalogo ===================================================================================== */
+	
+	
+	
+	.hlm-catalogo-section{
+  padding:80px 60px;
+  color:#fff;
+}
+
+.hlm-titulo{
+  text-align:center;
+  font-size:40px;
+  margin-bottom:40px;
+	color: #6d29a7;
+}
+
+/* FILTROS */
+.hlm-filtros{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:40px;
+  flex-wrap:wrap;
+}
+
+.hlm-btn{
+  padding:10px 18px;
+  border:none;
+  background:#1a1a1a;
+  color:#fff;
+  border-radius:30px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.hlm-btn.active,
+.hlm-btn:hover{
+  background:#c416b6;
+}
+
+/* GRID */
+.hlm-catalogo{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+/* ITEM */
+.hlm-item{
+  position:relative;
+  border-radius:20px;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.hlm-item img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  transition:.6s;
+}
+
+.hlm-item:hover img{
+  transform:scale(1.1);
+}
+
+.hlm-overlay{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  padding:20px;
+  background:linear-gradient(transparent,rgba(0,0,0,.8));
+}
+
+/* POPUP */
+.hlm-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.4s;
+  z-index:99999;
+}
+
+.hlm-popup.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.hlm-popup-content{
+  background:#fff;
+  color:#111;
+  width:90%;
+  max-width:1000px;
+  height:80vh;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  border-radius:25px;
+  overflow:hidden;
+  animation:hlmFade .4s ease;
+}
+
+@keyframes hlmFade{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* VISUAL */
+.hlm-popup-visual{
+  position:relative;
+  background:#000;
+}
+
+.hlm-main-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* THUMBS */
+.hlm-thumbs{
+  position:absolute;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+}
+
+.hlm-thumbs img{
+  width:60px;
+  height:60px;
+  object-fit:cover;
+  border-radius:8px;
+  cursor:pointer;
+  opacity:.6;
+  transition:.3s;
+}
+
+.hlm-thumbs img:hover{
+  opacity:1;
+  transform:scale(1.1);
+}
+
+/* INFO */
+.hlm-popup-info{
+  padding:30px;
+}
+
+.hlm-popup-info ul{
+  margin-top:20px;
+  list-style:none;
+}
+
+.hlm-popup-info li{
+  margin-bottom:8px;
+}
+
+/* 360 */
+.hlm-viewer360{
+  margin-top:20px;
+}
+
+.hlm-viewer360 input{
+  width:100%;
+}
+
+/* CLOSE */
+.hlm-close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:25px;
+  cursor:pointer;
+  color:#fff;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hlm-catalogo-section{
+    padding:50px 20px;
+  }
+
+  .hlm-popup-content{
+    grid-template-columns:1fr;
+    height:auto;
+  }
+
+  .hlm-popup-visual{
+    height:300px;
+  }
 }
 </style>
 </head>
@@ -841,11 +1035,6 @@ color:var(--morado1);
       </div>
 
       <div class="viewer-group">
-        <span>Categoría</span>
-        <div class="viewer-products"></div>
-      </div>
-
-      <div class="viewer-group">
         <span>Estilo</span>
         <div class="viewer-styles"></div>
       </div>
@@ -855,12 +1044,155 @@ color:var(--morado1);
         <div class="viewer-colors"></div>
       </div>
 
+      <div class="viewer-group">
+        <span>Categoría</span>
+        <div class="viewer-products"></div>
+      </div>
+
     </div>
 
   </div>
 
 </section>
+<!-- ================= catalogo ===================================================================================== -->
+<section class="hlm-catalogo-section">
 
+  <h2 class="hlm-titulo">Nuestros Uniformes</h2>
+
+  <!-- FILTROS -->
+  <div class="hlm-filtros">
+    <button class="hlm-btn active" data-filter="all">Todos</button>
+    <button class="hlm-btn" data-filter="admin">Administrativo</button>
+    <button class="hlm-btn" data-filter="salud">Salud</button>
+    <button class="hlm-btn" data-filter="operativo">Operativo</button>
+  </div>
+
+  <!-- GRID -->
+  <div class="hlm-catalogo">
+
+    <div class="hlm-item" data-category="admin">
+      <img src="admin1.jpg">
+      <div class="hlm-overlay">
+        <h3>Uniforme Ejecutivo</h3>
+        <p>Administrativo</p>
+      </div>
+    </div>
+
+    <div class="hlm-item" data-category="salud">
+      <img src="salud1.jpg">
+      <div class="hlm-overlay">
+        <h3>Scrub Médico</h3>
+        <p>Salud</p>
+      </div>
+    </div>
+
+    <div class="hlm-item" data-category="admin">
+      <img src="admin1.jpg">
+      <div class="hlm-overlay">
+        <h3>Uniforme Ejecutivo</h3>
+        <p>Administrativo</p>
+      </div>
+    </div>
+
+    <div class="hlm-item" data-category="salud">
+      <img src="salud1.jpg">
+      <div class="hlm-overlay">
+        <h3>Scrub Médico</h3>
+        <p>Salud</p>
+      </div>
+    </div>
+
+    <div class="hlm-item" data-category="admin">
+      <img src="admin1.jpg">
+      <div class="hlm-overlay">
+        <h3>Uniforme Ejecutivo</h3>
+        <p>Administrativo</p>
+      </div>
+    </div>
+
+    <div class="hlm-item" data-category="salud">
+      <img src="salud1.jpg">
+      <div class="hlm-overlay">
+        <h3>Scrub Médico</h3>
+        <p>Salud</p>
+      </div>
+    </div>
+
+    <div class="hlm-item" data-category="admin">
+      <img src="admin1.jpg">
+      <div class="hlm-overlay">
+        <h3>Uniforme Ejecutivo</h3>
+        <p>Administrativo</p>
+      </div>
+    </div>
+
+    <div class="hlm-item" data-category="salud">
+      <img src="salud1.jpg">
+      <div class="hlm-overlay">
+        <h3>Scrub Médico</h3>
+        <p>Salud</p>
+      </div>
+    </div>
+
+    <div class="hlm-item" data-category="admin">
+      <img src="admin1.jpg">
+      <div class="hlm-overlay">
+        <h3>Uniforme Ejecutivo</h3>
+        <p>Administrativo</p>
+      </div>
+    </div>
+
+    <div class="hlm-item" data-category="salud">
+      <img src="salud1.jpg">
+      <div class="hlm-overlay">
+        <h3>Scrub Médico</h3>
+        <p>Salud</p>
+      </div>
+    </div>
+
+    <div class="hlm-item" data-category="admin">
+      <img src="admin1.jpg">
+      <div class="hlm-overlay">
+        <h3>Uniforme Ejecutivo</h3>
+        <p>Administrativo</p>
+      </div>
+    </div>
+
+    <div class="hlm-item" data-category="salud">
+      <img src="salud1.jpg">
+      <div class="hlm-overlay">
+        <h3>Scrub Médico</h3>
+        <p>Salud</p>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- POPUP -->
+<div class="hlm-popup" id="hlm-popup">
+  <div class="hlm-popup-content">
+
+    <span class="hlm-close" id="hlm-close">✕</span>
+
+    <div class="hlm-popup-visual">
+      <img id="hlm-mainImg" class="hlm-main-img">
+      <div class="hlm-thumbs" id="hlm-thumbs"></div>
+    </div>
+
+    <div class="hlm-popup-info">
+      <h2 id="hlm-title"></h2>
+      <p id="hlm-category"></p>
+      <ul id="hlm-features"></ul>
+
+      <div class="hlm-viewer360">
+        <input type="range" id="hlm-range" min="0" max="0" value="0">
+      </div>
+    </div>
+
+  </div>
+</div>
 	
 	<!-- ================= JS ===================================================================================== -->
 <script>
@@ -1313,7 +1645,136 @@ function preload(arr){
     img.src = src;
   });
 }
-</script>
+	
+/* ================= catalogo ===================================================================================== */
+
+(function(){
+
+const hlmData = {
+  "Uniforme Ejecutivo":{
+    category:"Administrativo",
+    images:["admin1.jpg","admin2.jpg","admin3.jpg"],
+    frames:[
+      "admin360-1.jpg","admin360-2.jpg","admin360-3.jpg",
+      "admin360-4.jpg","admin360-5.jpg","admin360-6.jpg",
+      "admin360-7.jpg","admin360-8.jpg"
+    ],
+    features:["Tela premium","Bordado","Corte moderno"]
+  },
+  "Scrub Médico":{
+    category:"Salud",
+    images:["salud1.jpg","salud2.jpg"],
+    frames:[
+      "salud360-1.jpg","salud360-2.jpg","salud360-3.jpg",
+      "salud360-4.jpg","salud360-5.jpg","salud360-6.jpg",
+      "salud360-7.jpg","salud360-8.jpg"
+    ],
+    features:["Antifluido","Transpirable","Resistente"]
+  }
+};
+
+const items = document.querySelectorAll(".hlm-item");
+const popup = document.getElementById("hlm-popup");
+const closeBtn = document.getElementById("hlm-close");
+
+const mainImg = document.getElementById("hlm-mainImg");
+const thumbs = document.getElementById("hlm-thumbs");
+const title = document.getElementById("hlm-title");
+const category = document.getElementById("hlm-category");
+const features = document.getElementById("hlm-features");
+const range = document.getElementById("hlm-range");
+
+/* ABRIR */
+items.forEach(item=>{
+  item.onclick = ()=>{
+
+    const name = item.querySelector("h3").textContent;
+    const info = hlmData[name];
+
+    if(!info) return;
+
+    popup.classList.add("active");
+
+    title.textContent = name;
+    category.textContent = info.category;
+
+    mainImg.src = info.images[0];
+
+    thumbs.innerHTML="";
+    info.images.forEach(img=>{
+      const t = document.createElement("img");
+      t.src = img;
+      t.onclick=()=> mainImg.src=img;
+      thumbs.appendChild(t);
+    });
+
+    features.innerHTML="";
+    info.features.forEach(f=>{
+      features.innerHTML+=`<li>• ${f}</li>`;
+    });
+
+    range.max = info.frames.length-1;
+    range.value = 0;
+
+    range.oninput = ()=>{
+      mainImg.src = info.frames[range.value];
+    };
+
+  };
+});
+
+/* DRAG 360 */
+let dragging=false;
+
+mainImg.addEventListener("mousedown",()=>dragging=true);
+window.addEventListener("mouseup",()=>dragging=false);
+
+mainImg.addEventListener("mousemove",(e)=>{
+  if(!dragging) return;
+
+  let val = parseInt(range.value);
+  val += e.movementX > 0 ? 1 : -1;
+
+  val = Math.max(0, Math.min(val, range.max));
+
+  range.value = val;
+  mainImg.src = hlmData[title.textContent].frames[val];
+});
+
+/* FILTROS */
+document.querySelectorAll(".hlm-btn").forEach(btn=>{
+  btn.onclick=()=>{
+
+    document.querySelectorAll(".hlm-btn")
+      .forEach(b=>b.classList.remove("active"));
+
+    btn.classList.add("active");
+
+    const f = btn.dataset.filter;
+
+    items.forEach(i=>{
+      i.style.display =
+        (f==="all" || i.dataset.category===f)
+        ? "block" : "none";
+    });
+  };
+});
+
+/* CERRAR */
+closeBtn.onclick=()=> popup.classList.remove("active");
+
+popup.onclick=e=>{
+  if(e.target===popup) popup.classList.remove("active");
+};
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape") popup.classList.remove("active");
+});
+
+})();
+	
+	
+	</script>
 
 </body>
 </html>
