@@ -12,7 +12,23 @@
 <style>
 
 /* ================= RESET ===================================================================================== */
-*{
+:root{
+  --gris:#687e8a;
+
+  --morado:#6d29a7;
+  --morado-claro:#c416b6;
+  --morado-grad:#8219f3;
+
+  --verde:#00ac7f;
+  --verde-agua:#00dec8;
+
+  --naranja:#ff7a00;
+  --amarillo:#ffc800;
+
+  --blanco:#ffffff;
+  --negro:#111;
+}
+	*{
   margin:0;
   padding:0;
   box-sizing:border-box;
@@ -43,11 +59,11 @@ body{
 .logo{
   font-weight:800;
   font-size:22px;
-  color:#6d29a7;
+  color:var(--morado);
 }
 
 .logo span{
-  color:#c416b6;
+  color:var(--morado-claro);
 }
 
 .nav-links{
@@ -67,7 +83,7 @@ body{
   position:absolute;
   width:0%;
   height:2px;
-  background:#c416b6;
+  background:var(--morado-claro);
   left:0;
   bottom:-5px;
   transition:.3s;
@@ -145,7 +161,13 @@ body{
   left:0;
   width:100%;
   height:100%;
-  background:linear-gradient(to right, rgba(109,41,167,0.8), rgba(196,22,182,0.2), transparent);
+   background:linear-gradient(
+    to right,
+    rgba(109,41,167,0.85),
+    rgba(130,25,243,0.5),
+    rgba(0,222,200,0.2),
+    transparent
+  );
 }
 
 .hero-content{
@@ -212,11 +234,11 @@ body{
 
 .lineas-header h2{
   font-size:38px;
-  color:#6d29a7;
+  color:var(--morado);
 }
 
 .lineas-header p{
-  color:#687e8a;
+  color:var(--gris);
 }
 
 /* ===== DESKTOP GRID (SE MANTIENE) ===================================================================================== */
@@ -249,8 +271,8 @@ body{
   height:100%;
   background:linear-gradient(
     to top,
-    rgba(0,0,0,0.7),
-    rgba(109,41,167,0.4)
+    rgba(0,0,0,0.75),
+    rgba(109,41,167,0.5)
   );
   transition:0.4s;
 }
@@ -272,8 +294,8 @@ body{
 .linea-card:hover .overlay{
   background:linear-gradient(
     to top,
-    rgba(0,0,0,0.8),
-    rgba(196,22,182,0.6)
+    rgba(0,0,0,0.85),
+    rgba(196,22,182,0.7)
   );
 }
 
@@ -454,12 +476,12 @@ body{
 }
 
 .popup-body h2{
-  color:#6d29a7;
+  color:var(--morado);
   margin-bottom:10px;
 }
 
 .popup-body p{
-  color:#555;
+  background:var(--gris);
   margin-bottom:15px;
 }
 
@@ -471,12 +493,12 @@ body{
 
 .popup-body li{
   margin-bottom:5px;
-  color:#444;
+  background:var(--gris);
 }
 
 /* BOTÓN */
 .btn-wsp{
-  background:#25D366;
+  background:var(--verde);
   color:#fff;
   text-decoration:none;
   padding:12px;
@@ -487,7 +509,7 @@ body{
 }
 
 .btn-wsp:hover{
-  background:#1ebe5d;
+  background:var(--verde-agua);
 }
 
 /* CERRAR */
@@ -783,12 +805,15 @@ color:var(--morado1);
 
 .btn-360{
   margin-top:20px;
-  background:#6d29a7;
+  background:linear-gradient(135deg,var(--morado),var(--morado-grad));
   color:#fff;
   border:none;
   padding:10px;
   border-radius:8px;
   cursor:pointer;
+}
+.catalogo-pro h2{
+  color:var(--morado);
 }
 
 /* POPUP 360 */
@@ -892,9 +917,612 @@ color:var(--morado1);
 
   font-size:16px;
 }
+	/* ================= CARRUSEL CARDS ================= */
+
+.catalogo-wrapper{
+  position:relative;
+  width:100%;
+  display:flex;
+  align-items:center;
+}
+
+.catalogo-grid{
+  display:flex !important;
+  gap:25px;
+  overflow:hidden;
+  scroll-behavior:smooth;
+  padding:10px 0;
+}
+
+/* cards centradas */
+.catalogo-card{
+  min-width:320px;
+  max-width:320px;
+  flex-shrink:0;
+}
+
+/* centrar en desktop */
+@media(min-width:1024px){
+  .catalogo-grid{
+    justify-content:center;
+  }
+}
+
+/* ================= FLECHAS ================= */
+
+.catalogo-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:var(--morado);
+  color:#fff;
+  border:none;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  cursor:pointer;
+  z-index:5;
+  font-size:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.3s;
+}
+
+.catalogo-arrow:hover{
+  background:var(--morado-claro);
+}
+
+.catalogo-arrow.left{
+  left:-10px;
+}
+
+.catalogo-arrow.right{
+  right:-10px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .catalogo-grid{
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+  }
+
+  .catalogo-card{
+    min-width:85%;
+    scroll-snap-align:center;
+  }
+
+  .catalogo-arrow{
+    display:none; /* en mobile usamos swipe */
+  }
+
+}
+	/*================= Nosotros =====================================================================================*/
+	
+	/* ================= ABOUT PRO ================= */
+
+.about-pro{
+  padding:110px 60px;
+  background:#f7f7f7;
+}
+
+/* CONTENEDOR */
+.about-wrapper{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:70px;
+  margin-bottom:90px;
+}
+
+/* ================= TEXTO ================= */
+
+.about-left h2{
+  font-size:44px;
+  color:var(--morado);
+  margin-bottom:20px;
+}
+
+.about-highlight{
+  font-size:20px;
+  color:var(--verde);
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+.about-left p{
+  color:var(--gris);
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+/* BADGE */
+.about-badge{
+  margin-top:25px;
+  padding:18px;
+  border-radius:10px;
+  background:#fff;
+  border-left:4px solid var(--verde);
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* ================= VALORES ================= */
+
+.about-right h3{
+  font-size:26px;
+  margin-bottom:25px;
+  color:var(--morado);
+}
+
+.about-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+/* CARD */
+.about-card{
+  background:#fff;
+  padding:18px;
+  border-radius:12px;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  transition:.3s;
+  border:1px solid #eee;
+}
+
+.about-card span{
+  color:var(--morado);
+  font-weight:bold;
+  font-size:14px;
+}
+
+.about-card p{
+  font-size:14px;
+  color:var(--gris);
+}
+
+.about-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ================= LINEAS ================= */
+
+.about-lines{
+  text-align:center;
+}
+
+.about-lines h3{
+  font-size:30px;
+  margin-bottom:30px;
+  color:var(--morado);
+}
+
+.lines-grid{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.lines-grid div{
+  padding:14px 22px;
+  border-radius:30px;
+  background:var(--morado);
+  color:#fff;
+  font-size:14px;
+  transition:.3s;
+}
+
+.lines-grid div:hover{
+  background:var(--morado-claro);
+  transform:scale(1.05);
+}
+
+/* ================= DETALLE PREMIUM ================= */
+
+/* línea decorativa */
+.about-left h2::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:4px;
+  background:#2680bc;
+  margin-top:10px;
+  border-radius:10px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .about-pro{
+    padding:70px 20px;
+  }
+
+  .about-wrapper{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .about-left h2{
+    font-size:32px;
+  }
+
+  .about-highlight{
+    font-size:16px;
+  }
+
+  .about-cards{
+    grid-template-columns:1fr;
+  }
+
+  .about-lines h3{
+    font-size:24px;
+  }
+
+}
+	/*================= clientes =====================================================================================*/
+	
+	/* ================= CLIENTES ================= */
+
+.clientes-pro{
+  padding:100px 60px;
+  background:#fff;
+  text-align:center;
+}
+
+.clientes-pro h2{
+  font-size:36px;
+color:var(--morado);
+  margin-bottom:50px;
+}
+
+/* ================= ROW ================= */
+
+.clientes-row{
+  position:relative;
+  overflow:hidden;
+}
+
+/* 🔥 DEGRADADOS LATERALES (CLAVE) */
+.clientes-row::before,
+.clientes-row::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:120px;
+  height:100%;
+  z-index:2;
+  pointer-events:none;
+}
+
+/* izquierda */
+.clientes-row::before{
+  left:0;
+  background:linear-gradient(to right,var(--blanco),transparent);
+}
+
+/* derecha */
+.clientes-row::after{
+  right:0;
+  background:linear-gradient(to left,var(--blanco),transparent);
+}
+
+/* ================= TRACK ================= */
+
+.clientes-track{
+  display:flex;
+  gap:80px;
+  width:max-content;
+  animation:clientesLoop 28s linear infinite;
+}
+
+/* ================= LOGOS ================= */
+
+.clientes-track img{
+  height:55px;
+  object-fit:contain;
+  filter:grayscale(100%);
+  opacity:0.6;
+  transition:.4s;
+}
+
+/* hover elegante */
+.clientes-track img:hover{
+  filter:grayscale(0%);
+  opacity:1;
+  transform:scale(1.15);
+}
+
+/* ================= LOOP ================= */
+
+@keyframes clientesLoop{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .clientes-pro{
+    padding:60px 20px;
+	  
+  }
+
+  .clientes-pro h2{
+    font-size:26px;
+	  color:var(--morado);
+  }
+
+  .clientes-track{
+    gap:40px;
+  }
+
+  .clientes-track img{
+    height:40px;
+  }
+
+}
+	
+	/*================= contactos =====================================================================================*/
+	
+	/* ================= CONTACTO ================= */
+
+.contacto-pro{
+  padding:100px 60px;
+  background:#f7f7f7;
+  text-align:center;
+}
+
+/* WRAPPER */
+.contacto-wrapper{
+  max-width:800px;
+  margin:auto;
+}
+
+/* TITULO */
+.contacto-wrapper h2{
+  font-size:40px;
+  color:var(--morado);
+  margin-bottom:20px;
+}
+
+/* TEXTO */
+.contacto-texto{
+  color:var(--gris);;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+
+/* DATOS */
+.contacto-datos{
+  margin-bottom:25px;
+}
+
+.contacto-datos p{
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+/* BOTONES */
+.contacto-botones{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:40px;
+  flex-wrap:wrap;
+}
+
+.btn-contacto{
+  padding:12px 22px;
+  background:var(--morado);
+  color:#fff;
+  border-radius:8px;
+  text-decoration:none;
+  font-size:14px;
+  transition:.3s;
+}
+
+.btn-contacto:hover{
+  background:var(--morado-claro);
+}
+
+.btn-contacto.outline{
+  background:transparent;
+  border:1px solid var(--morado);
+  color:var(--morado);
+}
+
+.btn-contacto.outline:hover{
+  background:var(--morado);
+  color:#fff;
+}
+
+/* ================= REDES ================= */
+
+.contacto-redes{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.red{
+  padding:10px 18px;
+  border-radius:30px;
+  background:#fff;
+  border:1px solid #eee;
+  text-decoration:none;
+  color:var(--morado);
+  font-size:14px;
+  transition:.3s;
+}
+
+.red:hover{
+  background:var(--morado);
+  color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .contacto-pro{
+    padding:60px 20px;
+  }
+
+  .contacto-wrapper h2{
+    font-size:30px;
+  }
+
+}
+	/*=============================================footer=======================================================*/
+	/* ================= FOOTER PRO ================= */
+
+.footer-pro{
+  background:linear-gradient(135deg, var(--morado), var(--morado-grad));
+  color:#fff;
+  padding:80px 60px 30px;
+}
+
+/* GRID */
+.footer-wrapper{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:40px;
+  margin-bottom:50px;
+}
+
+/* BRAND */
+.footer-brand h3{
+  font-size:26px;
+  margin-bottom:15px;
+}
+
+.footer-brand span{
+  color:var(--verde-agua);
+}
+
+.footer-brand p{
+  font-size:14px;
+  line-height:1.6;
+  opacity:0.9;
+}
+
+/* TITULOS */
+.footer-links h4,
+.footer-contacto h4,
+.footer-redes h4{
+  margin-bottom:15px;
+  font-size:16px;
+}
+
+/* LINKS */
+.footer-links a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  margin-bottom:8px;
+  font-size:14px;
+  opacity:0.8;
+  transition:.3s;
+}
+
+.footer-links a:hover{
+  opacity:1;
+  transform:translateX(5px);
+}
+
+/* CONTACTO */
+.footer-contacto p{
+  font-size:14px;
+  margin-bottom:6px;
+  opacity:0.85;
+}
+
+/* REDES */
+.redes-icons{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.redes-icons a{
+  text-decoration:none;
+  color:#fff;
+  font-size:14px;
+  padding:8px 12px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.1);
+  transition:.3s;
+  width:fit-content;
+}
+
+.redes-icons a:hover{
+  background:var(--verde-agua);
+  color:#000;
+  transform:scale(1.05);
+}
+
+/* BOTTOM */
+.footer-bottom{
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,0.2);
+  padding-top:20px;
+}
+
+.footer-bottom p{
+  font-size:13px;
+  opacity:0.8;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .footer-pro{
+    padding:60px 20px 20px;
+  }
+
+  .footer-wrapper{
+    grid-template-columns:1fr;
+    gap:30px;
+    text-align:center;
+  }
+
+  .redes-icons{
+    align-items:center;
+  }
+
+}
+	/* LOGO FOOTER */
+
+.footer-logo img{
+  width:140px;
+  margin-bottom:15px;
+  display:block;
+}
+
+/* opcional: efecto pro */
+.footer-logo img{
+  filter:brightness(0) invert(1);
+  opacity:0.95;
+  transition:.3s;
+}
+
+.footer-logo img:hover{
+  opacity:1;
+  transform:scale(1.05);
+}
 </style>
 </head>
-
 <body>
 
 <!-- ================= NAVBAR ===================================================================================== -->
@@ -909,9 +1537,9 @@ color:var(--morado1);
   <nav class="nav-links">
     <a href="#Inicio">Inicio</a>
     <a href="#lineas">Líneas</a>
-    <a href="#">Catálogo</a>
-    <a href="#">Nosotros</a>
-    <a href="#">Contacto</a>
+    <a href="#Catálogo">Catálogo</a>
+    <a href="#Nosotros">Nosotros</a>
+    <a href="#Contacto">Contacto</a>
   </nav>
 
   <div class="nav-icons">
@@ -1102,7 +1730,7 @@ color:var(--morado1);
 </section>
 <!-- ================= catalogo ===================================================================================== -->
 
-<section class="catalogo-pro">
+<section class="catalogo-pro" id="Catálogo">
 
   <h2>Catálogo destacado</h2>
 <div class="catalogo-filtros">
@@ -1111,8 +1739,17 @@ color:var(--morado1);
   <button class="filtro" data-filter="gastronomia">Gastronomía</button>
   <button class="filtro" data-filter="salud">Salud</button>
 </div>
-  <div class="catalogo-grid" id="catalogoGrid"></div>
+<div class="catalogo-wrapper">
 
+  <button class="catalogo-arrow left" id="catPrev">‹</button>
+
+  <div class="catalogo-grid" id="catalogoGrid">
+    <!-- JS pinta cards -->
+  </div>
+
+  <button class="catalogo-arrow right" id="catNext">›</button>
+
+</div>
 </section>
 
 <!-- POPUP PRINCIPAL -->
@@ -1159,6 +1796,214 @@ color:var(--morado1);
   </div>
 
 </div>
+	
+<!-- ================= Nosotros ===================================================================================== -->
+	
+	<section class="about-pro" id="Nosotros">
+
+  <div class="about-wrapper">
+
+    <!-- TEXTO -->
+    <div class="about-left">
+
+      <h2>Conócenos</h2>
+
+      <p class="about-highlight">
+        Diseñamos, fabricamos y fortalecemos la identidad de las empresas a través de uniformes de alto nivel.
+      </p>
+
+      <p>
+        En <strong>Hilamos S.A.S</strong> desarrollamos prendas para diferentes sectores empresariales, cumpliendo normativas técnicas y adaptándonos a cada cliente.
+      </p>
+
+      <p>
+        Combinamos calidad, funcionalidad y diseño para ofrecer soluciones que representan verdaderamente a cada organización.
+      </p>
+
+      <div class="about-badge">
+        <strong>Visión:</strong> Ser líderes en diseño y confección para el trabajo colombiano, con proyección internacional.
+      </div>
+
+    </div>
+
+    <!-- VALORES -->
+    <div class="about-right">
+
+      <h3>¿Por qué elegirnos?</h3>
+
+      <div class="about-cards">
+
+        <div class="about-card"><span>01</span><p>Textiles de alta calidad y resistencia.</p></div>
+        <div class="about-card"><span>02</span><p>Diseño corporativo con tendencias actuales.</p></div>
+        <div class="about-card"><span>03</span><p>Renovación de imagen empresarial.</p></div>
+        <div class="about-card"><span>04</span><p>Producción sostenible y responsable.</p></div>
+        <div class="about-card"><span>05</span><p>Diseños personalizados e identidad.</p></div>
+        <div class="about-card"><span>06</span><p>Entrega oportuna y atención cercana.</p></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- LINEAS -->
+  <div class="about-lines">
+
+    <h3>Líneas de negocio</h3>
+
+    <div class="lines-grid">
+      <div>Administrativo</div>
+      <div>Asistencial</div>
+      <div>Hotelería y recreación</div>
+      <div>Operativo</div>
+    </div>
+
+  </div>
+
+</section>
+<!-- ================= clientes ===================================================================================== -->
+	
+<section class="clientes-pro">
+
+  <h2>Empresas que confían en nosotros</h2>
+
+  <div class="clientes-row">
+    <div class="clientes-track">
+
+      <img src="cliente1.png">
+      <img src="cliente2.png">
+      <img src="cliente3.png">
+      <img src="cliente4.png">
+      <img src="cliente5.png">
+      <img src="cliente6.png">
+      <img src="cliente7.png">
+      <img src="cliente8.png">
+      <img src="cliente9.png">
+      <img src="cliente10.png">
+      <img src="cliente11.png">
+      <img src="cliente12.png">
+      <img src="cliente13.png">
+      <img src="cliente14.png">
+      <img src="cliente15.png">
+
+      <!-- DUPLICADO -->
+      <img src="cliente1.png">
+      <img src="cliente2.png">
+      <img src="cliente3.png">
+      <img src="cliente4.png">
+      <img src="cliente5.png">
+      <img src="cliente6.png">
+      <img src="cliente7.png">
+      <img src="cliente8.png">
+      <img src="cliente9.png">
+      <img src="cliente10.png">
+      <img src="cliente11.png">
+      <img src="cliente12.png">
+      <img src="cliente13.png">
+      <img src="cliente14.png">
+      <img src="cliente15.png">
+
+    </div>
+  </div>
+
+</section>
+<!-- ================= contactos ===================================================================================== -->
+	
+	
+	<section class="contacto-pro" id="Contacto">
+
+  <div class="contacto-wrapper">
+
+    <h2>Hablemos</h2>
+
+    <p class="contacto-texto">
+      ¿Tienes un proyecto en mente? Estamos listos para ayudarte a desarrollar la mejor solución para tu empresa.
+    </p>
+
+    <!-- DATOS -->
+    <div class="contacto-datos">
+      <p><strong>Email:</strong> uniformeshilamos@gmail.com</p>
+      <p><strong>Teléfono:</strong> +57 310 2246232</p>
+      <p><strong>Ubicación:</strong> Bogotá, Colombia</p>
+    </div>
+
+    <!-- BOTONES PRINCIPALES -->
+    <div class="contacto-botones">
+      <a href="https://wa.me/573102246232?text=Hola%20vengo%20de%20la%20pagina%20web" class="btn-contacto">WhatsApp</a>
+      <a href="mailto:uniformeshilamos@gmail.com" class="btn-contacto outline">Enviar correo</a>
+    </div>
+
+    <!-- REDES -->
+    <div class="contacto-redes">
+
+      <a href="https://www.instagram.com/uniformes.hilamos/" class="red">
+        <span>Instagram</span>
+      </a>
+
+      <a href="https://www.facebook.com/share/1DJFfpv2nP/" class="red">
+        <span>Facebook</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- ================= footer ===================================================================================== -->
+	
+	<footer class="footer-pro">
+
+  <div class="footer-wrapper">
+
+    <!-- LOGO + TEXTO -->
+    <div class="footer-brand">
+
+  <div class="footer-logo">
+    <img src="logo.png" alt="Hilamos SAS">
+  </div>
+
+  <p>
+    Diseñamos, fabricamos y comercializamos uniformes corporativos con altos estándares de calidad, innovación y compromiso.
+  </p>
+
+</div>
+
+    <!-- LINKS -->
+    <div class="footer-links">
+      <h4>Navegación</h4>
+    <a href="#Inicio">Inicio</a>
+    <a href="#lineas">Líneas</a>
+    <a href="#Catálogo">Catálogo</a>
+    <a href="#Nosotros">Nosotros</a>
+    <a href="#Contacto">Contacto</a>
+    </div>
+
+    <!-- CONTACTO -->
+    <div class="footer-contacto">
+      <h4>Contacto</h4>
+      <p>Bogotá, Colombia</p>
+      <p>+57 310 2246232</p>
+      <p>uniformeshilamos@gmail.com</p>
+    </div>
+
+    <!-- REDES -->
+    <div class="footer-redes">
+      <h4>Síguenos</h4>
+      <div class="redes-icons">
+        <a href="https://www.instagram.com/uniformes.hilamos/">Instagram</a>
+        <a href="https://www.facebook.com/share/1DJFfpv2nP/">Facebook</a>
+        <a href="https://wa.me/573102246232">WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 Hilamos SAS — Todos los derechos reservados</p>
+  </div>
+
+</footer>
 	
 	<!-- ================= JS ===================================================================================== -->
 <script>
@@ -1618,23 +2463,32 @@ function preload(arr){
 
 const productos = {
   p1:{
-    nombre:"MAPP/OEA",
-    categoria:"corporativo",
-    descripcion:"Uniforme institucional",
-    imagenes:["oea1.jpg","oea2.jpg"],
-    frames:{
-      rojo:["salud3-1.png","salud3-2.png","salud3-3.png","salud3-4.png","salud3-5.png","salud3-6.png","salud3-7.png","salud3-8.png"]
-    }
-  },
-  p2:{
-    nombre:"Chef",
-    categoria:"gastronomia",
-    descripcion:"Uniforme gastronómico",
-    imagenes:["chef1.jpg","chef2.jpg"],
-    frames:{
-      blanco:["salud2-1.png","salud2-2.png","salud2-3.png","salud2-4.png","salud2-5.png","salud2-6.png","salud2-7.png","salud2-8.png"]
-    }
+  nombre:"La Misión de Apoyo al Proceso de Paz en Colombia (MAPP/OEA)",
+  categoria:"corporativo",
+  descripcion:"Uniforme institucional diseñado para proyectar profesionalismo, confianza y coherencia. Con materiales de alta calidad y un diseño sobrio, garantiza comodidad y una imagen alineada con la labor de la Misión.",
+  imagenes:["oea1.jpg","oea2.jpg"],
+  frames:{
+    rojo:["salud3-1.png","salud3-2.png","salud3-3.png","salud3-4.png","salud3-5.png","salud3-6.png","salud3-7.png","salud3-8.png"]
   }
+},
+  p2:{
+  nombre:"Uniforme Chef Corporativo",
+  categoria:"gastronomia",
+  descripcion:"Uniforme que combina elegancia y funcionalidad, diseñado para entornos gastronómicos exigentes. Ofrece comodidad, resistencia y una imagen profesional alineada con la identidad del equipo.",
+  imagenes:["chef1.jpg","chef2.jpg"],
+  frames:{
+    blanco:["salud2-1.png","salud2-2.png","salud2-3.png","salud2-4.png","salud2-5.png","salud2-6.png","salud2-7.png","salud2-8.png"]
+  }
+},
+	p3:{
+  nombre:"Uniforme Enfermera – Instituto Nacional de Cancerología GOLD",
+  categoria:"salud",
+  descripcion:"El uniforme de enfermería del Instituto Nacional de Cancerología GOLD está diseñado para proyectar confianza, profesionalismo y calidez...",
+  imagenes:["gold1.jpg","gold2.jpg"],
+  frames:{
+    negro:["salud1-1.png","salud1-2.png","salud1-3.png","salud1-4.png","salud1-5.png","salud1-6.png","salud1-7.png","salud1-8.png"]
+  }
+}
 };
 
 /* ELEMENTOS */
@@ -1796,7 +2650,56 @@ document.addEventListener("keydown",(e)=>{
 render();
 
 })();
-	
+	/* ================= CARRUSEL ================= */
+
+const catGrid = document.getElementById("catalogoGrid");
+const catPrev = document.getElementById("catPrev");
+const catNext = document.getElementById("catNext");
+
+let scrollAmount = 0;
+
+function getScrollStep(){
+  const card = catGrid.querySelector(".catalogo-card");
+  if(!card) return 300;
+  return card.offsetWidth + 25; // ancho + gap
+}
+
+catNext.addEventListener("click", ()=>{
+
+  scrollAmount += getScrollStep();
+
+  catGrid.scrollTo({
+    left: scrollAmount,
+    behavior: "smooth"
+  });
+
+});
+
+catPrev.addEventListener("click", ()=>{
+
+  scrollAmount -= getScrollStep();
+
+  if(scrollAmount < 0) scrollAmount = 0;
+
+  catGrid.scrollTo({
+    left: scrollAmount,
+    behavior: "smooth"
+  });
+
+});
+
+/* RESET SCROLL CUANDO FILTRAS */
+
+function resetCarrusel(){
+  scrollAmount = 0;
+  catGrid.scrollTo({ left:0 });
+}
+
+/* enganchar con tus filtros existentes */
+
+document.querySelectorAll(".filtro").forEach(btn=>{
+  btn.addEventListener("click", resetCarrusel);
+});
 	</script>
 
 </body>
