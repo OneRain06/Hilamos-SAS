@@ -651,21 +651,12 @@ color:var(--morado1);
 	
 	
 	/* ================= catalogo ===================================================================================== */
-/* ================= BASE ================= */
 
-.catalogo-pro{
-  padding:100px 60px;
+	.catalogo-pro{
+  padding:80px 40px;
 }
 
-.catalogo-pro h2{
-  text-align:center;
-  font-size:38px;
-  color:#6d29a7;
-  margin-bottom:40px;
-}
-
-/* ================= GRID ================= */
-
+/* GRID */
 .catalogo-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -673,8 +664,8 @@ color:var(--morado1);
 }
 
 .catalogo-card{
-  height:480px;
-  border-radius:15px;
+  height:420px;
+  border-radius:12px;
   overflow:hidden;
   cursor:pointer;
   position:relative;
@@ -684,49 +675,36 @@ color:var(--morado1);
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:.4s;
 }
 
-.catalogo-card:hover img{
-  transform:scale(1.05);
-}
-
-/* ================= FILTROS ================= */
-
-.catalogo-filtros{
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  color:#fff;
   display:flex;
   justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:30px;
+  align-items:center;
+  opacity:0;
+  transition:.3s;
 }
 
-.filtro{
-  padding:10px 18px;
-  border:none;
-  border-radius:20px;
-  background:#eee;
-  cursor:pointer;
+.catalogo-card:hover .overlay{
+  opacity:1;
 }
 
-.filtro.active{
-  background:#6d29a7;
-  color:#fff;
-}
-
-/* ================= POPUP ================= */
-
+/* POPUP */
 .catalogo-popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.75);
+  background:rgba(0,0,0,.7);
   display:flex;
   justify-content:center;
   align-items:center;
   opacity:0;
   pointer-events:none;
   transition:.3s;
-  z-index:3000;
+  z-index:9999;
 }
 
 .catalogo-popup.active{
@@ -735,162 +713,185 @@ color:var(--morado1);
 }
 
 .catalogo-content{
+  background:#fff;
   width:90%;
   max-width:900px;
-  background:#fff;
+  border-radius:15px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  border-radius:20px;
   overflow:hidden;
-  max-height:90vh;
   position:relative;
 }
 
-/* MEDIA */
-
-.catalogo-media{
-  padding:20px;
+/* VISOR */
+.viewer-box{
+  position:relative;
   display:flex;
-  flex-direction:column;
+  justify-content:center;
   align-items:center;
-  gap:10px;
+  background:#f5f5f5;
+
+  /* 🔥 CLAVES DEL CENTRADO */
+  min-height:100%;
+  padding:20px;
 }
 
-.catalogo-media img{
-  width:100%;
-  max-height:300px;
+.catalogo-main{
+  max-width:100%;
+  max-height:400px;
   object-fit:contain;
+}
+
+.catalogo-main{
+  width:100%;
+  max-width:280px;
+}
+
+.viewer-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#000;
+  color:#fff;
+  border:none;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.viewer-arrow.left{ left:10px; }
+.viewer-arrow.right{ right:10px; }
+
+/* TEXTO */
+.catalogo-body{
+  padding:25px;
 }
 
 .catalogo-gallery{
   display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
 }
 
 .catalogo-gallery img{
-  width:50px;
-  height:50px;
+  width:60px;
+  height:60px;
   object-fit:cover;
-  border-radius:6px;
   cursor:pointer;
 }
 
-/* BODY */
-
-.catalogo-body{
-  padding:30px;
-  overflow-y:auto;
-}
-
-/* BOTÓN 360 */
-
-.btn360{
+.btn-360{
+  margin-top:20px;
   background:#6d29a7;
   color:#fff;
   border:none;
-  padding:10px 15px;
-  border-radius:10px;
+  padding:10px;
+  border-radius:8px;
   cursor:pointer;
 }
 
-/* CLOSE */
-
-.catalogo-close{
-  position:absolute;
-  top:10px;
-  right:15px;
-  font-size:22px;
-  cursor:pointer;
-}
-
-/* ================= 360 OVERLAY ================= */
-
-.viewer360{
+/* POPUP 360 */
+.viewer360-modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.95);
-  display:none;
+  background:rgba(0,0,0,.85);
+  display:flex;
   justify-content:center;
   align-items:center;
-  flex-direction:column;
-  z-index:99999;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:10000;
 }
 
-.viewer360.active{
-  display:flex;
+.viewer360-modal.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.viewer360-content{
+  background:#fff;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
 }
 
 #viewer360Img{
-  width:280px;
-  max-width:90%;
+  max-width:300px;
 }
 
-#viewer360Slider{
-  width:70%;
-  margin-top:15px;
-}
-
-/* ARROWS */
-
-.viewer360-arrow{
+.close360{
   position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  border:none;
-  background:rgba(255,255,255,0.2);
-  color:#fff;
-  font-size:24px;
-  cursor:pointer;
-}
-
-.viewer360-arrow.left{ left:20px; }
-.viewer360-arrow.right{ right:20px; }
-
-/* CLOSE */
-
-.viewer360-close{
-  position:absolute;
-  top:20px;
+  top:10px;
   right:20px;
-  color:#fff;
-  font-size:26px;
-  background:none;
-  border:none;
   cursor:pointer;
 }
 
-/* ================= MOBILE ================= */
-
+/* MOBILE */
 @media(max-width:768px){
 
   .catalogo-grid{
-    display:flex;
-    overflow-x:auto;
-    gap:15px;
-  }
-
-  .catalogo-card{
-    min-width:85%;
-    height:420px;
+    grid-template-columns:1fr;
   }
 
   .catalogo-content{
     grid-template-columns:1fr;
-    display:flex;
-    flex-direction:column;
-    height:90vh;
   }
 
-  .catalogo-body{
-    flex:1;
-    overflow-y:auto;
-  }
 }
-	
+	.catalogo-filtros{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:30px;
+  flex-wrap:wrap;
+}
+
+.filtro{
+  border:none;
+  padding:8px 16px;
+  border-radius:20px;
+  background:#eee;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.filtro.active{
+  background:#6d29a7;
+  color:#fff;
+}
+	.catalogo-content{
+  align-items:center; /* centra verticalmente las columnas */
+}
+	.viewer-arrow{
+  top:50%;
+  transform:translateY(-50%);
+  opacity:.7;
+}
+
+.viewer-arrow:hover{
+  opacity:1;
+}
+	.catalogo-close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  z-index:20; /* 🔥 clave */
+
+  width:35px;
+  height:35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  border-radius:50%;
+  cursor:pointer;
+
+  font-size:16px;
+}
 </style>
 </head>
 
@@ -1100,57 +1101,65 @@ color:var(--morado1);
 
 </section>
 <!-- ================= catalogo ===================================================================================== -->
+
 <section class="catalogo-pro">
 
   <h2>Catálogo destacado</h2>
-
-  <div class="catalogo-filtros">
-    <button class="filtro active" data-filter="all">Todos</button>
-    <button class="filtro" data-filter="corporativo">Corporativo</button>
-    <button class="filtro" data-filter="gastronomia">Gastronomía</button>
-    <button class="filtro" data-filter="salud">Salud</button>
-  </div>
-
+<div class="catalogo-filtros">
+  <button class="filtro active" data-filter="all">Todos</button>
+  <button class="filtro" data-filter="corporativo">Corporativo</button>
+  <button class="filtro" data-filter="gastronomia">Gastronomía</button>
+  <button class="filtro" data-filter="salud">Salud</button>
+</div>
   <div class="catalogo-grid" id="catalogoGrid"></div>
 
 </section>
 
-<!-- ================= POPUP ================= -->
+<!-- POPUP PRINCIPAL -->
 <div class="catalogo-popup" id="catalogoPopup">
+
   <div class="catalogo-content">
 
     <span class="catalogo-close" id="catalogoClose">✕</span>
 
-    <div class="catalogo-media">
-      <img id="catalogoImg">
+    <div class="viewer-box">
 
-      <div class="catalogo-gallery" id="catalogoGallery"></div>
+      <button class="viewer-arrow left" id="prevImg">‹</button>
 
-      <button class="btn360" id="open360">Ver 360°</button>
+      <img id="catalogoImg" class="catalogo-main">
+
+      <button class="viewer-arrow right" id="nextImg">›</button>
+
     </div>
 
     <div class="catalogo-body">
       <h3 id="catalogoTitle"></h3>
       <p id="catalogoDesc"></p>
+
+      <div class="catalogo-gallery" id="catalogoGallery"></div>
+
+      <button class="btn-360" id="open360">Ver 360°</button>
     </div>
 
   </div>
-</div>
-
-<!-- ================= 360 OVERLAY (INDEPENDIENTE) ================= -->
-<div class="viewer360" id="viewer360">
-
-  <button class="viewer360-close" id="close360">✕</button>
-
-  <button class="viewer360-arrow left" id="prev360">‹</button>
-
-  <img id="viewer360Img">
-
-  <button class="viewer360-arrow right" id="next360">›</button>
-
-  <input type="range" id="viewer360Slider" min="0" value="0">
 
 </div>
+
+<!-- POPUP 360 -->
+<div class="viewer360-modal" id="viewer360Modal">
+
+  <div class="viewer360-content">
+
+    <span class="close360" id="close360">✕</span>
+
+    <img id="viewer360Img">
+
+    <input type="range" id="viewer360Slider" min="0" value="0">
+
+  </div>
+
+</div>
+	
 	<!-- ================= JS ===================================================================================== -->
 <script>
 const menuToggle = document.getElementById("menuToggle");
@@ -1604,181 +1613,190 @@ function preload(arr){
 }
 	
 /* ================= catalogo ===================================================================================== */
-const Catalogo = (() => {
 
-  const data = {
-    p1:{
-      nombre:"MAPP/OEA",
-      categoria:"corporativo",
-      descripcion:"Uniformes institucionales de alto nivel.",
-      imagenes:["oea1.jpg","oea2.jpg"],
-      frames:["salud3-1.png","salud3-2.png","salud3-3.png","salud3-4.png","salud3-5.png","salud3-6.png","salud3-7.png","salud3-8.png"]
-    },
-    p2:{
-      nombre:"Chef Corporativo",
-      categoria:"gastronomia",
-      descripcion:"Diseño funcional y elegante.",
-      imagenes:["chef1.jpg","chef2.jpg"],
-      frames:["salud2-1.png","salud2-2.png","salud2-3.png","salud2-4.png","salud2-5.png","salud2-6.png","salud2-7.png","salud2-8.png"]
-    },
-    p3:{
-      nombre:"Enfermería GOLD",
-      categoria:"salud",
-      descripcion:"Imagen profesional en salud.",
-      imagenes:["gold1.jpg","gold2.jpg"],
-      frames:["salud1-1.png","salud1-2.png","salud1-3.png","salud1-4.png","salud1-5.png","salud1-6.png","salud1-7.png","salud1-8.png"]
+	(function(){
+
+const productos = {
+  p1:{
+    nombre:"MAPP/OEA",
+    categoria:"corporativo",
+    descripcion:"Uniforme institucional",
+    imagenes:["oea1.jpg","oea2.jpg"],
+    frames:{
+      rojo:["salud3-1.png","salud3-2.png","salud3-3.png","salud3-4.png","salud3-5.png","salud3-6.png","salud3-7.png","salud3-8.png"]
     }
-  };
-
-  const grid = document.getElementById("catalogoGrid");
-
-  const popup = document.getElementById("catalogoPopup");
-  const img = document.getElementById("catalogoImg");
-  const title = document.getElementById("catalogoTitle");
-  const desc = document.getElementById("catalogoDesc");
-  const gallery = document.getElementById("catalogoGallery");
-  const close = document.getElementById("catalogoClose");
-
-  const open360 = document.getElementById("open360");
-
-  const viewer = document.getElementById("viewer360");
-  const viewerImg = document.getElementById("viewer360Img");
-  const slider = document.getElementById("viewer360Slider");
-
-  const close360 = document.getElementById("close360");
-  const prev360 = document.getElementById("prev360");
-  const next360 = document.getElementById("next360");
-
-  let current = null;
-  let images = [];
-  let frames = [];
-  let index = 0;
-
-  function render(filter="all"){
-    grid.innerHTML = "";
-
-    Object.keys(data).forEach(id=>{
-      const item = data[id];
-
-      if(filter !== "all" && item.categoria !== filter) return;
-
-      const card = document.createElement("div");
-      card.className = "catalogo-card";
-
-      card.innerHTML = `<img src="${item.imagenes[0]}">`;
-
-      card.onclick = () => open(id);
-
-      grid.appendChild(card);
-    });
+  },
+  p2:{
+    nombre:"Chef",
+    categoria:"gastronomia",
+    descripcion:"Uniforme gastronómico",
+    imagenes:["chef1.jpg","chef2.jpg"],
+    frames:{
+      blanco:["salud2-1.png","salud2-2.png","salud2-3.png","salud2-4.png","salud2-5.png","salud2-6.png","salud2-7.png","salud2-8.png"]
+    }
   }
+};
 
-  function open(id){
+/* ELEMENTOS */
+const grid = document.querySelector("#catalogoGrid");
+const popup = document.querySelector("#catalogoPopup");
+const filtros = document.querySelectorAll(".filtro");
 
-    current = data[id];
+if(!grid || !popup) return;
 
-    popup.classList.add("active");
+const img = document.getElementById("catalogoImg");
+const title = document.getElementById("catalogoTitle");
+const desc = document.getElementById("catalogoDesc");
+const gallery = document.getElementById("catalogoGallery");
 
-    title.textContent = current.nombre;
-    desc.textContent = current.descripcion;
+const prev = document.getElementById("prevImg");
+const next = document.getElementById("nextImg");
 
-    images = current.imagenes;
-    frames = current.frames;
+const open360Btn = document.getElementById("open360");
 
-    img.src = images[0];
+const modal360 = document.getElementById("viewer360Modal");
+const img360 = document.getElementById("viewer360Img");
+const slider360 = document.getElementById("viewer360Slider");
 
-    gallery.innerHTML = "";
+let images = [];
+let frames = [];
+let index = 0;
 
-    images.forEach(src=>{
-      const t = document.createElement("img");
-      t.src = src;
-      t.onclick = () => img.src = src;
-      gallery.appendChild(t);
+/* ================= RENDER ================= */
+function render(filter="all"){
+
+  grid.innerHTML = "";
+
+  Object.keys(productos).forEach(id=>{
+
+    const p = productos[id];
+
+    if(filter !== "all" && p.categoria !== filter) return;
+
+    const card = document.createElement("div");
+    card.className = "catalogo-card";
+
+    card.innerHTML = `
+      <img src="${p.imagenes[0]}">
+      <div class="overlay">Ver</div>
+    `;
+
+    card.addEventListener("click",(e)=>{
+      e.stopPropagation();
+      openPopup(id);
     });
 
-    document.body.style.overflow = "hidden";
-  }
+    grid.appendChild(card);
 
-  open360.onclick = () => {
-    viewer.classList.add("active");
-    index = 0;
-    slider.max = frames.length - 1;
-    slider.value = 0;
-    viewerImg.src = frames[0];
-  };
-
-  close360.onclick = () => viewer.classList.remove("active");
-
-  slider.oninput = () => {
-    viewerImg.src = frames[slider.value];
-  };
-
-  next360.onclick = () => {
-    index = (index + 1) % frames.length;
-    slider.value = index;
-    viewerImg.src = frames[index];
-  };
-
-  prev360.onclick = () => {
-    index = (index - 1 + frames.length) % frames.length;
-    slider.value = index;
-    viewerImg.src = frames[index];
-  };
-
-  close.onclick = () => {
-    popup.classList.remove("active");
-    document.body.style.overflow = "auto";
-  };
-
-  popup.onclick = (e) => {
-    if(e.target === popup) close();
-  };
-
-  document.querySelectorAll(".filtro").forEach(btn=>{
-    btn.onclick = () => {
-      document.querySelectorAll(".filtro").forEach(b=>b.classList.remove("active"));
-      btn.classList.add("active");
-      render(btn.dataset.filter);
-    };
   });
 
-  render();
+}
+
+/* ================= FILTROS ================= */
+filtros.forEach(btn=>{
+  btn.addEventListener("click",()=>{
+
+    filtros.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filtro = btn.dataset.filter;
+    render(filtro);
+
+  });
+});
+
+/* ================= POPUP ================= */
+function openPopup(id){
+
+  const p = productos[id];
+
+  popup.classList.add("active");
+
+  title.textContent = p.nombre;
+  desc.textContent = p.descripcion;
+
+  images = p.imagenes;
+  index = 0;
+
+  img.src = images[0];
+
+  gallery.innerHTML = "";
+
+  images.forEach((src,i)=>{
+    const t = document.createElement("img");
+    t.src = src;
+
+    t.onclick = ()=>{
+      index = i;
+      img.src = src;
+    };
+
+    gallery.appendChild(t);
+  });
+
+  frames = p.frames[Object.keys(p.frames)[0]];
+}
+
+/* ================= CARRUSEL ================= */
+next.onclick = ()=>{
+  index++;
+  if(index >= images.length) index = 0;
+  img.src = images[index];
+};
+
+prev.onclick = ()=>{
+  index--;
+  if(index < 0) index = images.length -1;
+  img.src = images[index];
+};
+
+/* ================= 360 ================= */
+open360Btn.onclick = ()=>{
+  modal360.classList.add("active");
+
+  slider360.max = frames.length -1;
+  slider360.value = 0;
+
+  img360.src = frames[0];
+};
+
+slider360.oninput = ()=>{
+  img360.src = frames[slider360.value];
+};
+
+/* ================= CLOSE ================= */
+document.getElementById("catalogoClose").onclick = ()=>{
+  popup.classList.remove("active");
+};
+
+document.getElementById("close360").onclick = ()=>{
+  modal360.classList.remove("active");
+};
+
+modal360.onclick = (e)=>{
+  if(e.target === modal360){
+    modal360.classList.remove("active");
+  }
+};
+
+popup.onclick = (e)=>{
+  if(e.target === popup){
+    popup.classList.remove("active");
+  }
+};
+
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="Escape"){
+    popup.classList.remove("active");
+    modal360.classList.remove("active");
+  }
+});
+
+/* INIT */
+render();
 
 })();
-	document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    cerrarTodosLosPopups();
-  }
-});
-	function cerrarTodosLosPopups(){
-
-  // catálogo
-  const popup = document.getElementById("catalogoPopup");
-  if(popup) popup.classList.remove("active");
-
-  // 360
-  const viewer = document.getElementById("viewer360");
-  if(viewer) viewer.classList.remove("active");
-
-  document.body.style.overflow = "auto";
-}
-	function cerrarTodosLosPopups(){
-
-  // catálogo
-  const popup = document.getElementById("catalogoPopup");
-  if(popup) popup.classList.remove("active");
-
-  // 360
-  const viewer = document.getElementById("viewer360");
-  if(viewer) viewer.classList.remove("active");
-
-  document.body.style.overflow = "auto";
-}
-	document.getElementById("catalogoPopup").addEventListener("click", (e) => {
-  if (e.target.id === "catalogoPopup") {
-    cerrarTodosLosPopups();
-  }
-});
+	
 	</script>
 
 </body>
