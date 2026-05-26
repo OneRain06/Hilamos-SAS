@@ -1,3134 +1,2759 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ODC | Oficina de Diseño y Construcción</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-	  :root {
-  /* Colores base */
-  --color-dark-blue: #002a4c;
-  --color-light-blue: #2680bc;
-  --color-dark-gray: #1d2222;
-  --color-light-gray: #f7f7f7;
+<meta charset="UTF-8">
+	<link rel="icon" href="logi.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  /* Degradados */
-  --gradient-horizontal: linear-gradient(
-    to right,
-    var(--color-dark-blue),
-    var(--color-light-blue)
-  );
+<title>Hilamos SAS | Uniformes Empresariales</title>
 
-  --gradient-vertical: linear-gradient(
-    to bottom,
-    var(--color-light-blue),
-    var(--color-dark-blue)
-  );
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  --gradient-diagonal: linear-gradient(
-    135deg,
-    var(--color-dark-gray),
-    var(--color-light-gray)
-  );
+<style>
+
+/* ================= RESET ===================================================================================== */
+:root{
+  --gris:#687e8a;
+
+  --morado:#6d29a7;
+  --morado-claro:#c416b6;
+  --morado-grad:#8219f3;
+
+  --verde:#00ac7f;
+  --verde-agua:#00dec8;
+
+  --naranja:#ff7a00;
+  --amarillo:#ffc800;
+
+  --blanco:#ffffff;
+  --negro:#111;
+}
+	*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-    body {
-      margin:0; font-family:'Montserrat', sans-serif;
-      background:#f9f9f9; color:var(--color-dark-gray);
-    }
-
-    /* HEADER */
-header {
-    display:flex; justify-content:space-between; align-items:center;
-    padding:1rem 2rem; border-bottom:1px solid var(--color-light-gray);
-    background:rgba(255,255,255,0.95); backdrop-filter:blur(6px);
-    position:sticky; top:0; z-index:1000;
-  }
-  nav.menu {
-    display:flex; gap:1rem;
-  }
-  .cta1 {
-    background:var(--color-light-blue);
-    color:var(--color-light-gray); padding:0.5rem 1rem; border-radius:4px;
-    font-size:0.75rem; letter-spacing:0.1em;
-  }
-  nav.menu a {
-    color:var(--color-dark-gray); text-decoration:none; font-size:0.85rem;
-    letter-spacing:0.1em; transition:color 0.3s;
-  }
-  nav.menu a:hover {color:var(--color-light-blue));}
-
-  /* Botón hamburguer */
-  .hamburger {
-    display:none; font-size:1.5rem; background:var(--color-light-blue); color:var(--color-light-gray);
-    border:none; padding:0.5rem 0.8rem; border-radius:4px;
-    cursor:pointer; position:fixed; top:1rem; right:1rem; z-index:1100;
-    transition:background 0.3s;
-  }
-  .hamburger:hover {background:var(--color-dark-blue);}
-
-    /* HERO */
-    .hero {
-      position:relative; min-height:90vh; display:flex; align-items:center;
-      color:var(--color-light-gray);
-    }
-    .hero-slide {
-      position:absolute; inset:0; background-size:cover; background-position:center;
-      opacity:0; transition:opacity 1s ease;
-    }
-    .hero-slide.active {opacity:1;}
-    .hero-overlay {
-      position:absolute; inset:0; background:rgba(0,0,0,0.65);
-    }
-    .hero-content {
-      position:relative; z-index:2; max-width:900px; padding:3rem;
-    }
-    .hero-content h1 {
-		font-size:3rem; line-height:1.1; margin-bottom:1rem; font-weight:800;
-    }
-    .hero-content h1 span {color:var(--color-light-blue);}
-    .hero-content p {
-      color:var(--color-light-gray); max-width:50ch; margin-bottom:2rem; font-size:1rem; line-height:1.6;
-    }
-    .hero-content .buttons a {
-      border:1px solid var(--color-light-gray); padding:0.8rem 1.5rem; margin-right:1rem;
-      text-transform:uppercase; font-size:0.8rem; color:var(--color-light-gray);
-      transition:all 0.3s ease; text-decoration:none;
-    }
-    .hero-content .buttons a:hover {background:var(--color-light-blue); color:var(--color-light-gray);}
-
-    /* MÉTRICAS */
-    .metrics {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-      margin-top:2rem; gap:1rem;
-    }
-    .metrics div {
-      padding:1rem; text-align:center;
-    }
-    .metrics h4 {color:var(--color-dark-gray); font-size:0.7rem; margin-bottom:0.5rem; letter-spacing:0.1em;}
-    .metrics p {font-size:2.5rem; font-weight:700; color:var(--color-dark-gray);}
-
-
-	  /* Contenedor general */
-.nosotros {
-  padding:5rem 2rem -2rem ;
-  background:var(--color-light-gray);
-  color:var(--color-dark-gray);
-  max-width:80%;   
-  margin: auto;    
-}
-
-/* Grids */
-.grid-nosotros, .grid-clientes {
-  display:grid;
-  grid-template-columns:150px 2fr;
-  gap:2rem;
-  margin-bottom:4rem;
-}
-
-.section-num {
-  font-size:0.9rem;
-  color:var(--color-light-blue);
-  letter-spacing:0.15em;
-  font-weight:600;
-}
-
-h2 {
-  font-size:2.2rem;
-  font-weight:800;
-  margin-bottom:1rem;
-}
-h2 span {color:var(--color-light-blue);}
-p {color:var(--color-dark-gray); font-size:1rem; line-height:1.5;}
-
-/* Fases en fila */
-.fases {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1.5rem;
-  margin-top:2rem;
-}
-.fase {
+body{
+  font-family:'Poppins', sans-serif;
   background:#fff;
-  padding:1.5rem;
-  border:1px solid #eee;
-  border-radius:8px;
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
-}
-.fase:hover {
-  transform:translateY(-5px);
-  box-shadow:0 6px 16px rgba(0,114,255,0.15);
-}
-.fase h3 {
-  color:var(--color-light-blue);
-  font-size:0.9rem;
-  margin-bottom:0.5rem;
-}
-.fase h4 {
-  font-size:1.2rem;
-  font-weight:600;
-  margin-bottom:0.5rem;
-}
-.detalle {
-  margin-top:0.5rem;
-  background:none;
-  border:none;
-  color: var(--color-light-blue);
-  font-size:0.85rem;
-  cursor:pointer;
+  color:#111;
 }
 
-/* Carrusel infinito */
-.carousel-wrapper {
-  width:100%;             /* ocupa todo el ancho disponible */
-  max-width:1000px; /* AJUSTA este valor manualmente según lo que quieras mostrar */
-  margin: auto;          /* centrado */
-  overflow:hidden;        /* oculta desbordes */
-  position:relative;
-}
-.carousel {
-  width:100%;
-  position:relative;
-}
-.track {
-  display:flex;
-  gap:3rem;
-  flex-wrap:nowrap;       /* evita que los logos bajen de línea */
-  min-width:200%;         /* asegura espacio para animación infinita */
-  animation:scroll 40s linear infinite;
-}
-.track img {
-  height:60px;
-  flex-shrink:0;          /* evita que se compriman */
-  filter:grayscale(100%) opacity(0.6);
-  transition:filter 0.3s, transform 0.3s;
-}
-.track img:hover {
-  filter:grayscale(0%) opacity(1);
-  transform:scale(1.2);
-}
-@keyframes scroll {
-  from {transform:translateX(0);}
-  to {transform:translateX(-50%);}
-}
-
-/* Degradados laterales */
-.fade-left, .fade-right {
-  position:absolute;
-  top:0;
-  bottom:0;
-  width:80px;
-  z-index:10;
-  pointer-events:none;
-}
-.fade-left {left:0; background:linear-gradient(to right, var(--color-light-gray), transparent);}
-.fade-right {right:0; background:linear-gradient(to left, var(--color-light-gray), transparent);}
-
-/* --- POPUPS BASE --- */
-.popup {
-  display: none; /* Se activa con JS */
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85); /* Un poco más oscuro para centrar la atención */
-  justify-content: center;
-  align-items: center;
-  z-index: 9999999;
-  backdrop-filter: blur(5px); /* Efecto moderno de desenfoque al fondo */
-  padding: 1rem; /* Margen de seguridad para que el popup no toque los bordes del navegador */
-}
-
-.popup-content {
-  background: var(--color-light-gray);
-  color: var(--color-dark-gray);
-  padding: 3rem 2rem 2rem; /* Más espacio arriba para la X */
-  border-radius: 16px; /* Bordes más redondeados y modernos */
-  max-width: 850px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  
-  /* Scroll suave en iOS */
-  -webkit-overflow-scrolling: touch; 
-}
-
-/* Botón de cierre mejorado */
-.popup .close {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 2rem;
-  line-height: 1;
-  cursor: pointer;
-  color: var(--color-dark-gray);
-  transition: transform 0.2s, color 0.2s;
-  z-index: 10;
-  padding: 0.5rem; /* Área de clic más grande para dedos */
-}
-
-.popup .close:hover {
-  color: var(--color-light-blue);
-  transform: scale(1.1);
-}
-
-/* Header del Popup */
-.popup-header h2 {
-  font-size: clamp(1.5rem, 5vw, 2.2rem); /* Tamaño fluido */
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  line-height: 1.1;
-  color: var(--color-dark-blue);
-}
-
-/* Proceso */
-.process-item {
-  display:flex;
-  align-items:flex-start;
-  gap:1rem;
-  margin-bottom:1.5rem;
-}
-.process-num {
-  font-weight:700;
-  color:var(--color-light-blue) ;
-  font-size:1.2rem;
-  min-width:2rem;
-}
-.process-info {
-  display:flex;
-  gap:1rem;
-}
-.process-img {
-  width:120px;
-  height:120px;
-  object-fit:cover;
-  border-radius:6px;
-}
-.thumbs {
-  display:flex;
-  gap:0.5rem;
-  margin-top:0.5rem;
-}
-.thumbs img {
-  width:50px;
-  height:50px;
-  object-fit:cover;
-  border-radius:4px;
-  cursor:pointer;
-  transition:transform 0.2s;
-}
-.thumbs img:hover {transform:scale(1.1);}
-
-/* Entregables */
-.deliverables-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1rem;
-}
-.deliverables-grid ul {list-style:none; padding-left:0;}
-.deliverables-grid li {
-  position:relative;
-  padding-left:1.2rem;
-  margin-bottom:0.5rem;
-}
-.deliverables-grid li::before {
-  content:"►";
-  position:absolute;
-  left:0;
-  color:var(--color-light-blue) ;
-}
-
-/* CTA */
-.cta {
-  display:inline-block;
-  margin-top:1rem;
-  color:var(--color-light-blue) ;
-  font-weight:600;
-  text-decoration:none;
-  text-transform:uppercase;
-}
-.cta:hover {text-decoration:underline;}
-
-/* Modal de imagen */
-.img-modal {
+/* ================= NAVBAR ===================================================================================== */
+.navbar{
   position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.8);
+  top:0;
+  left:0;
+  width:100%;
+  padding:20px 60px;
   display:flex;
-  justify-content:center;
+  justify-content:space-between;
   align-items:center;
-  z-index:999999999;
+  z-index:1000;
+  background:rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(0,0,0,0.05);
 }
-.img-box {position:relative;}
-.img-box img {
-  max-width:90vw;
-  max-height:90vh;
-  border-radius:8px;
+
+.logo{
+  font-weight:800;
+  font-size:22px;
+  color:var(--morado);
 }
-.img-close {
+
+.logo span{
+  color:var(--morado-claro);
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#111;
+  font-weight:500;
+  position:relative;
+}
+
+.nav-links a::after{
+  content:"";
   position:absolute;
-  top:1rem;
-  right:1rem;
-  font-size:2rem;
-  color:var(--color-light-gray);
+  width:0%;
+  height:2px;
+  background:var(--morado-claro);
+  left:0;
+  bottom:-5px;
+  transition:.3s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+.nav-icons{
+  display:flex;
+  gap:20px;
+  font-size:20px;
   cursor:pointer;
 }
 
-/* --- SECCIÓN SERVICIOS --- */
-	  
-.servicios {
-  padding: 6rem 5%; /* Aumentado para dar aire */
-  background: var(--color-light-gray);
-  color: var(--color-dark-gray);
-  overflow: hidden;
+.menu-toggle{
+  font-size:24px;
 }
 
-.contenedor-servicios {
-  max-width: 65%;
-  margin: 0 auto;
-}
-
-/* Header con numeración a la izquierda */
-.grid-servicios {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 2rem;
-  margin-bottom: 4rem;
-  align-items: start;
-}
-
-.section-num {
-  font-size: 0.9rem;
-  color: var(--color-light-blue);
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  padding-top: 0.5rem; /* Alineación visual con el H2 */
-}
-
-.grid-servicios h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  line-height: 1.1;
-}
-
-.grid-servicios .subtitle {
-  color: var(--color-dark-gray);
-  font-size: 0.95rem;
-  opacity: 0.8;
-  font-weight: 500;
-}
-
-/* Tarjetas de servicios */
-.servicios-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.servicio-card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column; /* Para alinear el botón al final */
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.servicio-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0, 42, 76, 0.1);
-  border-color: var(--color-light-blue);
-}
-
-.servicio-num {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--color-light-blue);
-  margin-bottom: 1rem;
-  display: block;
-  opacity: 0.6;
-}
-
-.servicio-card h3 {
-  color: var(--color-dark-blue); /* Cambiado para contraste */
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.3;
-}
-
-.servicio-card p {
-  color: var(--color-dark-gray);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  flex-grow: 1; /* Empuja los tags y el botón abajo */
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.tags span {
-  background: rgba(38, 128, 188, 0.1); /* Fondo suave */
-  color: var(--color-light-blue);
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  text-transform: uppercase;
-}
-
-.detalle {
-  background: none;
-  border: none;
-  color: var(--color-light-blue);
-  font-weight: 700;
-  cursor: pointer;
-  text-transform: uppercase;
-  padding: 0;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  text-align: left;
-  transition: color 0.3s;
-}
-
-.detalle:hover {
-  color: var(--color-dark-blue);
-  text-decoration: underline;
-}
-
-	  
-	  
-.contenedor-portafolio {
-  max-width:80%; /* contenedor central */
-  margin:0 auto;
-  padding:2rem;
-}
-
-.section-header {
-  display:flex;
-  align-items:flex-start;
-  gap:2rem;
-  margin-bottom:2rem;
-}
-.section-num {
-  font-size:0.9rem;
-  font-weight:600;
-  color:var(--color-light-blue);
-  letter-spacing:0.1em;
-  flex:0 0 150px; /* ancho fijo a la izquierda */
-}
-.section-text h2 {
-  font-size:2.2rem;
-  font-weight:800;
-  text-transform:uppercase;
-  margin-bottom:0.5rem;
-}
-.section-text .subtitle {
-  color:var(--color-dark-gray);
-  font-size:0.95rem;
-}
-
-.proyectos-grid {
-  display:grid;
-  grid-template-columns:repeat(5,1fr); /* 5 columnas en PC */
-  gap:1.5rem;
-}
-
-.proyecto-card {
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:12px;
-  overflow:hidden;
+/* ================= MOBILE MENU ===================================================================================== */
+.mobile-menu{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:linear-gradient(135deg, #6d29a7, #c416b6);
   display:flex;
   flex-direction:column;
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
-}
-.proyecto-card:hover {
-  transform:translateY(-5px);
-  box-shadow:0 6px 16px rgba(0,114,255,0.15);
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+  transform:translateY(-100%);
+  transition:0.4s;
+  z-index:999;
 }
 
-.proyecto-img {
-  position:relative;
+.mobile-menu a{
+  color:#fff;
+  font-size:28px;
+  text-decoration:none;
+  font-weight:600;
+  opacity:0;
+  transform:translateY(20px);
+  transition:0.3s;
 }
-.proyecto-img img {
+
+.mobile-menu.active{
+  transform:translateY(0);
+}
+
+.mobile-menu.active a{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= HERO ===================================================================================== */
+.hero{
+  position:relative;
+  height:100vh;
   width:100%;
-  aspect-ratio:1080/1368;
+  overflow:hidden;
+}
+
+.hero img{
+  width:100%;
+  height:100%;
   object-fit:cover;
+}
+
+.hero-overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+   background:linear-gradient(
+    to right,
+    rgba(109,41,167,0.85),
+    rgba(130,25,243,0.5),
+    rgba(0,222,200,0.2),
+    transparent
+  );
+}
+
+.hero-content{
+  position:absolute;
+  top:50%;
+  left:60px;
+  transform:translateY(-50%);
+  color:#fff;
+  max-width:550px;
+}
+
+.hero-content h1{
+  font-size:58px;
+  font-weight:800;
+  line-height:1.1;
+}
+
+.hero-content h1 span{
+  font-weight:300;
+}
+
+.hero-content p{
+  margin-top:20px;
+  font-size:16px;
+  opacity:0.95;
+}
+
+/* ================= RESPONSIVE ===================================================================================== */
+@media(max-width:1024px){
+  .hero-content h1{
+    font-size:42px;
+  }
+}
+
+@media(max-width:768px){
+
+  .navbar{
+    padding:15px 20px;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero-content{
+    left:20px;
+  }
+
+  .hero-content h1{
+    font-size:32px;
+  }
+}
+/* ================= LINEAS ===================================================================================== */
+
+.lineas{
+  padding:100px 60px;
+  background:#f7f7f7;
+}
+
+.lineas-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.lineas-header h2{
+  font-size:38px;
+  color:var(--morado);
+}
+
+.lineas-header p{
+  color:var(--gris);
+}
+
+/* ===== DESKTOP GRID (SE MANTIENE) ===================================================================================== */
+.lineas-track{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:20px;
+}
+
+/* CARD */
+.linea-card{
+  position:relative;
+  height:320px;
+  overflow:hidden;
+  border-radius:12px;
+}
+
+/* imagen */
+.linea-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.5s;
+}
+
+/* overlay */
+.linea-card .overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(109,41,167,0.5)
+  );
+  transition:0.4s;
+}
+
+/* contenido */
+.linea-card .contenido{
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  color:#fff;
+  z-index:2;
+  transition:0.4s;
+}
+
+.linea-card:hover img{
+  transform:scale(1.1);
+}
+
+.linea-card:hover .overlay{
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,0.85),
+    rgba(196,22,182,0.7)
+  );
+}
+
+.linea-card:hover .contenido{
+  transform:translateY(-10px);
+}
+
+/* BOTONES (ocultos en desktop) */
+.nav-btn{
+  display:none;
+}
+
+/* DOTS */
+.dots{
+  display:none;
+}
+
+/* ================= MOBILE APP STYLE ===================================================================================== */
+@media(max-width:768px){
+
+  .lineas{
+    padding:60px 20px;
+  }
+
+  .lineas-wrapper{
+    position:relative;
+  }
+
+  .lineas-track{
+    display:flex;
+    gap:15px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+  }
+
+  .lineas-track::-webkit-scrollbar{
+    display:none;
+  }
+
+  .linea-card{
+    min-width:85%;
+    height:260px;
+    flex-shrink:0;
+    scroll-snap-align:center;
+  }
+
+  /* BOTONES */
+  .nav-btn{
+    display:block;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:#fff;
+    border:none;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    font-size:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    z-index:10;
+    cursor:pointer;
+  }
+
+  .prev{ left:-10px; }
+  .next{ right:-10px; }
+
+  /* DOTS */
+  .dots{
+    display:flex;
+    justify-content:center;
+    margin-top:15px;
+    gap:8px;
+  }
+
+  .dots span{
+    width:8px;
+    height:8px;
+    background:#ccc;
+    border-radius:50%;
+    transition:0.3s;
+  }
+
+  .dots span.active{
+    background:#c416b6;
+    transform:scale(1.3);
+  }
+
+  .lineas-header h2{
+    font-size:28px;
+  }
+}
+	.linea-card picture{
+  width:100%;
+  height:100%;
   display:block;
 }
 
-/* Overlay arriba izquierda */
-.overlay-top-left {
-  position:absolute;
-  top:0.5rem;
-  left:0.5rem;
-  background:rgba(0,0,0,0.6);
-  color:var(--color-light-blue);
-  font-size:0.8rem;
-  font-weight:600;
-  padding:0.3rem 0.6rem;
-  border-radius:4px;
+.linea-card picture img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
-
-/* Overlay abajo derecha */
-.overlay-bottom-right {
-  position:absolute;
-  bottom:0.5rem;
-  right:0.5rem;
-  background:rgba(0,0,0,0.6);
-  color:#fff;
-  font-size:0.75rem;
-  font-weight:600;
-  padding:0.3rem 0.6rem;
-  border-radius:4px;
-  text-transform:uppercase;
-}
-
-.overlay .codigo { color:var(--color-light-blue); }
-.overlay .categoria { text-transform:uppercase; }
-
-.proyecto-info {
-  padding:0.8rem;
-  text-align:center;
-}
-.proyecto-info h3 {
-  font-size:1rem;
-  font-weight:700;
-  margin:0.2rem 0;
-  line-height:1.2;
-}
-.proyecto-info p {
-  font-size:0.85rem;
-  color:var(--color-dark-gray);
-  margin:0.2rem 0;
-}
-.codigo {
-  font-size:0.8rem;
-  font-weight:600;
-  color:var(--color-light-blue);
-}
-.detalle {
-  background:none;
-  border:none;
-  color:var(--color-light-blue);
-  font-weight:600;
-  cursor:pointer;
-  text-transform:uppercase;
-  margin-top:0.3rem;
-}
-
-
-
-
-
-  
 	
+/* ================= POPUP ECOMMERCE ===================================================================================== */
 
-
-	
-
-
-.popup-proyecto {
-  display:none;
+.popup{
   position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.7);
-  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  display:flex;
   justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.4s;
+  z-index:2000;
+}
+
+.popup.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* CONTENEDOR */
+.popup-content{
+  background:#fff;
+  width:95%;
+  max-width:900px;
+  border-radius:20px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  transform:scale(0.9);
+  transition:.4s;
+  position:relative;
+}
+
+.popup.active .popup-content{
+  transform:scale(1);
+}
+
+/* IMAGEN */
+.main-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* GALERÍA */
+.thumbs{
+  position:absolute;
+  bottom:15px;
+  left:15px;
+  display:flex;
+  gap:10px;
+}
+
+.thumbs img{
+  width:60px;
+  height:60px;
+  object-fit:cover;
+  border-radius:8px;
+  cursor:pointer;
+  border:2px solid #fff;
+}
+
+/* CONTENIDO */
+.popup-body{
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.popup-body h2{
+  color:var(--morado);
+  margin-bottom:10px;
+}
+
+.popup-body p{
+  margin-bottom:15px;
+}
+
+/* LISTA */
+.popup-body ul{
+  margin-bottom:20px;
+  padding-left:20px;
+}
+
+.popup-body li{
+  margin-bottom:5px;
+}
+
+/* BOTÓN */
+.btn-wsp{
+  background:var(--verde);
+  color:#fff;
+  text-decoration:none;
+  padding:12px;
+  text-align:center;
+  border-radius:8px;
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn-wsp:hover{
+  background:var(--verde-agua);
+}
+
+/* CERRAR */
+.close-popup{
+  position:absolute;
+  top:10px;
+  right:15px;
+  font-size:22px;
+  cursor:pointer;
+  color:#fff;
+  z-index:10;
+}
+
+/* ================= MOBILE (APP STYLE) ===================================================================================== */
+@media(max-width:768px){
+
+  .popup{
+    align-items:flex-end;
+  }
+
+  .popup-content{
+    grid-template-columns:1fr;
+    width:100%;
+    max-width:100%;
+    border-radius:20px 20px 0 0;
+    transform:translateY(100%);
+  }
+
+  .popup.active .popup-content{
+    transform:translateY(0);
+  }
+
+  .main-img{
+    height:220px;
+  }
+
+  .thumbs{
+    position:relative;
+    bottom:auto;
+    left:auto;
+    padding:10px;
+  }
+}
+	
+	/* ================= 360 VIEWER ===================================================================================== */
+
+.viewer360{
+  padding:120px 5%;
+  font-family:Poppins;
+}
+
+.viewer360 h2{
+  text-align:center;
+  font-size:38px;
+  margin-bottom:60px;
+  color:#6d29a7;
+}
+
+.viewer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
   align-items:center;
 }
 
-.popup-proyecto-box {
-  background:#fff;
-  border-radius:12px;
-  max-width:900px;
-  width:90%;
-  max-height:90vh;
-  overflow-y:auto;
-  padding:2rem;
-  position:relative;
+.viewer-container{
+  text-align:center;
 }
 
-.popup-proyecto-close {
-  position:absolute; 
-  top:1rem; right:1rem;
-  font-size:1.5rem;
-  font-weight:bold;
-  color:var(--color-dark-gray);
-  cursor:pointer;
+.viewer-container img{
+  width:100%;
+  max-width:200px;
+  border-radius:20px;
+  transition:.3s ease;
 }
 
-.popup-proyecto-header { margin-bottom:1.5rem; z-index: }
-.popup-proyecto-code { font-size:0.9rem; font-weight:600;   color:var(--color-light-blue); display:block; margin-bottom:0.5rem; }
-.popup-proyecto-header h2 { font-size:1.6rem; font-weight:800; margin-bottom:0.3rem; }
-.popup-proyecto-subtitle { font-size:0.95rem; color:var(--color-dark-gray); }
-
-.popup-proyecto-gallery { display:flex; flex-direction:column; align-items:center; gap:1rem; }
-.popup-proyecto-main {
-  width:100%; aspect-ratio:1/1; object-fit:cover;
-  border-radius:8px; max-height:500px;
-}
-.popup-proyecto-thumbs { display:flex; gap:0.5rem; justify-content:center; }
-.popup-proyecto-thumbs img {
-  width:80px; height:80px; object-fit:cover;
-  border-radius:6px; cursor:pointer;
-  transition:transform 0.2s ease;
-}
-.popup-proyecto-thumbs img:hover { transform:scale(1.05); box-shadow:0 0 6px rgba(0,0,0,0.3); }
-
-.popup-proyecto-cta {
-  display:inline-block; margin-top:1.5rem;
-  padding:0.8rem 1.2rem; background:var(--color-light-blue); color:#fff;
-  font-weight:600; text-decoration:none; border-radius:6px;
-  transition:background 0.3s ease;
-}
-.popup-proyecto-cta:hover { background:  var(--color-light-blue); }
-
-
-	  
-	  
-	  
-	  
-	  
-	  
-	  .section-container {
-  padding:4rem 2rem;
-  max-width:1200px;
-  margin:0 auto;
+#rotationSlider{
+  width:80%;
+  margin-top:20px;
 }
 
-.section-header {
-  margin-bottom:2rem;
-}
-.section-num {
-  font-weight:600;
-  color:var(--color-light-blue);
-  display:block;
-  margin-bottom:0.5rem;
-}
-.section-header h2 {
-  font-size:1.8rem;
-  font-weight:800;
-  margin-bottom:0.5rem;
-}
-.section-header p {
-  font-size:1rem;
-  color:var(--color-dark-gray);
-}
-
-.cotizacion-content {
+.viewer-panel{
   display:flex;
-  gap:2rem;
+  flex-direction:column;
+  gap:30px;
+}
+
+.viewer-info h3{
+  font-size:28px;
+  color:#c416b6;
+}
+
+.viewer-info p{
+  color:#666;
+}
+
+.viewer-group span{
+  display:block;
+  margin-bottom:10px;
+  font-weight:600;
+}
+
+.viewer-products,
+.viewer-styles,
+.viewer-colors{
+  display:flex;
+  gap:10px;
   flex-wrap:wrap;
 }
 
-.cotizacion-info {
-  flex:1;
-  min-width:250px;
-}
-.cotizacion-info p {
-  margin-bottom:1rem;
-  font-size:0.95rem;
-}
-.cotizacion-info a {
-  color:var(--color-light-blue);
-  text-decoration:none;
-}
-.cotizacion-info a:hover {
-  text-decoration:underline;
+.viewer-products button,
+.viewer-styles button{
+  border:none;
+  padding:10px 16px;
+  border-radius:30px;
+  background:#eee;
+  cursor:pointer;
+  transition:.3s;
 }
 
-.cotizacion-form {
-  flex:2;
+.viewer-products button.active,
+.viewer-styles button.active{
+  background:#6d29a7;
+  color:#fff;
+}
+
+.viewer-colors button{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:2px solid transparent;
+  cursor:pointer;
+}
+
+.viewer-colors button.active{
+  border:2px solid #000;
+}
+
+@media(max-width:900px){
+  .viewer-grid{
+  display:block;
+  margin-bottom:8px;
+  font-weight:300;
+  }
+}
+	
+
+
+
+	.nav-logo img{
+height:35px;
+display:block;
+}
+	.nav-logo{
+
+font-weight:bold;
+font-size:1.3rem;
+color:var(--morado1);
+
+}
+	
+	
+	/* ================= catalogo ===================================================================================== */
+
+.catalogo-pro{
+  padding:80px 40px;
+}
+
+.catalogo-pro h2{
+  color:var(--morado);
+  text-align:center;
+  margin-bottom:40px;
+}
+
+/* GRID DESKTOP */
+.catalogo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+/* CARD */
+.catalogo-card{
+  aspect-ratio:1/1;
+  border-radius:12px;
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+}
+
+.catalogo-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.catalogo-card .overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  opacity:0;
+  transition:.3s;
+}
+
+.catalogo-card:hover .overlay{
+  opacity:1;
+}
+
+/* WRAPPER */
+.catalogo-wrapper{
+  position:relative;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* FLECHAS */
+.catalogo-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:var(--morado);
+  color:#fff;
+  border:none;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.catalogo-arrow.left{ left:-10px; }
+.catalogo-arrow.right{ right:-10px; }
+
+@media(min-width:769px){
+  .catalogo-arrow{
+    display:none;
+  }
+}
+
+/* TABLET */
+@media(max-width:1024px){
+  .catalogo-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+/* MOBILE CARRUSEL */
+@media(max-width:768px){
+
+  .catalogo-grid{
+    display:flex;
+    gap:15px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+  }
+
+  .catalogo-card{
+    min-width:85%;
+    height:420px;
+    flex-shrink:0;
+    scroll-snap-align:center;
+  }
+}
+
+/* FILTROS */
+.catalogo-filtros{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:30px;
+}
+
+.filtro{
+  padding:8px 16px;
+  border:none;
+  border-radius:20px;
+  background:#eee;
+  cursor:pointer;
+}
+
+.filtro.active{
+  background:var(--morado);
+  color:#fff;
+}
+
+/* ================= POPUP CATALOGO ================= */
+
+.catalogo-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  z-index:9999;
+}
+
+.catalogo-popup.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.catalogo-content{
+  background:#fff;
+  width:90%;
+  max-width:900px;
+  border-radius:15px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  overflow:hidden;
+  position:relative;
+}
+
+/* VISOR */
+.viewer-box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f5f5f5;
+}
+
+.catalogo-main{
+  max-width:280px;
+}
+
+.viewer-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#000;
+  color:#fff;
+  border:none;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+}
+
+.viewer-arrow.left{ left:10px; }
+.viewer-arrow.right{ right:10px; }
+
+/* TEXTO */
+.catalogo-body{
+  padding:25px;
+}
+
+.catalogo-gallery{
+  display:flex;
+  gap:10px;
+}
+
+.catalogo-gallery img{
+  width:60px;
+  height:60px;
+  object-fit:cover;
+}
+
+/* BOTON 360 */
+.btn-360{
+  margin-top:20px;
+  background:linear-gradient(135deg,var(--morado),var(--morado-claro));
+  color:#fff;
+  border:none;
+  padding:10px;
+  border-radius:8px;
+}
+
+/* CERRAR */
+.catalogo-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#000;
+  color:#fff;
+  border-radius:50%;
+  width:35px;
+  height:35px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* ================= 360 MODAL ================= */
+
+.viewer360-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  z-index:10000;
+}
+
+.viewer360-modal.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.viewer360-content{
+  background:#fff;
+  padding:20px;
+  border-radius:15px;
+}
+
+#viewer360Img{
+  max-width:300px;
+}
+
+/* ================= MOBILE POPUP ================= */
+
+@media(max-width:768px){
+
+  .catalogo-content{
+    grid-template-columns:1fr;
+  }
+
+
+  .catalogo-main{
+    max-width:200px;
+  }
+
+}
+	@media(max-width:768px){
+
+  .catalogo-filtros{
+    display:grid;
+    grid-template-columns:1fr 1fr; /* 🔥 2 columnas */
+    gap:10px;
+  }
+
+  .filtro{
+    width:100%;
+    text-align:center;
+  }
+
+}
+	@media(max-width:768px){
+
+  .catalogo-card{
+    min-width:20%;   
+    height:280px;    
+  }
+
+}
+	/*================= Nosotros =====================================================================================*/
+	
+	/* ================= ABOUT PRO ================= */
+
+.about-pro{
+  padding:110px 60px;
+  background:#f7f7f7;
+}
+
+/* CONTENEDOR */
+.about-wrapper{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:70px;
+  margin-bottom:90px;
+}
+
+/* ================= TEXTO ================= */
+
+.about-left h2{
+  font-size:44px;
+  color:var(--morado);
+  margin-bottom:20px;
+}
+
+.about-highlight{
+  font-size:20px;
+  color:var(--verde);
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+.about-left p{
+  color:var(--gris);
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+/* BADGE */
+.about-badge{
+  margin-top:25px;
+  padding:18px;
+  border-radius:10px;
+  background:#fff;
+  border-left:4px solid var(--verde);
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* ================= VALORES ================= */
+
+.about-right h3{
+  font-size:26px;
+  margin-bottom:25px;
+  color:var(--morado);
+}
+
+.about-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+/* CARD */
+.about-card{
+  background:#fff;
+  padding:18px;
+  border-radius:12px;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  transition:.3s;
+  border:1px solid #eee;
+}
+
+.about-card span{
+  color:var(--morado);
+  font-weight:bold;
+  font-size:14px;
+}
+
+.about-card p{
+  font-size:14px;
+  color:var(--gris);
+}
+
+.about-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ================= LINEAS ================= */
+
+.about-lines{
+  text-align:center;
+}
+
+.about-lines h3{
+  font-size:30px;
+  margin-bottom:30px;
+  color:var(--morado);
+}
+
+.lines-grid{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.lines-grid div{
+  padding:14px 22px;
+  border-radius:30px;
+  background:var(--morado);
+  color:#fff;
+  font-size:14px;
+  transition:.3s;
+}
+
+.lines-grid div:hover{
+  background:var(--morado-claro);
+  transform:scale(1.05);
+}
+
+/* ================= DETALLE PREMIUM ================= */
+
+/* línea decorativa */
+.about-left h2::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:4px;
+  background:#2680bc;
+  margin-top:10px;
+  border-radius:10px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .about-pro{
+    padding:70px 20px;
+  }
+
+  .about-wrapper{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .about-left h2{
+    font-size:32px;
+  }
+
+  .about-highlight{
+    font-size:16px;
+  }
+
+  .about-cards{
+    grid-template-columns:1fr;
+  }
+
+  .about-lines h3{
+    font-size:24px;
+  }
+
+}
+	/*================= clientes =====================================================================================*/
+	
+	/* ================= CLIENTES ================= */
+
+.clientes-pro{
+  padding:100px 60px;
+  background:#fff;
+  text-align:center;
+}
+
+.clientes-pro h2{
+  font-size:36px;
+  color:var(--morado);
+  margin-bottom:50px;
+}
+
+/* ================= WRAPPER ================= */
+.clientes-wrapper{
+  position:relative;
+  overflow:hidden; /* mantiene degradados y evita que se vean fuera */
+}
+
+/* 🔥 DEGRADADOS LATERALES */
+.clientes-wrapper::before,
+.clientes-wrapper::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:120px;
+  height:100%;
+  z-index:2;
+  pointer-events:none;
+}
+
+.clientes-wrapper::before{
+  left:0;
+  background:linear-gradient(to right,var(--blanco),transparent);
+}
+
+.clientes-wrapper::after{
+  right:0;
+  background:linear-gradient(to left,var(--blanco),transparent);
+}
+
+/* ================= ROW ================= */
+.clientes-row{
+  position:relative;
+  overflow:hidden; /* mantiene el recorte lateral */
+}
+
+/* ================= TRACK ================= */
+.clientes-track{
+  display:flex;
+  gap:80px;
+  width:max-content;
+  animation:clientesLoop 28s linear infinite;
+}
+
+/* ================= LOGOS ================= */
+.clientes-track img{
+  height:55px;
+  object-fit:contain;
+  filter:grayscale(100%);
+  opacity:0.6;
+  transition:.4s;
+  padding:10px; /* espacio invisible para que al crecer no se corte */
+  box-sizing:content-box; /* asegura que el padding no reduzca la imagen */
+}
+
+/* hover elegante */
+.clientes-track img:hover{
+  filter:grayscale(0%);
+  opacity:1;
+  transform:scale(1.15);
+}
+
+/* ================= LOOP ================= */
+@keyframes clientesLoop{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+  .clientes-pro{
+    padding:60px 20px;
+  }
+
+  .clientes-pro h2{
+    font-size:26px;
+    color:var(--morado);
+  }
+
+  .clientes-track{
+    gap:40px;
+  }
+
+  .clientes-track img{
+    height:40px;
+    padding:8px; /* también espacio en móvil */
+  }
+
+}
+
+	
+	/*================= contactos =====================================================================================*/
+	
+	/* ================= CONTACTO ================= */
+
+.contacto-pro{
+  padding:100px 60px;
+  background:#f7f7f7;
+  text-align:center;
+}
+
+/* WRAPPER */
+.contacto-wrapper{
+  max-width:800px;
+  margin:auto;
+}
+
+/* TITULO */
+.contacto-wrapper h2{
+  font-size:40px;
+  color:var(--morado);
+  margin-bottom:20px;
+}
+
+/* TEXTO */
+.contacto-texto{
+  color:var(--gris);;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+
+/* DATOS */
+.contacto-datos{
+  margin-bottom:25px;
+}
+
+.contacto-datos p{
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+/* BOTONES */
+.contacto-botones{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:40px;
+  flex-wrap:wrap;
+}
+
+.btn-contacto{
+  padding:12px 22px;
+  background:var(--morado);
+  color:#fff;
+  border-radius:8px;
+  text-decoration:none;
+  font-size:14px;
+  transition:.3s;
+}
+
+.btn-contacto:hover{
+  background:var(--morado-claro);
+}
+
+.btn-contacto.outline{
+  background:transparent;
+  border:1px solid var(--morado);
+  color:var(--morado);
+}
+
+.btn-contacto.outline:hover{
+  background:var(--morado);
+  color:#fff;
+}
+
+/* ================= REDES ================= */
+
+.contacto-redes{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.red{
+  padding:10px 18px;
+  border-radius:30px;
+  background:#fff;
+  border:1px solid #eee;
+  text-decoration:none;
+  color:var(--morado);
+  font-size:14px;
+  transition:.3s;
+}
+
+.red:hover{
+  background:var(--morado);
+  color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .contacto-pro{
+    padding:60px 20px;
+  }
+
+  .contacto-wrapper h2{
+    font-size:30px;
+  }
+
+}
+	/*=============================================footer=======================================================*/
+	/* ================= FOOTER PRO ================= */
+
+.footer-pro{
+  background:linear-gradient(135deg, var(--morado), var(--morado-grad));
+  color:#fff;
+  padding:80px 60px 30px;
+}
+
+/* GRID */
+.footer-wrapper{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:40px;
+  margin-bottom:50px;
+}
+
+/* BRAND */
+.footer-brand h3{
+  font-size:26px;
+  margin-bottom:15px;
+}
+
+.footer-brand span{
+  color:var(--verde-agua);
+}
+
+.footer-brand p{
+  font-size:14px;
+  line-height:1.6;
+  opacity:0.9;
+}
+
+/* TITULOS */
+.footer-links h4,
+.footer-contacto h4,
+.footer-redes h4{
+  margin-bottom:15px;
+  font-size:16px;
+}
+
+/* LINKS */
+.footer-links a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  margin-bottom:8px;
+  font-size:14px;
+  opacity:0.8;
+  transition:.3s;
+}
+
+.footer-links a:hover{
+  opacity:1;
+  transform:translateX(5px);
+}
+
+/* CONTACTO */
+.footer-contacto p{
+  font-size:14px;
+  margin-bottom:6px;
+  opacity:0.85;
+}
+
+/* REDES */
+.redes-icons{
   display:flex;
   flex-direction:column;
-  gap:1rem;
-}
-.cotizacion-form label {
-  font-weight:600;
-  font-size:0.9rem;
-}
-.cotizacion-form input,
-.cotizacion-form textarea {
-  width:100%;
-  padding:0.6rem;
-  border:1px solid #ccc;
-  border-radius:6px;
-  font-size:0.95rem;
-}
-.cotizacion-form textarea {
-  min-height:120px;
-  resize:vertical;
-}
-.cotizacion-submit {
-  background:var(--color-light-blue);
-  color:#fff;
-  font-weight:600;
-  padding:0.8rem 1.2rem;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  transition:background 0.3s ease;
-}
-.cotizacion-submit:hover {
-  background:  var(--color-light-blue);
+  gap:10px;
 }
 
-.cotizacion-footer {
-  margin-top:2rem;
-  text-align:center;
-  font-size:0.9rem;
-  color:var(--color-dark-gray);
-}
-.cotizacion-social {
-  margin:1rem 0;
-}
-.cotizacion-social a {
-  margin:0 0.5rem;
-  color:var(--color-light-blue);
+.redes-icons a{
   text-decoration:none;
+  color:#fff;
+  font-size:14px;
+  padding:8px 12px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.1);
+  transition:.3s;
+  width:fit-content;
 }
-.cotizacion-social a:hover {
-  text-decoration:underline;
+
+.redes-icons a:hover{
+  background:var(--verde-agua);
+  color:#000;
+  transform:scale(1.05);
 }
-.cotizacion-status {
+
+/* BOTTOM */
+.footer-bottom{
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,0.2);
+  padding-top:20px;
+}
+
+.footer-bottom p{
+  font-size:13px;
+  opacity:0.8;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .footer-pro{
+    padding:60px 20px 20px;
+  }
+
+  .footer-wrapper{
+    grid-template-columns:1fr;
+    gap:30px;
+    text-align:center;
+  }
+
+  .redes-icons{
+    align-items:center;
+  }
+
+}
+	/* LOGO FOOTER */
+
+.footer-logo img{
+  width:140px;
+  margin-bottom:15px;
   display:block;
-  margin-top:0.5rem;
-  font-weight:600;
-  color:var(--color-light-blue);
 }
 
-	  
-	  
-	  
-	  
-	  
-	  
-	  /* ==========================================================================
-   1. VARIABLES Y CONFIGURACIÓN BASE
-   ========================================================================== */
-:root {
-  --color-dark-blue: #002a4c;
-  --color-light-blue: #2680bc;
-  --color-dark-gray: #1d2222;
-  --color-light-gray: #f7f7f7;
-  --white: #ffffff;
-  --shadow-soft: 0 6px 16px rgba(0, 0, 0, 0.1);
-  --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.4);
+/* opcional: efecto pro */
+.footer-logo img{
+  filter:brightness(0) invert(1);
+  opacity:0.95;
+  transition:.3s;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.footer-logo img:hover{
+  opacity:1;
+  transform:scale(1.05);
 }
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: #f9f9f9;
-  color: var(--color-dark-gray);
-  line-height: 1.6;
-  overflow-x: hidden; /* Evita cualquier desborde global */
-  width: 100%;
-}
-
-h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-}
-
-h2 span { color: var(--color-light-blue); }
-
-/* ==========================================================================
-   2. HEADER Y NAVEGACIÓN (DESKTOP)
-   ========================================================================== */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 5%;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid #eee;
-}
-
-nav.menu {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-nav.menu a {
-  color: var(--color-dark-gray);
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-nav.menu a:hover {
-  color: var(--color-light-blue);
-}
-
-.cta1 {
-  background: var(--color-light-blue);
-  color: var(--white) !important;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-}
-
-.hamburger {
-  display: none; /* Oculto en desktop */
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: var(--color-light-blue);
-  cursor: pointer;
-}
-
-/* ==========================================================================
-   3. HERO SECTION
-   ========================================================================== */
-.hero {
-  position: relative;
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  color: var(--white);
-  padding: 2rem 5%;
-  background: #000;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-}
-
-.hero-content h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-}
-
-.hero-content .buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.hero-content .buttons a {
-  border: 1px solid var(--white);
-  padding: 1rem 2rem;
-  color: var(--white);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.hero-content .buttons a:hover {
-  background: var(--color-light-blue);
-  border-color: var(--color-light-blue);
-}
-
-/* ==========================================================================
-   4. GRIDS DE SECCIÓN (NOSOTROS, SERVICIOS, PORTAFOLIO)
-   ========================================================================== */
-.nosotros, .contenedor-portafolio {
-  padding: 6rem 5%;
-  max-width: 1300px;
-  margin: auto;
-}
-
-/* Estructura Base de Grid */
-.grid-nosotros, .grid-clientes, .section-header {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 2rem;
-  margin-bottom: 4rem;
-}
-
-.section-num {
-  font-size: 0.9rem;
-  color: var(--color-light-blue);
-  font-weight: 700;
-  letter-spacing: 0.2em;
-}
-
-/* Tarjetas de Fases y Servicios */
-.fases{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.fase{
-  background: var(--white);
-  padding: 2.5rem;
-  border-radius: 12px;
-  border: 1px solid #eee;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.fase:hover, .servicio-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-soft);
-}
-
-/* Portafolio */
-.proyectos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 3fr));
-  gap: 2rem;
-}
-
-.proyecto-card {
-  background: var(--white);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.proyecto-img img {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-}
-
-/* ==========================================================================
-   5. CARRUSEL DE LOGOS
-   ========================================================================== */
-.carousel-wrapper {
-  overflow: hidden;
-  padding: 3rem 0;
-  position: relative;
-}
-
-.track {
-  display: flex;
-  width: max-content;
-  gap: 5rem;
-  animation: scroll 40s linear infinite;
-}
-
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* ==========================================================================
-   6. RESPONSIVE MEJORADO (SOLUCIÓN A TUS PROBLEMAS)
-   ========================================================================== */
-@media (max-width: 768px) {
-
-  /* --- NAVEGACIÓN OVERLAY --- */
-  .hamburger {
-    display: block;
-    z-index: 1100;
-  }
-
-  nav.menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.98);
-    flex-direction: column;
-    justify-content: center;
-    gap: 2.5rem;
-    z-index: 1050;
-    /* Efecto aparecer/desaparecer */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-
-  nav.menu.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  nav.menu a {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  /* --- RE-ESTRUCTURACIÓN DE CADA GRID --- */
-  
-  /* Independizar Nosotros y Clientes */
-  .grid-nosotros, .grid-clientes, .section-header {
-    grid-template-columns: 1fr; /* Colapsa el número arriba del texto */
-    gap: 1rem;
-  }
-
-  .section-num {
-    border-bottom: 2px solid var(--color-light-blue);
-    width: fit-content;
-    padding-bottom: 0.2rem;
-  }
-
-  /* Independizar Fases */
-  .fases {
-    grid-template-columns: 1fr;
-  }
-
-
-  /* Independizar Portafolio */
-  .proyectos-grid {
-    grid-template-columns: 3fr; /* Una sola columna para evitar recortes */
-    gap: 3rem;
-  }
-
-  /* Independizar Cotización */
-
-
-  .cotizacion-content {
-    grid-template-columns: 1fr;
-    padding: 1.5rem;
-  }
-
-  /* Independizar Métricas */
-  .metrics {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    text-align: center;
-  }
-
-  /* --- AJUSTES DE TEXTO --- */
-  .hero-content h1 {
-    font-size: 2.2rem;
-    text-align: center;
-  }
-
-  .hero-content .buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-content .buttons a {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* --- AJUSTES FINALES PARA MÓVILES MUY PEQUEÑOS --- */
-@media (max-width: 480px) {
-  .nosotros, .contenedor-portafolio {
-    padding: 3rem 1.5rem;
-  }
-
-  .metrics p {
-    font-size: 1.8rem;
-  }
-}
-	/* --- RESPONSIVE SERVICIOS --- */
-
-@media (max-width: 1024px) {
-  .servicios-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
-    gap: 1.5rem;
-  }
-  
-  .contenedor-servicios {
-    max-width: 70%;
-  }
-}
-
-@media (max-width: 768px) {
-  .servicios {
-    padding: 4rem 1.5rem;
-  }
-
-  .grid-servicios {
-    grid-template-columns: 1fr; /* Colapsar header */
-    gap: 1rem;
-    margin-bottom: 3rem;
-  }
-
-  .section-num {
-    padding-top: 0;
-    border-bottom: 2px solid var(--color-light-blue);
-    width: fit-content;
-    padding-bottom: 0.2rem;
-  }
-
-  .servicios-grid {
-    grid-template-columns: 1fr; /* 1 columna en móviles */
-    gap: 1.5rem;
-  }
-
-  .servicio-card {
-    padding: 1.8rem;
-  }
-
-  .grid-servicios h2 {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .tags span {
-    font-size: 0.65rem;
-    padding: 0.3rem 0.6rem;
-  }
-  
-  .servicio-card h3 {
-    font-size: 1.15rem;
-  }
-}
-	  /* --- RESPONSIVE POPUPS --- */
-
-@media (max-width: 768px) {
-  .popup-content {
-    padding: 3.5rem 1.5rem 1.5rem; /* Ajuste de espacio interno */
-    border-radius: 12px;
-    width: 95%; /* Ocupa casi toda la pantalla */
-  }
-
-  .popup-header h2 {
-    font-size: 1.6rem;
-  }
-
-  .subtitle {
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
-
-  /* Si tienes elementos de proceso dentro (process-item) */
-  .process-item {
-    flex-direction: column; /* Apilar imagen y texto */
-    gap: 0.8rem;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-
-  .process-num {
-    font-size: 1.5rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .process-info {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .process-img {
-    width: 100% !important; /* Imagen a ancho completo */
-    height: 200px !important;
-    border-radius: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .popup {
-    padding: 0.5rem; /* Popup casi a pantalla completa */
-  }
-
-  .popup-content {
-    max-height: 95vh;
-    padding: 3rem 1rem 1rem;
-  }
-
-  /* Ajuste de miniaturas de imágenes si las usas */
-  .thumbs {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-  }
-  
-  .thumbs img {
-    width: 100%;
-    height: 60px;
-  }
-}
-:root {
-  --primary-color: #007bff;
-  --secondary-color: #ff4757;
-  --bg-dark: #333;
-}
-
-.fab-container {
-  position: fixed;
-  bottom: 250px;
-  right: 12px;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  z-index: 99990;
-}
-
-#fab-checkbox { display: none; }
-
-/* Botón Principal */
-.fab-main {
-  width: 60px;
-  height: 60px;
-  background: var(--primary-color);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: 10;
-}
-
-/* Opciones de Redes */
-.fab-options {
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  pointer-events: none; /* Evita clics cuando está oculto */
-}
-
-.fab-btn {
-  width: 50px;
-  height: 50px;
-  background: var(--bg-dark);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-decoration: none;
-  font-size: 20px;
-  opacity: 0;
-  transform: scale(0) translateY(20px);
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  /* Retraso basado en la variable --i definida en el HTML */
-  transition-delay: calc(0.05s * var(--i)); 
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-}
-
-/* --- Animaciones al activar --- */
-
-#fab-checkbox:checked ~ .fab-main {
-  background: var(--secondary-color);
-  transform: rotate(135deg);
-}
-
-#fab-checkbox:checked ~ .fab-options .fab-btn {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-  pointer-events: auto;
-}
-
-/* Hover effects */
-.fab-btn:hover {
-  transform: scale(1.1) !important;
-  background: #555;
-}
-
-.fab-btn.facebook:hover { background: #3b5998; }
-.fab-btn.instagram:hover { background: #e1306c; }
-.fab-btn.whatsapp:hover { background: #25d366; }
-  </style>
+</style>
 </head>
 <body>
 
-<header>
-  <a href="#inicio">
- <picture>
-  <!-- Imagen para pantallas grandes (PC) -->
-  <source srcset="logo-1.png" media="(min-width: 1200px)">
+<!-- ================= NAVBAR ===================================================================================== -->
+<header class="navbar">
+
   
-  <!-- Imagen por defecto (Mobile) -->
-  <img src="logo.webp" alt="ODC Logo" style="height:30px;">
-</picture>
+<a href="#Inicio"><div class="logo"><div class="nav-logo">
+<img src="logo.png" alt="Hilamos">
+</div></div>
 </a>
-  <nav class="menu">
-    <a href="#nosotros">Nosotros</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#portafolio">Proyectos</a>
-    <a href="#cotizacion">Contacto</a>
-    <a href="#cotiza" class="cta1">Cotizar Proyecto</a>
+
+  <nav class="nav-links">
+    <a href="#Inicio">Inicio</a>
+    <a href="#lineas">Líneas</a>
+    <a href="#Catálogo">Catálogo</a>
+    <a href="#Nosotros">Nosotros</a>
+    <a href="#Contacto">Contacto</a>
   </nav>
-  <button class="hamburger" aria-label="Abrir menú">☰</button>
-</header>
-	
-<div class="fab-container">
-  <input type="checkbox" id="fab-checkbox">
-  
-  <div class="fab-options">
-    <a href="#" class="fab-btn" style="--i:1"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="fab-btn" style="--i:2"><i class="fab fa-instagram"></i></a>
-    <a href="#" class="fab-btn" style="--i:3"><i class="fab fa-whatsapp"></i></a>
+
+  <div class="nav-icons">
+    <div class="menu-toggle" id="menuToggle">☰</div>
   </div>
 
-  <label for="fab-checkbox" class="fab-main">
-    <i class="fas fa-plus"></i>
-  </label>
+</header>
+
+<!-- ================= MOBILE MENU ===================================================================================== -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#Inicio">Inicio</a>
+    <a href="#lineas">Líneas</a>
+    <a href="#Catálogo">Catálogo</a>
+    <a href="#Nosotros">Nosotros</a>
+    <a href="#Contacto">Contacto</a>
 </div>
-	
-<section class="hero"  id="inicio">
-  <!-- Slides de fondo -->
-  <div class="hero-slide active" style="background-image:url('img1.webp');"></div>
-  <div class="hero-slide" style="background-image:url('img2.webp');"></div>
-  <div class="hero-slide" style="background-image:url('img3.webp');"></div>
-  <div class="hero-slide" style="background-image:url('img4.webp');"></div>
-  <div class="hero-slide" style="background-image:url('img5.webp');"></div>
+
+<!-- ================= HERO ===================================================================================== -->
+<section class="hero" id="Inicio">
+
+  <picture>
+    <source media="(max-width: 768px)" srcset="hero-mobile.jpg">
+    <source media="(max-width: 1024px)" srcset="hero-tablet.jpg">
+    <img src="hero-desktop.jpg" alt="Uniformes Hilamos">
+  </picture>
+
   <div class="hero-overlay"></div>
 
-  <!-- Contenido sobre el banner -->
   <div class="hero-content">
-    <h1>Diseño & <span>Construcción</span><br>que inspira.</h1>
-    <p>Transformamos espacios con creatividad, técnica y compromiso. Nos especializamos en estructuras corporativas, comerciales, residenciales e institucionales de gran escala en toda Colombia.</p>
-    <div class="buttons">
-      <a href="#proyectos">Ver Proyectos</a>
-      <a href="#servicios">Nuestros Servicios</a>
-    </div>
+    <h1>
+      PRENDAS QUE <br>
+      <span>REFLEJAN EL ESTILO DE TU EMPRESA</span>
+    </h1>
+
+    <p>
+      Diseñamos, Confeccionamos y Comercializamos 
+	uniformes con los más altos estándares de Calidad
+    </p>
   </div>
+
 </section>
-<section id="nosotros" class="nosotros">
-	
-    <div class="metrics">
-      <div><h4>m² construidos</h4><p class="counter" data-target="62350">0</p></div>
-      <div><h4>Proyectos entregados</h4><p class="counter" data-target="43">0</p></div>
-      <div><h4>Años exp.</h4><p class="counter" data-target="8">0</p></div>
-      <div><h4>Estado</h4><p style="color:var(--color-light-blue);">Operativo</p></div>
-    </div>
-</section>
-<section class="nosotros">
-  <!-- Grid proceso -->
-  <div class="grid-nosotros">
-    <!-- Columna izquierda -->
-    <div class="col-izq">
-      <span class="section-num">01 / PROCESO</span>
-    </div>
+<!-- ================= LINEAS ===================================================================================== -->
+<section class="lineas" id="lineas">
 
-    <!-- Columna derecha -->
-    <div class="col-der">
-      <h2>Del plano al <span>espacio vivido</span></h2>
-      <p>Cuatro fases controladas que garantizan calidad, cumplimiento y diseño integral.</p>
-
-      <!-- PASOs en fila -->
-      <div class="fases">
-        <div class="fase">
-          <h3>&gt; PASO_01</h3>
-          <h4>Diagnóstico y Análisis</h4>
-          <p>Levantamiento del sitio, análisis de necesidades del cliente y estudio de viabilidad técnica y normativa.</p>
-          <button class="detalle" data-popup="popup1">+ Ver detalle</button>
-        </div>
-        <div class="fase">
-          <h3>&gt; PASO_02</h3>
-          <h4>Diseño Técnico</h4>
-          <p>Modelado BIM, renders, planos de detalle, coordinación entre especialidades y cálculo estructural.</p>
-          <button class="detalle" data-popup="popup2">+ Ver detalle</button>
-        </div>
-        <div class="fase">
-          <h3>&gt; PASO_03</h3>
-          <h4>Ejecución de Obra</h4>
-          <p>Construcción con control de calidad, cronograma, presupuesto y supervisión técnica continua.</p>
-          <button class="detalle" data-popup="popup3">+ Ver detalle</button>
-        </div>
-        <div class="fase">
-          <h3>&gt; PASO_04</h3>
-          <h4>Entrega y Seguimiento</h4>
-          <p>Entrega documentada, comisionado y mantenimiento preventivo durante el primer año de garantía.</p>
-          <button class="detalle" data-popup="popup4">+ Ver detalle</button>
-        </div>
-      </div>
-    </div>
+  <div class="lineas-header">
+    <h2>Nuestras líneas de negocio</h2>
+    <p>Soluciones en dotación adaptadas a cada sector empresarial</p>
   </div>
 
-  <!-- Grid clientes -->
-  <div class="grid-clientes">
-    <div class="col-izq">
-      <span class="section-num">CONFIAN EN ODC</span>
-      <p>Marcas que han confiado en nuestro equipo a lo largo de los años.</p>
-    </div>
-      <div class="carousel-wrapper">
-        <div class="carousel">
-          <div class="fade-left"></div>
-          <div class="fade-right"></div>
-          <div class="track">
-            <!-- Logos duplicados para efecto infinito -->
-            <img src="cliente-exito.webp" alt="Grupo Éxito">
-            <img src="cliente-ara.webp" alt="Ara">
-            <img src="cliente-alcabama.webp" alt="Alcabama">
-            <img src="cliente-amarilo.webp" alt="Amarilo">
-            <img src="cliente-ingeurbe.webp" alt="Ingeurbe">
-            <img src="cliente-tostao.webp" alt="Tostao’">
-            <img src="cliente-pizza.webp" alt="Pizza House">
-            <img src="cliente-sanautos.webp" alt="Sanautos">
-            <img src="cliente-necio.webp" alt="Necio Gastro Bar">
-            <img src="cliente-cumbrera.webp" alt="Cumbrera">
-            <img src="cliente-tassoni.webp" alt="Tassoni">
-            <img src="cliente-proyect.webp" alt="Proyectores y pantallas led">
-            <img src="cliente-workana.webp" alt="Workana">
-            <!-- Duplicados -->
-            <img src="cliente-exito.webp" alt="Grupo Éxito">
-            <img src="cliente-ara.webp" alt="Ara">
-            <img src="cliente-alcabama.webp" alt="Alcabama">
-            <img src="cliente-amarilo.webp" alt="Amarilo">
-            <img src="cliente-ingeurbe.webp" alt="Ingeurbe">
-            <img src="cliente-tostao.webp" alt="Tostao’">
-            <img src="cliente-pizza.webp" alt="Pizza House">
-            <img src="cliente-sanautos.webp" alt="Sanautos">
-            <img src="cliente-necio.webp" alt="Necio Gastro Bar">
-            <img src="cliente-cumbrera.webp" alt="Cumbrera">
-            <img src="cliente-tassoni.webp" alt="Tassoni">
-            <img src="cliente-proyect.webp" alt="Proyectores y pantallas led">
-            <img src="cliente-workana.webp" alt="Workana">
-          </div>
+  <div class="lineas-wrapper">
+
+    <!-- Botones -->
+    <button class="nav-btn prev">←</button>
+    <button class="nav-btn next">→</button>
+
+    <div class="lineas-track" id="track">
+
+      <!-- ADMINISTRATIVO -->
+      <div class="linea-card"
+        data-title="Administrativo"
+        data-text="Uniformes corporativos confeccionados con telas de la mejor calidad, que brindan durabilidad, comodidad y elegancia"
+        data-img="admin1.jpg"
+        data-gallery="admin1.jpg,admin2.jpg,admin3.jpg"
+        data-list="Diseñamos para cada empresa de acuerdo al requerimiento de la misma,Trabajamos con las mejores empresas textiles de nuestro país,Garantizamos todos nuestros productos en lo concerniente a calidad y confección">
+        <picture>
+          <source media="(max-width: 768px)" srcset="admin-desktop.jpg">
+          <source media="(max-width: 1024px)" srcset="admin-tablet.jpg">
+          <img src="admin-desktop.jpg" alt="Administrativo">
+        </picture>
+        <div class="overlay"></div>
+        <div class="contenido"></div>
       </div>
+
+      <!-- ASISTENCIAL -->
+      <div class="linea-card"
+        data-title="Asistencial"
+        data-text="Comodidad y alto rendimiento para personal de salud. Prendas transpirables, resistentes a lavados frecuentes y con ajuste ergonómico."
+        data-img="salud1.jpg"
+        data-gallery="salud1.jpg,salud2.jpg,salud3.jpg"
+        data-list="Prendas transpirables,Ajuste ergonómico,Resistencia a lavados,Seguridad sanitaria">
+        <picture>
+          <source media="(max-width: 768px)" srcset="salud-desktop.jpg">
+          <source media="(max-width: 1024px)" srcset="salud-tablet.jpg">
+          <img src="salud-desktop.jpg" alt="Asistencial">
+        </picture>
+        <div class="overlay"></div>
+        <div class="contenido"></div>
+      </div>
+
+      <!-- HOTELERÍA -->
+      <div class="linea-card"
+        data-title="Hotelería"
+        data-text="Imagen impecable para recepcionistas, camareros y personal de servicio. Diseños sofisticados que refuerzan la experiencia premium del huésped."
+        data-img="hotel1.jpg"
+        data-gallery="hotel1.jpg,hotel4.png,hotel2.jpg,hotel3.jpg"
+        data-list="Los uniformes de la línea hotelera están diseñados pensando en el confort apariencia y durabilidad que requiera cada cargo, teniendo en cuenta la normatividad vigente.">
+        <picture>
+          <source media="(max-width: 768px)" srcset="hotel-desktop.jpg">
+          <source media="(max-width: 1024px)" srcset="hotel-tablet.jpg">
+          <img src="hotel-desktop.jpg" alt="Hotelería">
+        </picture>
+        <div class="overlay"></div>
+        <div class="contenido"></div>
+      </div>
+
+      <!-- OPERATIVO -->
+      <div class="linea-card"
+        data-title="Operativo"
+        data-text="Resistencia y durabilidad para labores exigentes. Uniformes diseñados para soportar condiciones extremas y brindar seguridad."
+        data-img="operativo1.jpg"
+        data-gallery="operativo1.jpg,operativo2.jpg,operativo3.jpg"
+        data-list="Prendas confeccionadas para ofrecer Seguridad resistencia y confort a las personas que los usan,Diseñamos de acuerdo a los requerimientos del cargo,Textiles de alta calidad, certificados por el fabricante">
+        <picture>
+          <source media="(max-width: 768px)" srcset="operativo-desktop.jpg">
+          <source media="(max-width: 1024px)" srcset="operativo-tablet.jpg">
+          <img src="operativo-desktop.jpg" alt="Operativo">
+        </picture>
+        <div class="overlay"></div>
+        <div class="contenido"></div>
+      </div>
+
     </div>
+
+    <div class="dots" id="dots"></div>
+
   </div>
+
 </section>
 
-<!-- POPUPS -->
-<div id="popup1" class="popup">
+<!-- POPUP -->
+<div class="popup" id="popup">
   <div class="popup-content">
-    <span class="close">&times;</span>
-
-    <!-- Header -->
-    <div class="popup-header">
-      <span class="PASO-num">PASO_01 · 2 a 4 semanas</span>
-      <h2>DIAGNÓSTICO Y ANÁLISIS</h2>
-      <p class="subtitle">
-        Levantamiento del sitio, análisis de necesidades del cliente y estudio de viabilidad técnica y normativa.
-      </p>
+    <span class="close-popup" id="closePopup">✕</span>
+    <img id="popupImg" class="main-img" src="">
+    <div class="thumbs" id="thumbs"></div>
+    <div class="popup-body">
+      <h2 id="popupTitle"></h2>
+      <p id="popupText"></p>
+      <ul id="popupList"></ul>
+      <a id="whatsappBtn" target="_blank" class="btn-wsp">Solicitar cotización</a>
     </div>
-
-    <!-- PROCESO -->
-    <div class="popup-section">
-      <h3>PROCESO</h3>
-
-      <!-- Fase 01 -->
-      <div class="process-item">
-        <span class="process-num">01</span>
-        <div class="process-info">
-          <img src="fase1-visita.png" alt="Visita técnica" class="process-img">
-          <div>
-            <p><strong>Visita técnica al predio</strong><br>Reconocimiento del lote, accesos, redes existentes y condiciones del entorno urbano.</p>
-            <div class="thumbs">
-              <img src="fase1-visita.png" alt="Miniatura 1">
-              <img src="fase1-visita-thumb1.png" alt="Miniatura 1">
-              <img src="fase1-visita-thumb2.png" alt="Miniatura 2">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fase 02 -->
-      <div class="process-item">
-        <span class="process-num">02</span>
-        <div class="process-info">
-          <img src="fase1-briefing.png" alt="Briefing cliente" class="process-img">
-          <div>
-            <p><strong>Briefing con el cliente</strong><br>Definición de objetivos, programa arquitectónico, presupuesto objetivo y tiempos esperados.</p>
-            <div class="thumbs">
-              <img src="fase1-briefing.png" alt="Miniatura 1">
-              <img src="fase1-briefing-thumb1.png" alt="Miniatura 1">
-              <img src="fase1-briefing-thumb2.png" alt="Miniatura 2">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fase 03 -->
-      <div class="process-item">
-        <span class="process-num">03</span>
-        <div class="process-info">
-          <img src="fase1-estudios.png" alt="Estudios preliminares" class="process-img">
-          <div>
-            <p><strong>Estudios preliminares</strong><br>Suelos, topografía, hidrosanitario y eléctrico cuando el alcance lo requiere.</p>
-            <div class="thumbs">
-              <img src="fase1-estudios.png" alt="Miniatura 1">
-              <img src="fase1-estudios-thumb1.png" alt="Miniatura 1">
-              <img src="fase1-estudios-thumb2.png" alt="Miniatura 2">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fase 04 -->
-      <div class="process-item">
-        <span class="process-num">04</span>
-        <div class="process-info">
-          <img src="fase1-normativa.png" alt="Marco normativo" class="process-img">
-          <div>
-            <p><strong>Marco normativo</strong><br>Verificación de usos del suelo, índices de construcción, retiros y requisitos de licencia.</p>
-            <div class="thumbs">
-              <img src="fase1-normativa.png" alt="Miniatura 1">
-              <img src="fase1-normativa-thumb1.png" alt="Miniatura 1">
-              <img src="fase1-normativa-thumb2.png" alt="Miniatura 2">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ENTREGABLES -->
-    <div class="popup-section">
-      <h3>ENTREGABLES</h3>
-      <div class="deliverables-grid">
-        <ul>
-          <li>Informe de diagnóstico técnico</li>
-          <li>Levantamiento topográfico y arquitectónico</li>
-        </ul>
-        <ul>
-          <li>Estudio de normativa POT y curaduría</li>
-          <li>Análisis de viabilidad financiera preliminar</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <a href="#" class="cta">COTIZAR ESTA FASE →</a>
   </div>
 </div>
 
-<div id="popup2" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
+<section class="viewer360">
 
-    <div class="popup-header">
-      <span class="PASO-num">PASO_02 · 4 a 10 semanas</span>
-      <h2>DISEÑO TÉCNICO</h2>
-      <p class="subtitle">Modelado BIM, renders, planos de detalle, coordinación entre especialidades y cálculo estructural.</p>
+  <h2>Explora nuestros uniformes</h2>
+
+  <div class="viewer-grid">
+
+    <!-- VISOR -->
+    <div class="viewer-container">
+      <img id="viewerImg" draggable="false">
+      <input type="range" id="rotationSlider" min="0" value="0">
     </div>
 
-    <div class="popup-section">
-      <h3>PROCESO</h3>
+    <!-- PANEL -->
+    <div class="viewer-panel">
 
-      <div class="process-item">
-        <span class="process-num">01</span>
-        <div class="process-info">
-          <img src="fase2-anteproyecto.png" class="process-img" alt="Anteproyecto">
-          <div>
-            <p><strong>Anteproyecto arquitectónico</strong><br>Zonificación, volumetría y propuesta espacial validada con el cliente.</p>
-            <div class="thumbs">
-              <img src="fase2-anteproyecto-thumb1.png">
-              <img src="fase2-anteproyecto-thumb2.png">
-            </div>
-          </div>
-        </div>
+      <div class="viewer-info">
+        <h3 id="viewerTitle"></h3>
+        <p id="viewerText"></p>
       </div>
 
-      <div class="process-item">
-        <span class="process-num">02</span>
-        <div class="process-info">
-          <img src="fase2-bim.png" class="process-img" alt="Modelado BIM">
-          <div>
-            <p><strong>Modelado BIM</strong><br>Coordinación entre arquitectura, estructura, hidrosanitario, eléctrico y mecánico en un solo modelo.</p>
-            <div class="thumbs">
-              <img src="fase2-bim-thumb1.png">
-              <img src="fase2-bim-thumb2.png">
-            </div>
-          </div>
-        </div>
+      <div class="viewer-group">
+        <span>Estilo</span>
+        <div class="viewer-styles"></div>
       </div>
 
-      <div class="process-item">
-        <span class="process-num">03</span>
-        <div class="process-info">
-          <img src="fase2-estructural.png" class="process-img" alt="Cálculo estructural">
-          <div>
-            <p><strong>Cálculo estructural</strong><br>Memorias de cálculo bajo NSR-10 y planos de detalle constructivo.</p>
-            <div class="thumbs">
-              <img src="fase2-estructural-thumb1.png">
-              <img src="fase2-estructural-thumb2.png">
-            </div>
-          </div>
-        </div>
+      <div class="viewer-group">
+        <span>Color</span>
+        <div class="viewer-colors"></div>
       </div>
 
-      <div class="process-item">
-        <span class="process-num">04</span>
-        <div class="process-info">
-          <img src="fase2-presupuesto.png" class="process-img" alt="Presupuesto y cronograma">
-          <div>
-            <p><strong>Presupuesto y cronograma</strong><br>APUs por capítulo, programación en MS Project y curva de inversión.</p>
-            <div class="thumbs">
-              <img src="fase2-presupuesto-thumb1.png">
-              <img src="fase2-presupuesto-thumb2.png">
-            </div>
-          </div>
-        </div>
+      <div class="viewer-group">
+        <span>Categoría</span>
+        <div class="viewer-products"></div>
       </div>
+
     </div>
 
-    <div class="popup-section">
-      <h3>ENTREGABLES</h3>
-      <div class="deliverables-grid">
-        <ul>
-          <li>Planos arquitectónicos, estructurales y MEP</li>
-          <li>Modelo BIM coordinado</li>
-        </ul>
-        <ul>
-          <li>Renders fotorrealistas y recorridos 3D</li>
-          <li>Especificaciones técnicas y presupuesto detallado</li>
-        </ul>
-      </div>
-    </div>
-
-    <a href="#" class="cta">COTIZAR ESTA FASE →</a>
   </div>
-</div>
 
-
-<div id="popup3" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-
-    <div class="popup-header">
-      <span class="PASO-num">PASO_03 · Según alcance</span>
-      <h2>EJECUCIÓN DE OBRA</h2>
-      <p class="subtitle">Construcción con control de calidad, cronograma, presupuesto y supervisión técnica continua.</p>
-    </div>
-
-    <div class="popup-section">
-      <h3>PROCESO</h3>
-
-      <div class="process-item">
-        <span class="process-num">01</span>
-        <div class="process-info">
-          <img src="fase3-tierras.png" class="process-img" alt="Movimiento de tierras">
-          <div>
-            <p><strong>Movimiento de tierras y cimentación</strong><br>Excavaciones, pilotaje y placa de contrapiso con ensayos de control.</p>
-            <div class="thumbs">
-              <img src="fase3-tierras-thumb1.png">
-              <img src="fase3-tierras-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="process-item">
-        <span class="process-num">02</span>
-        <div class="process-info">
-          <img src="fase3-estructura.png" class="process-img" alt="Estructura y mampostería">
-          <div>
-            <p><strong>Estructura y mampostería</strong><br>Vaciados controlados, ensayos de compresión y cumplimiento de planos estructurales.</p>
-            <div class="thumbs">
-              <img src="fase3-estructura-thumb1.png">
-              <img src="fase3-estructura-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="process-item">
-        <span class="process-num">03</span>
-        <div class="process-info">
-          <img src="fase3-acabados.png" class="process-img" alt="Acabados y MEP">
-          <div>
-            <p><strong>Acabados y MEP</strong><br>Instalación de redes, enchapes, carpintería y acabados de alta calidad.</p>
-            <div class="thumbs">
-              <img src="fase3-acabados-thumb1.png">
-              <img src="fase3-acabados-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="process-item">
-        <span class="process-num">04</span>
-        <div class="process-info">
-          <img src="fase3-supervision.png" class="process-img" alt="Supervisión continua">
-          <div>
-            <p><strong>Supervisión continua</strong><br>Residente de obra, director técnico y comité semanal con el cliente.</p>
-            <div class="thumbs">
-              <img src="fase3-supervision-thumb1.png">
-              <img src="fase3-supervision-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="popup-section">
-      <h3>ENTREGABLES</h3>
-      <div class="deliverables-grid">
-        <ul>
-          <li>Bitácora de obra y actas semanales</li>
-          <li>Control de calidad por especialidad</li>
-        </ul>
-        <ul>
-          <li>Reportes de avance físico y financiero</li>
-          <li>Gestión HSE y permisos en obra</li>
-        </ul>
-      </div>
-    </div>
-
-    <a href="#" class="cta">COTIZAR ESTA FASE →</a>
-  </div>
-</div>
-
-<div id="popup4" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-
-    <!-- Header -->
-    <div class="popup-header">
-      <span class="PASO-num">PASO_04 · 1 año de acompañamiento</span>
-      <h2>ENTREGA Y SEGUIMIENTO</h2>
-      <p class="subtitle">
-        Entrega documentada, comisionado y mantenimiento preventivo durante el primer año de garantía.
-      </p>
-    </div>
-
-    <!-- PROCESO -->
-    <div class="popup-section">
-      <h3>PROCESO</h3>
-
-      <!-- Fase 01 -->
-      <div class="process-item">
-        <span class="process-num">01</span>
-        <div class="process-info">
-          <img src="fase4-preentrega.jpg" class="process-img" alt="Pre-entrega">
-          <div>
-            <p><strong>Pre-entrega</strong><br>Recorrido técnico, lista de pendientes y cierre de detalles antes de la entrega formal.</p>
-            <div class="thumbs">
-              <img src="fase4-preentrega-thumb1.jpg">
-              <img src="fase4-preentrega-thumb2.jpg">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fase 02 -->
-      <div class="process-item">
-        <span class="process-num">02</span>
-        <div class="process-info">
-          <img src="fase4-entrega.jpg" class="process-img" alt="Entrega documentada">
-          <div>
-            <p><strong>Entrega documentada</strong><br>Acta de entrega, manuales de operación y planos conforme a obra.</p>
-            <div class="thumbs">
-              <img src="fase4-entrega-thumb1.jpg">
-              <img src="fase4-entrega-thumb2.jpg">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fase 03 -->
-      <div class="process-item">
-        <span class="process-num">03</span>
-        <div class="process-info">
-          <img src="fase4-comisionado.jpg" class="process-img" alt="Comisionado de sistemas">
-          <div>
-            <p><strong>Comisionado de sistemas</strong><br>Pruebas de funcionamiento en redes eléctricas, hidrosanitarias y mecánicas.</p>
-            <div class="thumbs">
-              <img src="fase4-comisionado-thumb1.jpg">
-              <img src="fase4-comisionado-thumb2.jpg">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fase 04 -->
-      <div class="process-item">
-        <span class="process-num">04</span>
-        <div class="process-info">
-          <img src="fase4-mantenimiento.jpg" class="process-img" alt="Mantenimiento preventivo">
-          <div>
-            <p><strong>Mantenimiento preventivo</strong><br>Visitas trimestrales durante el primer año de garantía para asegurar el correcto desempeño.</p>
-            <div class="thumbs">
-              <img src="fase4-mantenimiento-thumb1.jpg">
-              <img src="fase4-mantenimiento-thumb2.jpg">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ENTREGABLES -->
-    <div class="popup-section">
-      <h3>ENTREGABLES</h3>
-      <div class="deliverables-grid">
-        <ul>
-          <li>Acta de entrega y manuales</li>
-          <li>Planos conforme a obra</li>
-        </ul>
-        <ul>
-          <li>Informe de comisionado</li>
-          <li>Plan de mantenimiento preventivo</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <a href="#" class="cta">COTIZAR ESTA FASE →</a>
-  </div>
-</div>
-	<section class="servicios" id="servicios">
-  <div class="contenedor-servicios">
-    <div class="grid-servicios">
-      <div class="section-num">02 / SERVICIOS</div>
-      <div>
-        <h2>SEIS DISCIPLINAS. UN SOLO EQUIPO.</h2>
-        <p class="subtitle">[CLICK EN CADA SERVICIO PARA VER EL PASO A PASO]</p>
-      </div>
-    </div>
-
-    <div class="servicios-grid">
-      <!-- Servicio 01 -->
-      <div class="servicio-card">
-        <span class="servicio-num">01</span>
-        <h3>DISEÑO ARQUITECTÓNICO</h3>
-        <p>Modelado y visualización 3D, conceptos creativos, renders, distribución de áreas, diseño interior y mobiliario personalizado.</p>
-        <div class="tags">
-          <span>BIM 3D</span><span>RENDERS</span><span>DISEÑO INTERIOR</span>
-        </div>
-        <button class="detalle" data-popup="popup-servicio1">VER PROCESO +</button>
-      </div>
-
-      <!-- Servicio 02 -->
-      <div class="servicio-card">
-        <span class="servicio-num">02</span>
-        <h3>PRESUPUESTOS Y PLANIFICACIÓN</h3>
-        <p>Medición de cantidades, estudio de precios unitarios, presupuestos detallados y elaboración de cronogramas de obra.</p>
-        <div class="tags">
-          <span>APU</span><span>CRONOGRAMAS</span><span>CANTIDADES</span>
-        </div>
-        <button class="detalle" data-popup="popup-servicio2">VER PROCESO +</button>
-      </div>
-
-      <!-- Servicio 03 -->
-      <div class="servicio-card">
-        <span class="servicio-num">03</span>
-        <h3>EJECUCIÓN DE OBRA</h3>
-        <p>Estructuras metálicas, drywall, eléctricos, hidrosanitarios, climatización, CCTV, automatización, fachadas y acabados.</p>
-        <div class="tags">
-          <span>ESTRUCTURAL</span><span>MEP</span><span>ACABADOS</span>
-        </div>
-        <button class="detalle" data-popup="popup-servicio3">VER PROCESO +</button>
-      </div>
-
-      <!-- Servicio 04 -->
-      <div class="servicio-card">
-        <span class="servicio-num">04</span>
-        <h3>GERENCIA DE OBRA</h3>
-        <p>Gestión comercial, supervisión técnica y administrativa, control de documentación legal y técnica del proyecto.</p>
-        <div class="tags">
-          <span>SUPERVISIÓN</span><span>CONTROL</span><span>GESTIÓN</span>
-        </div>
-        <button class="detalle" data-popup="popup-servicio4">VER PROCESO +</button>
-      </div>
-
-      <!-- Servicio 05 -->
-      <div class="servicio-card">
-        <span class="servicio-num">05</span>
-        <h3>MANTENIMIENTO</h3>
-        <p>Mantenimiento preventivo y correctivo. Inspecciones semanales el primer mes y trimestrales durante el primer año.</p>
-        <div class="tags">
-          <span>PREVENTIVO</span><span>CORRECTIVO</span><span>GARANTÍA</span>
-        </div>
-        <button class="detalle" data-popup="popup-servicio5">VER PROCESO +</button>
-      </div>
-
-      <!-- Servicio 06 -->
-      <div class="servicio-card">
-        <span class="servicio-num">06</span>
-        <h3>INFRAESTRUCTURA RESIDENCIAL</h3>
-        <p>Viviendas unifamiliares y multifamiliares. Urbanización, cimentaciones, redes, automatización, paisajismo y cerramientos.</p>
-        <div class="tags">
-          <span>VIVIENDA</span><span>URBANISMO</span><span>DOMÓTICA</span>
-        </div>
-        <button class="detalle" data-popup="popup-servicio6">VER PROCESO +</button>
-      </div>
-    </div>
-  </div>
 </section>
-	
+<!-- ================= catalogo ===================================================================================== -->
 
+<section class="catalogo-pro" id="Catálogo">
 
-
-<div id="popup-servicio1" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-    <div class="popup-header">
-      <span class="PASO-num">01 · SERVICIO · PASO A PASO</span>
-      <h2>Diseño Arquitectónico</h2>
-      <p class="subtitle">Modelado y visualización 3D, conceptos creativos, renders, distribución de áreas, diseño interior y mobiliario personalizado.</p>
-    </div>
-    <div class="popup-section">
-      <h3>PROCESO ODC · 5 ETAPAS</h3>
-      <div class="process-item"><span class="process-num">01</span><div class="process-info"><img src="servicio2-Briefing.png" class="process-img"><div><h4>Briefing & Levantamiento</h4><p>Reunión con el cliente, levantamiento del lote y análisis de necesidades, normativa y presupuesto objetivo.</p><div class="thumbs"><img src="servicio2-Briefing.png"><img src="servicio2-Briefing-thumb1.png"><img src="servicio2-Briefing-thumb2.png"></div></div></div></div>
-      <div class="process-item"><span class="process-num">02</span><div class="process-info"><img src="servicio2-Anteproyecto.png" class="process-img"><div><h4>Anteproyecto</h4><p>Zonificación, volumetría, esquemas funcionales y primeras imágenes conceptuales para validación.</p><div class="thumbs"><img src="servicio2-Anteproyecto.png"><img src="servicio2-Anteproyecto-thumb1.png"><img src="servicio2-Anteproyecto-thumb2.png"></div></div></div></div>
-      <div class="process-item"><span class="process-num">03</span><div class="process-info"><img src="servicio2-Modelado.png" class="process-img"><div><h4>Modelado BIM 3D</h4><p>Desarrollo del modelo arquitectónico en BIM con coordinación de especialidades técnicas.</p><div class="thumbs"><img src="servicio2-Modelado.png"><img src="servicio2-Modelado-thumb1.png"><img src="servicio2-Modelado-thumb2.png"></div></div></div></div>
-      <div class="process-item"><span class="process-num">04</span><div class="process-info"><img src="servicio2-Renders.png" class="process-img"><div><h4>Renders & Visualización</h4><p>Imágenes fotorrealistas interiores y exteriores, recorridos virtuales y material de presentación.</p><div class="thumbs"><img src="servicio2-Renders.png"><img src="servicio2-Renders-thumb1.png"><img src="servicio2-Renders-thumb2.png"></div></div></div></div>
-      <div class="process-item"><span class="process-num">05</span><div class="process-info"><img src="servicio2-Planos.png" class="process-img"><div><h4>Planos para Construcción</h4><p>Entrega de planimetría arquitectónica, detalles constructivos y especificaciones técnicas.</p><div class="thumbs"><img src="servicio2-Planos.png"><img src="servicio2-Planos-thumb1.png"><img src="servicio2-Planos-thumb2.png"></div></div></div></div>
-    </div>
-    <a href="#" class="cta">COTIZAR ESTE SERVICIO →</a>
-  </div>
+  <h2>Catálogo destacado</h2>
+<div class="catalogo-filtros">
+  <button class="filtro active" data-filter="all">Todos</button>
+  <button class="filtro" data-filter="corporativo">Corporativo</button>
+  <button class="filtro" data-filter="gastronomia">Gastronomía</button>
+  <button class="filtro" data-filter="salud">Salud</button>
 </div>
-<div id="popup-servicio2" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-    <div class="popup-header">
-      <span class="PASO-num">02 · SERVICIO · PASO A PASO</span>
-      <h2>PRESUPUESTOS Y PLANIFICACIÓN</h2>
-      <p class="subtitle">Medición de cantidades, estudio de precios unitarios, presupuestos detallados y elaboración de cronogramas de obra.</p>
-    </div>
-    <div class="popup-section">
-      <h3>PROCESO ODC · 5 ETAPAS</h3>
-      <div class="process-item"><span class="process-num">01</span><div class="process-info"><img src="servicio2-lectura.png" class="process-img"><div><h4>Lectura de planos</h4><p>Revisión técnica de planos arquitectónicos, estructurales y de redes para detectar inconsistencias.</p><div class="thumbs"><img src="servicio2-lectura.png"><img src="servicio2-lectura-thumb1.png"><img src="servicio2-lectura-thumb2.png"></div></div></div></div>
-      <div class="process-item"><span class="process-num">02</span><div class="process-info"><img src="servicio2-cuantificacion.png" class="process-img"><div><h4>Cuantificación</h4><p>Medición detallada de cantidades de obra por capítulos y subcapítulos.</p><div class="thumbs"><img src="servicio2-cuantificacion.png"><img src="servicio2-cuantificacion-thumb1.png"><img src="servicio2-cuantificacion-thumb2.png"></div></div></div></div>
-      <div class="process-item"><span class="process-num">03</span><div class="process-info"><img src="servicio2-apu.png" class="process-img"><div><h4>Análisis de precios unitarios</h4><p>Construcción de APU con materiales, mano de obra, equipo y rendimientos actualizados.</p><div class="thumbs"><img src="servicio2-apu.png"><img src="servicio2-apu-thumb1.png"><img src="servicio2-apu-thumb2.png"></div></div></div></div>
-      <div class="process-item"><span class="process-num">04</span><div class="process-info"><img src="servicio2-presupuesto.png" class="process-img"><div><h4>Presupuesto maestro</h4><p>Consolidación del presupuesto con AIU, imprevistos y resumen ejecutivo.</p><div class="thumbs"><img src="servicio2-presupuesto.png"><img src=" 1.png"><img src="servicio2-presupuesto-thumb2.png"></div></div></div></div>
-      <div class="process-item"><span class="process-num">05</span><div class="process-info"><img src="servicio2-cronograma.png" class="process-img"><div><h4>Cronograma & flujo de caja</h4><p>Programación tipo Gantt, ruta crítica y proyección de desembolsos.</p><div class="thumbs"><img src="servicio2-cronograma.png"><img src="servicio2-cronograma-thumb1.png"><img src="servicio2-cronograma-thumb2.png"></div></div></div></div>
-    </div>
-    <a href="#" class="cta">COTIZAR ESTE SERVICIO →</a>
+<div class="catalogo-wrapper">
+
+  <button class="catalogo-arrow left" id="catPrev">‹</button>
+
+  <div class="catalogo-grid" id="catalogoGrid">
+    <!-- JS pinta cards -->
   </div>
+
+  <button class="catalogo-arrow right" id="catNext">›</button>
+
 </div>
-	
-<div id="popup-servicio3" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-
-    <!-- Header -->
-    <div class="popup-header">
-      <span class="PASO-num">03 · SERVICIO · PASO A PASO</span>
-      <h2>EJECUCIÓN DE OBRA</h2>
-      <p class="subtitle">
-        Estructuras metálicas, drywall, eléctricos, hidrosanitarios, climatización, CCTV, automatización, fachadas y acabados.
-      </p>
-    </div>
-
-    <!-- PROCESO -->
-    <div class="popup-section">
-      <h3>PROCESO ODC · 6 ETAPAS</h3>
-
-      <!-- Etapa 01 -->
-      <div class="process-item">
-        <span class="process-num">01</span>
-        <div class="process-info">
-          <img src="servicio3-preliminares.png" class="process-img" alt="Preliminares & Cerramiento">
-          <div>
-            <h4>Preliminares & Cerramiento</h4>
-            <p>Instalación de campamento, cerramiento del predio y trazado topográfico.</p>
-            <div class="thumbs">
-              <img src="servicio3-preliminares.png">
-              <img src="servicio3-preliminares-thumb1.png">
-              <img src="servicio3-preliminares-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 02 -->
-      <div class="process-item">
-        <span class="process-num">02</span>
-        <div class="process-info">
-          <img src="servicio3-cimentacion.png" class="process-img" alt="Cimentación & Estructura">
-          <div>
-            <h4>Cimentación & Estructura</h4>
-            <p>Excavaciones, cimentación y montaje de estructura metálica o concreto.</p>
-            <div class="thumbs">
-              <img src="servicio3-cimentacion.png">
-              <img src="servicio3-cimentacion-thumb1.png">
-              <img src="servicio3-cimentacion-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 03 -->
-      <div class="process-item">
-        <span class="process-num">03</span>
-        <div class="process-info">
-          <img src="servicio3-mamposteria.png" class="process-img" alt="Mampostería & Drywall">
-          <div>
-            <h4>Mampostería & Drywall</h4>
-            <p>Levantamiento de muros, divisiones livianas y cielorrasos.</p>
-            <div class="thumbs">
-              <img src="servicio3-mamposteria.png">
-              <img src="servicio3-mamposteria-thumb1.png">
-              <img src="servicio3-mamposteria-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 04 -->
-      <div class="process-item">
-        <span class="process-num">04</span>
-        <div class="process-info">
-          <img src="servicio3-redes.png" class="process-img" alt="Redes MEP">
-          <div>
-            <h4>Redes MEP</h4>
-            <p>Instalaciones eléctricas, hidrosanitarias, gas, climatización, CCTV y automatización.</p>
-            <div class="thumbs">
-              <img src="servicio3-redes.png">
-              <img src="servicio3-redes-thumb1.png">
-              <img src="servicio3-redes-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 05 -->
-      <div class="process-item">
-        <span class="process-num">05</span>
-        <div class="process-info">
-          <img src="servicio3-fachadas.png" class="process-img" alt="Fachadas & Acabados">
-          <div>
-            <h4>Fachadas & Acabados</h4>
-            <p>Enchapes, pisos, carpintería, pintura, fachadas y acabados de alta gama.</p>
-            <div class="thumbs">
-              <img src="servicio3-fachadas.png">
-              <img src="servicio3-fachadas-thumb1.png">
-              <img src="servicio3-fachadas-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 06 -->
-      <div class="process-item">
-        <span class="process-num">06</span>
-        <div class="process-info">
-          <img src="servicio3-entrega.png" class="process-img" alt="Entrega & Puesta en marcha">
-          <div>
-            <h4>Entrega & Puesta en marcha</h4>
-            <p>Pruebas, manuales, planos record y entrega formal al cliente.</p>
-            <div class="thumbs">
-              <img src="servicio3-entrega.png">
-              <img src="servicio3-entrega-thumb1.png">
-              <img src="servicio3-entrega-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <a href="#" class="cta">COTIZAR ESTE SERVICIO →</a>
-  </div>
-</div>
-	
-	<div id="popup-servicio4" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-
-    <!-- Header -->
-    <div class="popup-header">
-      <span class="PASO-num">04 · SERVICIO · PASO A PASO</span>
-      <h2>GERENCIA DE OBRA</h2>
-      <p class="subtitle">
-        Gestión comercial, supervisión técnica y administrativa, control de documentación legal y técnica del proyecto.
-      </p>
-    </div>
-
-    <!-- PROCESO -->
-    <div class="popup-section">
-      <h3>PROCESO ODC · 5 ETAPAS</h3>
-
-      <!-- Etapa 01 -->
-      <div class="process-item">
-        <span class="process-num">01</span>
-        <div class="process-info">
-          <img src="servicio4-plan.png" class="process-img" alt="Plan de gerencia">
-          <div>
-            <h4>Plan de gerencia</h4>
-            <p>Definición de alcance, organización del equipo, matriz de responsabilidades y plan de comunicaciones.</p>
-            <div class="thumbs">
-              <img src="servicio4-plan.png">
-              <img src="servicio4-plan-thumb1.png">
-              <img src="servicio4-plan-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 02 -->
-      <div class="process-item">
-        <span class="process-num">02</span>
-        <div class="process-info">
-          <img src="servicio4-contratacion.png" class="process-img" alt="Contratación & Compras">
-          <div>
-            <h4>Contratación & Compras</h4>
-            <p>Selección de proveedores, contratación de subcontratistas y gestión de adquisiciones.</p>
-            <div class="thumbs">
-              <img src="servicio4-contratacion.png">
-              <img src="servicio4-contratacion-thumb1.png">
-              <img src="servicio4-contratacion-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 03 -->
-      <div class="process-item">
-        <span class="process-num">03</span>
-        <div class="process-info">
-          <img src="servicio4-supervision.png" class="process-img" alt="Supervisión técnica">
-          <div>
-            <h4>Supervisión técnica</h4>
-            <p>Interventoría diaria de calidad, seguridad y cumplimiento de especificaciones.</p>
-            <div class="thumbs">
-              <img src="servicio4-supervision.png">
-              <img src="servicio4-supervision-thumb1.png">
-              <img src="servicio4-supervision-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 04 -->
-      <div class="process-item">
-        <span class="process-num">04</span>
-        <div class="process-info">
-          <img src="servicio4-control.png" class="process-img" alt="Control de costos & tiempo">
-          <div>
-            <h4>Control de costos & tiempo</h4>
-            <p>Seguimiento del presupuesto, cronograma, actas parciales y manejo de cambios.</p>
-            <div class="thumbs">
-              <img src="servicio4-control.png">
-              <img src="servicio4-control-thumb1.png">
-              <img src="servicio4-control-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 05 -->
-      <div class="process-item">
-        <span class="process-num">05</span>
-        <div class="process-info">
-          <img src="servicio4-reportes.png" class="process-img" alt="Reportes & Cierre">
-          <div>
-            <h4>Reportes & Cierre</h4>
-            <p>Informes semanales al cliente, gestión documental legal y cierre administrativo del proyecto.</p>
-            <div class="thumbs">
-              <img src="servicio4-reportes.png">
-              <img src="servicio4-reportes-thumb1.png">
-              <img src="servicio4-reportes-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <a href="#" class="cta">COTIZAR ESTE SERVICIO →</a>
-  </div>
-</div>
-
-	
-<div id="popup-servicio5" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-
-    <!-- Header -->
-    <div class="popup-header">
-      <span class="PASO-num">05 · SERVICIO · PASO A PASO</span>
-      <h2>MANTENIMIENTO</h2>
-      <p class="subtitle">
-        Mantenimiento preventivo y correctivo. Inspecciones semanales el primer mes y trimestrales durante el primer año.
-      </p>
-    </div>
-
-    <!-- PROCESO -->
-    <div class="popup-section">
-      <h3>PROCESO ODC · 5 ETAPAS</h3>
-
-      <!-- Etapa 01 -->
-      <div class="process-item">
-        <span class="process-num">01</span>
-        <div class="process-info">
-          <img src="servicio5-diagnostico.png" class="process-img" alt="Diagnóstico inicial">
-          <div>
-            <h4>Diagnóstico inicial</h4>
-            <p>Inspección técnica del inmueble e identificación de puntos críticos a monitorear.</p>
-            <div class="thumbs">
-              <img src="servicio5-diagnostico.png">
-              <img src="servicio5-diagnostico-thumb1.png">
-              <img src="servicio5-diagnostico-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 02 -->
-      <div class="process-item">
-        <span class="process-num">02</span>
-        <div class="process-info">
-          <img src="servicio5-plan.png" class="process-img" alt="Plan de mantenimiento">
-          <div>
-            <h4>Plan de mantenimiento</h4>
-            <p>Cronograma personalizado de visitas preventivas según uso y tipo de instalaciones.</p>
-            <div class="thumbs">
-              <img src="servicio5-plan.png">
-              <img src="servicio5-plan-thumb1.png">
-              <img src="servicio5-plan-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 03 -->
-      <div class="process-item">
-        <span class="process-num">03</span>
-        <div class="process-info">
-          <img src="servicio5-visitas1.png" class="process-img" alt="Visitas semanales (Mes 1)">
-          <div>
-            <h4>Visitas semanales (Mes 1)</h4>
-            <p>Acompañamiento intensivo durante el primer mes para ajustes finos post-entrega.</p>
-            <div class="thumbs">
-              <img src="servicio5-visitas1.png">
-              <img src="servicio5-visitas1-thumb1.png">
-              <img src="servicio5-visitas1-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 04 -->
-      <div class="process-item">
-        <span class="process-num">04</span>
-        <div class="process-info">
-          <img src="servicio5-visitas2.png" class="process-img" alt="Visitas trimestrales (Año 1)">
-          <div>
-            <h4>Visitas trimestrales (Año 1)</h4>
-            <p>Inspecciones programadas durante el primer año cubiertas por la garantía.</p>
-            <div class="thumbs">
-              <img src="servicio5-visitas2.png">
-              <img src="servicio5-visitas2-thumb1.png">
-              <img src="servicio5-visitas2-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 05 -->
-      <div class="process-item">
-        <span class="process-num">05</span>
-        <div class="process-info">
-          <img src="servicio5-correctivo.png" class="process-img" alt="Atención correctiva">
-          <div>
-            <h4>Atención correctiva</h4>
-            <p>Respuesta rápida ante cualquier eventualidad bajo cobertura de garantía.</p>
-            <div class="thumbs">
-              <img src="servicio5-correctivo.png">
-              <img src="servicio5-correctivo-thumb1.png">
-              <img src="servicio5-correctivo-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <a href="#" class="cta">COTIZAR ESTE SERVICIO →</a>
-  </div>
-</div>
-
-	
-	
-<div id="popup-servicio6" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-
-    <!-- Header -->
-    <div class="popup-header">
-      <span class="PASO-num">06 · SERVICIO · PASO A PASO</span>
-      <h2>INFRAESTRUCTURA RESIDENCIAL</h2>
-      <p class="subtitle">
-        Viviendas unifamiliares y multifamiliares. Urbanización, cimentaciones, redes, automatización, paisajismo y cerramientos.
-      </p>
-    </div>
-
-    <!-- PROCESO -->
-    <div class="popup-section">
-      <h3>PROCESO ODC · 6 ETAPAS</h3>
-
-      <!-- Etapa 01 -->
-      <div class="process-item">
-        <span class="process-num">01</span>
-        <div class="process-info">
-          <img src="servicio6-estudios.png" class="process-img" alt="Estudios previos">
-          <div>
-            <h4>Estudios previos</h4>
-            <p>Estudio de suelos, topografía, normativa urbanística y factibilidad del proyecto.</p>
-            <div class="thumbs">
-              <img src="servicio6-estudios.png">
-              <img src="servicio6-estudios-thumb1.png">
-              <img src="servicio6-estudios-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 02 -->
-      <div class="process-item">
-        <span class="process-num">02</span>
-        <div class="process-info">
-          <img src="servicio6-licencias.png" class="process-img" alt="Diseño & Licencias">
-          <div>
-            <h4>Diseño & Licencias</h4>
-            <p>Desarrollo arquitectónico y trámite de licencias de construcción y urbanismo.</p>
-            <div class="thumbs">
-              <img src="servicio6-licencias.png">
-              <img src="servicio6-licencias-thumb1.png">
-              <img src="servicio6-licencias-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 03 -->
-      <div class="process-item">
-        <span class="process-num">03</span>
-        <div class="process-info">
-          <img src="servicio6-urbanizacion.png" class="process-img" alt="Urbanización & Redes">
-          <div>
-            <h4>Urbanización & Redes</h4>
-            <p>Vías, andenes, redes hidrosanitarias, eléctricas y gas del conjunto.</p>
-            <div class="thumbs">
-              <img src="servicio6-urbanizacion.png">
-              <img src="servicio6-urbanizacion-thumb1.png">
-              <img src="servicio6-urbanizacion-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 04 -->
-      <div class="process-item">
-        <span class="process-num">04</span>
-        <div class="process-info">
-          <img src="servicio6-vivienda.png" class="process-img" alt="Construcción de vivienda">
-          <div>
-            <h4>Construcción de vivienda</h4>
-            <p>Cimentación, estructura, mampostería y acabados de las unidades habitacionales.</p>
-            <div class="thumbs">
-              <img src="servicio6-vivienda.png">
-              <img src="servicio6-vivienda-thumb1.png">
-              <img src="servicio6-vivienda-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 05 -->
-      <div class="process-item">
-        <span class="process-num">05</span>
-        <div class="process-info">
-          <img src="servicio6-domotica.png" class="process-img" alt="Domótica & Smart Home">
-          <div>
-            <h4>Domótica & Smart Home</h4>
-            <p>Integración de automatización, control de iluminación, CCTV y accesos.</p>
-            <div class="thumbs">
-              <img src="servicio6-domotica.png">
-              <img src="servicio6-domotica-thumb1.png">
-              <img src="servicio6-domotica-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 06 -->
-      <div class="process-item">
-        <span class="process-num">06</span>
-        <div class="process-info">
-          <img src="servicio6-paisajismo.png" class="process-img" alt="Paisajismo & Entrega">
-          <div>
-            <h4>Paisajismo & Entrega</h4>
-            <p>Zonas verdes, cerramientos, mobiliario exterior y entrega formal al propietario.</p>
-            <div class="thumbs">
-              <img src="servicio6-paisajismo.png">
-              <img src="servicio6-paisajismo-thumb1.png">
-              <img src="servicio6-paisajismo-thumb2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <a href="#" class="cta">COTIZAR ESTE SERVICIO →</a>
-  </div>
-</div>
-	
-<section class="portafolio" id="portafolio">
-  <div class="contenedor-portafolio">
-    
-    <!-- Encabezado -->
-    <div class="section-header">
-      <div class="section-num">03 / PORTAFOLIO</div>
-      <div class="section-text">
-        <h2>PROYECTOS EJECUTADOS</h2>
-        <p class="subtitle">[120+ ENTREGADOS / COLOMBIA]</p>
-      </div>
-    </div>
-
-    <!-- Grid de proyectos -->
-    <div class="proyectos-grid">
-
-		
-		<!-- Proyecto 01 -->
-<div class="proyecto-card">
-  <div class="proyecto-img">
-    <img src="proy1.png" alt="Jardín Infantil J.A. Santamaría">
-    <div class="overlay-top-left">PRJ_001</div>
-    <div class="overlay-bottom-right">INSTITUCIONAL</div>
-  </div>
-  <div class="proyecto-info">
-    <h3>JARDÍN INFANTIL J.A. SANTAMARÍA</h3>
-    <p>Bogotá · 1,747 m²</p>
-<button class="detalle" data-popup="popup-proyecto1">VER DETALLE +</button></div>
-</div>
-
-<!-- Proyecto 02 -->
-<div class="proyecto-card">
-  <div class="proyecto-img">
-    <img src="proy2.png" alt="Cedro Amarilo">
-    <div class="overlay-top-left">PRJ_002</div>
-    <div class="overlay-bottom-right">INFRAESTRUCTURA</div>
-  </div>
-  <div class="proyecto-info">
-    <h3>CEDRO AMARILO</h3>
-    <p>Bogotá · 3,806 m²</p>
-    <button class="detalle" data-popup="popup-proyecto2">VER DETALLE +</button>
-  </div>
-</div>
-
-<!-- Proyecto 03 -->
-<div class="proyecto-card">
-  <div class="proyecto-img">
-    <img src="proy3.png" alt="Centrik Ingeurbe">
-    <div class="overlay-top-left">PRJ_003</div>
-    <div class="overlay-bottom-right">INFRAESTRUCTURA</div>
-  </div>
-  <div class="proyecto-info">
-    <h3>CENTRIK INGEURBE</h3>
-    <p>Bogotá · 4,400 m²</p>
-    <button class="detalle" data-popup="popup-proyecto3">VER DETALLE +</button>
-  </div>
-</div>
-
-<!-- Proyecto 04 -->
-<div class="proyecto-card">
-  <div class="proyecto-img">
-    <img src="proy4.png" alt="Madero Alcabama">
-    <div class="overlay-top-left">PRJ_004</div>
-    <div class="overlay-bottom-right">INFRAESTRUCTURA</div>
-  </div>
-  <div class="proyecto-info">
-    <h3>MADERO ALCABAMA</h3>
-    <p>Zipaquirá · 2,925 m²</p>
-    <button class="detalle" data-popup="popup-proyecto4">VER DETALLE +</button>
-  </div>
-</div>
-
-<!-- Proyecto 05 -->
-<div class="proyecto-card">
-  <div class="proyecto-img">
-    <img src="proy5.png" alt="Riviera Urbansa">
-    <div class="overlay-top-left">PRJ_005</div>
-    <div class="overlay-bottom-right">INFRAESTRUCTURA</div>
-  </div>
-  <div class="proyecto-info">
-    <h3>RIVIERA URBANSA</h3>
-    <p>Chía · 4,440 m²</p>
-    <button class="detalle" data-popup="popup-proyecto5">VER DETALLE +</button>
-  </div>
-</div>
-
-		<!-- Proyecto 06 -->
-<div class="proyecto-card">
-  <div class="proyecto-img">
-    <img src="proy6.png" alt="Casa Torres">
-    <div class="overlay-top-left">PRJ_006</div>
-    <div class="overlay-bottom-right">RESIDENCIAL</div>
-  </div>
-  <div class="proyecto-info">
-    <h3>CASA TORRES</h3>
-    <p>La Calera · 235 m²</p>
-    <button class="detalle" data-popup="popup-proyecto6">VER DETALLE +</button>
-  </div>
-</div>
-
-<!-- Proyecto 07 -->
-<div class="proyecto-card">
-  <div class="proyecto-img">
-    <img src="proy7.png" alt="Pizza House">
-    <div class="overlay-top-left">PRJ_007</div>
-    <div class="overlay-bottom-right">COMERCIAL</div>
-  </div>
-  <div class="proyecto-info">
-    <h3>TASSONI</h3>
-    <p>Colombia · 6 sedes</p>
-    <button class="detalle" data-popup="popup-proyecto7">VER DETALLE +</button>
-  </div>
-</div>
-
-<!-- Proyecto 08 -->
-<div class="proyecto-card">
-  <div class="proyecto-img">
-    <img src="proy8.png" alt="ARA">
-    <div class="overlay-top-left">PRJ_008</div>
-    <div class="overlay-bottom-right">COMERCIAL</div>
-  </div>
-  <div class="proyecto-info">
-    <h3>ARA</h3>
-    <p>Colombia · 4 sedes</p>
-    <button class="detalle" data-popup="popup-proyecto8">VER DETALLE +</button>
-  </div>
-</div>
-
-<!-- Proyecto 09 -->
-<div class="proyecto-card">
-  <div class="proyecto-img">
-    <img src="proy9.png" alt="Necio">
-    <div class="overlay-top-left">PRJ_009</div>
-    <div class="overlay-bottom-right">COMERCIAL</div>
-  </div>
-  <div class="proyecto-info">
-    <h3>NECIO</h3>
-    <p>Colombia · 4 sedes</p>
-    <button class="detalle" data-popup="popup-proyecto9">VER DETALLE +</button>
-  </div>
-</div>
-
-<!-- Proyecto 10 -->
-<div class="proyecto-card">
-  <div class="proyecto-img">
-    <img src="proy10.png" alt="Éxito Centro Mayor">
-    <div class="overlay-top-left">PRJ_010</div>
-    <div class="overlay-bottom-right">COMERCIAL</div>
-  </div>
-  <div class="proyecto-info">
-    <h3>ÉXITO CENTRO MAYOR</h3>
-    <p>Bogotá · Retail</p>
-    <button class="detalle" data-popup="popup-proyecto10">VER DETALLE +</button>
-  </div>
-</div>
-
-
-    </div>
-  </div>
-</section>
-<!-- Popup Proyecto 01 -->
-<!-- Popup -->
-<div id="popup-proyecto1" class="popup-proyecto">
-  <div class="popup-proyecto-box">
-    <span class="popup-proyecto-close">&times;</span>
-
-    <div class="popup-proyecto-header">
-      <span class="popup-proyecto-code">PRJ_001</span>
-      <h2>JARDÍN INFANTIL J.A. SANTAMARÍA</h2>
-      <p class="popup-proyecto-subtitle">Bogotá · 1,747 m² · Institucional</p>
-    </div>
-
-    <div class="popup-proyecto-gallery">
-      <img src="proy1a.png" class="popup-proyecto-main" alt="Proyecto 1">
-      <div class="popup-proyecto-thumbs">
-        <img src="proy1a.png" alt="Vista 1">
-        <img src="proy1b.png" alt="Vista 2">
-        <img src="proy1c.png" alt="Vista 3">
-      </div>
-    </div>
-
-    <a href="#" class="popup-proyecto-cta">VER MÁS DETALLES →</a>
-  </div>
-</div>
-<!-- Popup Proyecto 02 -->
-<div id="popup-proyecto2" class="popup-proyecto">
-  <div class="popup-proyecto-box">
-    <span class="popup-proyecto-close">&times;</span>
-    <div class="popup-proyecto-header">
-      <span class="popup-proyecto-code">PRJ_002</span>
-      <h2>CEDRO AMARILO</h2>
-      <p class="popup-proyecto-subtitle">Bogotá · 3,806 m² · Infraestructura</p>
-    </div>
-    <div class="popup-proyecto-gallery">
-      <img src="proy2.png" class="popup-proyecto-main" alt="Cedro Amarilo">
-      <div class="popup-proyecto-thumbs">
-        <img src="proy2a.png" alt="Vista 1">
-        <img src="proy2b.png" alt="Vista 2">
-        <img src="proy2c.png" alt="Vista 3">
-      </div>
-    </div>
-    <a href="#" class="popup-proyecto-cta">VER MÁS DETALLES →</a>
-  </div>
-</div>
-
-<!-- Popup Proyecto 03 -->
-<div id="popup-proyecto3" class="popup-proyecto">
-  <div class="popup-proyecto-box">
-    <span class="popup-proyecto-close">&times;</span>
-    <div class="popup-proyecto-header">
-      <span class="popup-proyecto-code">PRJ_003</span>
-      <h2>CENTRIK INGEURBE</h2>
-      <p class="popup-proyecto-subtitle">Bogotá · 4,400 m² · Infraestructura</p>
-    </div>
-    <div class="popup-proyecto-gallery">
-      <img src="proy3.png" class="popup-proyecto-main" alt="Centrik Ingeurbe">
-      <div class="popup-proyecto-thumbs">
-        <img src="proy3a.png" alt="Vista 1">
-        <img src="proy3b.png" alt="Vista 2">
-        <img src="proy3c.png" alt="Vista 3">
-      </div>
-    </div>
-    <a href="#" class="popup-proyecto-cta">VER MÁS DETALLES →</a>
-  </div>
-</div>
-
-<!-- Popup Proyecto 04 -->
-<div id="popup-proyecto4" class="popup-proyecto">
-  <div class="popup-proyecto-box">
-    <span class="popup-proyecto-close">&times;</span>
-    <div class="popup-proyecto-header">
-      <span class="popup-proyecto-code">PRJ_004</span>
-      <h2>MADERO ALCABAMA</h2>
-      <p class="popup-proyecto-subtitle">Zipaquirá · 2,925 m² · Infraestructura</p>
-    </div>
-    <div class="popup-proyecto-gallery">
-      <img src="proy4.png" class="popup-proyecto-main" alt="Madero Alcabama">
-      <div class="popup-proyecto-thumbs">
-        <img src="proy4a.png" alt="Vista 1">
-        <img src="proy4b.png" alt="Vista 2">
-        <img src="proy4c.png" alt="Vista 3">
-      </div>
-    </div>
-    <a href="#" class="popup-proyecto-cta">VER MÁS DETALLES →</a>
-  </div>
-</div>
-
-<!-- Popup Proyecto 05 -->
-<div id="popup-proyecto5" class="popup-proyecto">
-  <div class="popup-proyecto-box">
-    <span class="popup-proyecto-close">&times;</span>
-    <div class="popup-proyecto-header">
-      <span class="popup-proyecto-code">PRJ_005</span>
-      <h2>RIVIERA URBANSA</h2>
-      <p class="popup-proyecto-subtitle">Chía · 4,440 m² · Infraestructura</p>
-    </div>
-    <div class="popup-proyecto-gallery">
-      <img src="proy5.png" class="popup-proyecto-main" alt="Riviera Urbansa">
-      <div class="popup-proyecto-thumbs">
-        <img src="proy5a.png" alt="Vista 1">
-        <img src="proy5b.png" alt="Vista 2">
-        <img src="proy5c.png" alt="Vista 3">
-      </div>
-    </div>
-    <a href="#" class="popup-proyecto-cta">VER MÁS DETALLES →</a>
-  </div>
-</div>
-
-<!-- Popup Proyecto 06 -->
-<div id="popup-proyecto6" class="popup-proyecto">
-  <div class="popup-proyecto-box">
-    <span class="popup-proyecto-close">&times;</span>
-    <div class="popup-proyecto-header">
-      <span class="popup-proyecto-code">PRJ_006</span>
-      <h2>CASA TORRES</h2>
-      <p class="popup-proyecto-subtitle">La Calera · 235 m² · Residencial</p>
-    </div>
-    <div class="popup-proyecto-gallery">
-      <img src="proy6.png" class="popup-proyecto-main" alt="Casa Torres">
-      <div class="popup-proyecto-thumbs">
-        <img src="proy6a.png" alt="Vista 1">
-        <img src="proy6b.png" alt="Vista 2">
-        <img src="proy6c.png" alt="Vista 3">
-      </div>
-    </div>
-    <a href="#" class="popup-proyecto-cta">VER MÁS DETALLES →</a>
-  </div>
-</div>
-
-<!-- Popup Proyecto 07 -->
-<div id="popup-proyecto7" class="popup-proyecto">
-  <div class="popup-proyecto-box">
-    <span class="popup-proyecto-close">&times;</span>
-    <div class="popup-proyecto-header">
-      <span class="popup-proyecto-code">PRJ_007</span>
-      <h2>TASSONI</h2>
-      <p class="popup-proyecto-subtitle">Colombia · 4 sedes · Comercial</p>
-    </div>
-    <div class="popup-proyecto-gallery">
-      <img src="proy7.png" class="popup-proyecto-main" alt="Pizza House">
-      <div class="popup-proyecto-thumbs">
-        <img src="proy7a.png" alt="Vista 1">
-        <img src="proy7b.png" alt="Vista 2">
-        <img src="proy7c.png" alt="Vista 3">
-      </div>
-    </div>
-    <a href="#" class="popup-proyecto-cta">VER MÁS DETALLES →</a>
-  </div>
-</div>
-
-<!-- Popup Proyecto 08 -->
-<div id="popup-proyecto8" class="popup-proyecto">
-  <div class="popup-proyecto-box">
-    <span class="popup-proyecto-close">&times;</span>
-    <div class="popup-proyecto-header">
-      <span class="popup-proyecto-code">PRJ_008</span>
-      <h2>ARA</h2>
-      <p class="popup-proyecto-subtitle">Colombia · 7 sedes · Comercial</p>
-    </div>
-    <div class="popup-proyecto-gallery">
-      <img src="proy8.png" class="popup-proyecto-main" alt="ARA">
-      <div class="popup-proyecto-thumbs">
-        <img src="proy8a.png" alt="Vista 1">
-        <img src="proy8b.png" alt="Vista 2">
-        <img src="proy8c.png" alt="Vista 3">
-      </div>
-    </div>
-    <a href="#" class="popup-proyecto-cta">VER MÁS DETALLES →</a>
-  </div>
-</div>
-
-<!-- Popup Proyecto 09 -->
-<div id="popup-proyecto9" class="popup-proyecto">
-  <div class="popup-proyecto-box">
-    <span class="popup-proyecto-close">&times;</span>
-    <div class="popup-proyecto-header">
-      <span class="popup-proyecto-code">PRJ_009</span>
-      <h2>NECIO</h2>
-      <p class="popup-proyecto-subtitle">Colombia · 4 sedes · Comercial</p>
-    </div>
-    <div class="popup-proyecto-gallery">
-      <img src="proy9.png" class="popup-proyecto-main" alt="Necio">
-      <div class="popup-proyecto-thumbs">
-        <img src="proy9a.png" alt="Vista 1">
-        <img src="proy9b.png" alt="Vista 2">
-        <img src="proy9c.png" alt="Vista 3">
-        <img src="proy9d.png" alt="Vista 4">
-      </div>
-    </div>
-    <a href="#" class="popup-proyecto-cta">VER MÁS DETALLES →</a>
-  </div>
-</div>
-<!-- Popup Proyecto 10 -->
-<div id="popup-proyecto10" class="popup-proyecto">
-  <div class="popup-proyecto-box">
-    <span class="popup-proyecto-close">&times;</span>
-
-    <div class="popup-proyecto-header">
-      <span class="popup-proyecto-code">PRJ_010</span>
-      <h2>ÉXITO CENTRO MAYOR</h2>
-      <p class="popup-proyecto-subtitle">Bogotá · Retail · Comercial</p>
-    </div>
-
-    <div class="popup-proyecto-gallery">
-      <img src="proy10.png" class="popup-proyecto-main" alt="Éxito Centro Mayor">
-      <div class="popup-proyecto-thumbs">
-        <img src="proy10a.png" alt="Vista 1">
-        <img src="proy10b.png" alt="Vista 2">
-        <img src="proy10c.png" alt="Vista 3">
-        <img src="proy10d.png" alt="Vista 4">
-      </div>
-    </div>
-
-    <a href="#" class="popup-proyecto-cta">VER MÁS DETALLES →</a>
-  </div>
-</div>
-
-
-<section id="cotizacion" class="section-container cotizacion-section">
-  <div class="section-header">
-    <span class="section-num">04 / COTIZACIÓN</span>
-    <h2>SOLICITA UNA COTIZACIÓN.</h2>
-  </div>
-
-    <p>Cuéntanos sobre tu proyecto y te respondemos con una propuesta técnica y comercial. Trabajamos en toda Colombia.</p>
-  <div class="cotizacion-content">
-    <!-- Columna izquierda -->
-    <div class="cotizacion-info">
-      <p><strong>EMAIL</strong><br>
-        <a href="mailto:proyectos@odc.com.co">proyectos@odc.com.co</a>
-      </p>
-      <p><strong>WHATSAPP</strong><br>
-        <a href="tel:+573222851592">+57 322 285 1592</a>
-      </p>
-      <p><strong>UBICACIÓN</strong><br>Bogotá, Colombia</p>
-      <p><strong>COBERTURA</strong><br>▪ Toda Colombia</p>
-    </div>
-
-    <!-- Columna derecha -->
-    <form class="cotizacion-form" id="formCotizacion">
-      <label>01 / NOMBRE</label>
-      <input type="text" name="nombre" required>
-
-      <label>02 / EMPRESA</label>
-      <input type="text" name="empresa">
-
-      <label>03 / EMAIL</label>
-      <input type="email" name="email" required>
-
-      <label>04 / TELÉFONO</label>
-      <input type="tel" name="telefono">
-
-      <label>05 / TIPO DE PROYECTO</label>
-      <input type="text" name="tipo">
-
-      <label>06 / DESCRIPCIÓN DEL PROYECTO</label>
-      <textarea name="descripcion" placeholder="Alcance, ubicación, plazos estimados…" required></textarea>
-
-      <button type="submit" class="cotizacion-submit">ENVIAR SOLICITUD</button>
-    </form>
-  </div>
-
-  <!-- Footer -->
-  <div class="cotizacion-footer">
-    <p>OAC OFICINA DE DISEÑO Y CONSTRUCCIÓN<br>© 2026 ODC S.A.S. / Bogotá, Colombia</p>
-    <div class="cotizacion-social">
-      <a href="https://instagram.com" target="_blank">Instagram</a>
-      <a href="https://facebook.com" target="_blank">Facebook</a>
-      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-    </div>
-    <span class="cotizacion-status">▪ ACTIVO</span>
-  </div>
 </section>
 
+<!-- POPUP PRINCIPAL -->
+<div class="catalogo-popup" id="catalogoPopup">
 
+  <div class="catalogo-content">
 
+    <span class="catalogo-close" id="catalogoClose">✕</span>
+
+    <div class="viewer-box">
+
+      <button class="viewer-arrow left" id="prevImg">‹</button>
+
+      <img id="catalogoImg" class="catalogo-main">
+
+      <button class="viewer-arrow right" id="nextImg">›</button>
+
+    </div>
+
+    <div class="catalogo-body">
+      <h3 id="catalogoTitle"></h3>
+      <p id="catalogoDesc"></p>
+
+      <div class="catalogo-gallery" id="catalogoGallery"></div>
+
+      <button class="btn-360" id="open360">Ver 360°</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- POPUP 360 -->
+<div class="viewer360-modal" id="viewer360Modal">
+
+  <div class="viewer360-content">
+
+    <span class="close360" id="close360">✕</span>
+
+    <img id="viewer360Img">
+
+    <input type="range" id="viewer360Slider" min="0" value="0">
+
+  </div>
+
+</div>
 	
+<!-- ================= Nosotros ===================================================================================== -->
+	
+	<section class="about-pro" id="Nosotros">
+
+  <div class="about-wrapper">
+
+    <!-- TEXTO -->
+    <div class="about-left">
+
+      <h2>Conócenos</h2>
+
+      <p class="about-highlight">
+        Diseñamos, fabricamos y fortalecemos la identidad de las empresas a través de uniformes de alto nivel.
+      </p>
+
+      <p>
+        En <strong>Hilamos S.A.S</strong> desarrollamos prendas para diferentes sectores empresariales, cumpliendo normativas técnicas y adaptándonos a cada cliente.
+      </p>
+
+      <p>
+        Combinamos calidad, funcionalidad y diseño para ofrecer soluciones que representan verdaderamente a cada organización.
+      </p>
+
+      <div class="about-badge">
+        <strong>Visión:</strong> Ser líderes en diseño y confección para el trabajo colombiano, con proyección internacional.
+      </div>
+
+    </div>
+
+    <!-- VALORES -->
+    <div class="about-right">
+
+      <h3>¿Por qué elegirnos?</h3>
+
+      <div class="about-cards">
+
+        <div class="about-card"><span>01</span><p>Textiles de alta calidad y resistencia.</p></div>
+        <div class="about-card"><span>02</span><p>Diseño corporativo con tendencias actuales.</p></div>
+        <div class="about-card"><span>03</span><p>Renovación de imagen empresarial.</p></div>
+        <div class="about-card"><span>04</span><p>Producción sostenible y responsable.</p></div>
+        <div class="about-card"><span>05</span><p>Diseños personalizados e identidad.</p></div>
+        <div class="about-card"><span>06</span><p>Entrega oportuna y atención cercana.</p></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- LINEAS -->
+  <div class="about-lines">
+
+    <h3>Líneas de negocio</h3>
+
+    <div class="lines-grid">
+      <div>Administrativo</div>
+      <div>Asistencial</div>
+      <div>Hotelería y recreación</div>
+      <div>Operativo</div>
+    </div>
+
+  </div>
+
+</section>
+<!-- ================= clientes ===================================================================================== -->
+	
+<section class="clientes-pro">
+
+  <h2>Empresas que confían en nosotros</h2>
+
+<div class="clientes-wrapper">
+  <div class="clientes-row">
+    <div class="clientes-track">
+
+
+      <img src="cliente1.png">
+      <img src="cliente2.png">
+      <img src="cliente3.png">
+      <img src="cliente4.png">
+      <img src="cliente5.png">
+      <img src="cliente6.png">
+      <img src="cliente7.png">
+      <img src="cliente8.png">
+      <img src="cliente9.png">
+      <img src="cliente10.png">
+      <img src="cliente11.png">
+      <img src="cliente12.png">
+      <img src="cliente13.png">
+      <img src="cliente14.png">
+      <img src="cliente15.png">
+
+      <!-- DUPLICADO -->
+      <img src="cliente1.png">
+      <img src="cliente2.png">
+      <img src="cliente3.png">
+      <img src="cliente4.png">
+      <img src="cliente5.png">
+      <img src="cliente6.png">
+      <img src="cliente7.png">
+      <img src="cliente8.png">
+      <img src="cliente9.png">
+      <img src="cliente10.png">
+      <img src="cliente11.png">
+      <img src="cliente12.png">
+      <img src="cliente13.png">
+      <img src="cliente14.png">
+      <img src="cliente15.png">
+
+    </div>
+  </div>
+  </div>
+
+</section>
+<!-- ================= contactos ===================================================================================== -->
+	
+	
+	<section class="contacto-pro" id="Contacto">
+
+  <div class="contacto-wrapper">
+
+    <h2>Hablemos</h2>
+
+    <p class="contacto-texto">
+      ¿Tienes un proyecto en mente? Estamos listos para ayudarte a desarrollar la mejor solución para tu empresa.
+    </p>
+
+    <!-- DATOS -->
+    <div class="contacto-datos">
+      <p><strong>Email:</strong> uniformeshilamos@gmail.com</p>
+      <p><strong>Teléfono:</strong> +57 310 2246232</p>
+      <p><strong>Ubicación:</strong> Bogotá, Colombia</p>
+    </div>
+
+    <!-- BOTONES PRINCIPALES -->
+    <div class="contacto-botones">
+      <a href="https://wa.me/573102246232?text=Hola%20vengo%20de%20la%20pagina%20web" class="btn-contacto">WhatsApp</a>
+      <a href="mailto:uniformeshilamos@gmail.com" class="btn-contacto outline">Enviar correo</a>
+    </div>
+
+    <!-- REDES -->
+    <div class="contacto-redes">
+
+      <a href="https://www.instagram.com/uniformes.hilamos/" class="red">
+        <span>Instagram</span>
+      </a>
+
+      <a href="https://www.facebook.com/share/1DJFfpv2nP/" class="red">
+        <span>Facebook</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- ================= footer ===================================================================================== -->
+	
+	<footer class="footer-pro">
+
+  <div class="footer-wrapper">
+
+    <!-- LOGO + TEXTO -->
+    <div class="footer-brand">
+
+  <div class="footer-logo">
+    <img src="logo.png" alt="Hilamos SAS">
+  </div>
+
+  <p>
+    Diseñamos, fabricamos y comercializamos uniformes corporativos con altos estándares de calidad, innovación y compromiso.
+  </p>
+
+</div>
+
+    <!-- LINKS -->
+    <div class="footer-links">
+      <h4>Navegación</h4>
+    <a href="#Inicio">Inicio</a>
+    <a href="#lineas">Líneas</a>
+    <a href="#Catálogo">Catálogo</a>
+    <a href="#Nosotros">Nosotros</a>
+    <a href="#Contacto">Contacto</a>
+    </div>
+
+    <!-- CONTACTO -->
+    <div class="footer-contacto">
+      <h4>Contacto</h4>
+      <p>Bogotá, Colombia</p>
+      <p>+57 310 2246232</p>
+      <p>uniformeshilamos@gmail.com</p>
+    </div>
+
+    <!-- REDES -->
+    <div class="footer-redes">
+      <h4>Síguenos</h4>
+      <div class="redes-icons">
+        <a href="https://www.instagram.com/uniformes.hilamos/">Instagram</a>
+        <a href="https://www.facebook.com/share/1DJFfpv2nP/">Facebook</a>
+        <a href="https://wa.me/573102246232">WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 Hilamos SAS — Todos los derechos reservados</p>
+  </div>
+
+</footer>
+	
+	<!-- ================= JS ===================================================================================== -->
 <script>
-const hamburger = document.querySelector('.hamburger');
-const menu = document.querySelector('nav.menu');
-const body = document.querySelector('body');
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
 
-hamburger.addEventListener('click', () => {
-  const isActive = menu.classList.toggle('active');
-  
-  // Cambia el icono y el aria-label para accesibilidad
-  hamburger.textContent = isActive ? '✕' : '☰';
-  hamburger.setAttribute('aria-label', isActive ? 'Cerrar menú' : 'Abrir menú');
-  
-  // Bloquea el scroll del fondo cuando el menú está abierto
-  body.style.overflow = isActive ? 'hidden' : 'auto';
+menuToggle.addEventListener("click", () => {
+  mobileMenu.classList.toggle("active");
+  menuToggle.textContent = mobileMenu.classList.contains("active") ? "✕" : "☰";
 });
 
-// Cerrar menú al hacer click en un enlace
-document.querySelectorAll('nav.menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    if (window.innerWidth <= 768) {
-      menu.classList.remove('active');
-      hamburger.textContent = '☰';
-      body.style.overflow = 'auto';
-    }
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    menuToggle.textContent = "☰";
   });
 });
-  // Rotación automática de slides
-  const slides = document.querySelectorAll('.hero-slide');
-  let current = 0;
-  setInterval(()=>{
-    slides[current].classList.remove('active');
-    current = (current+1) % slides.length;
-    slides[current].classList.add('active');
-  },6000);
 
-  // Contadores animados
-  const counters = document.querySelectorAll('.counter');
-  const options = {threshold:0.5};
-  const animateCounter = (counter) => {
-    const target = +counter.getAttribute('data-target');
-    let count = 0;
-    const increment = target / 100; // velocidad
-    const update = () => {
-      count += increment;
-      if(count < target){
-        counter.textContent = Math.floor(count);
-        requestAnimationFrame(update);
-      } else {
-        counter.textContent = target + '+';
-      }
+// =================linea =====================================================================================
+const track = document.getElementById("track");
+const dotsContainer = document.getElementById("dots");
+const cards = document.querySelectorAll(".linea-card");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+
+let index = 0;
+
+// crear dots
+cards.forEach((_, i) => {
+  const dot = document.createElement("span");
+  if(i === 0) dot.classList.add("active");
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".dots span");
+
+// función mover
+function updateSlider(i){
+  const cardWidth = cards[0].offsetWidth + 15;
+  track.scrollTo({
+    left: i * cardWidth,
+    behavior: "smooth"
+  });
+
+  dots.forEach(d => d.classList.remove("active"));
+  dots[i].classList.add("active");
+}
+
+// botones
+next.addEventListener("click", () => {
+  index = (index + 1) % cards.length;
+  updateSlider(index);
+});
+
+prev.addEventListener("click", () => {
+  index = (index - 1 + cards.length) % cards.length;
+  updateSlider(index);
+});
+
+// swipe detect (auto update dots)
+track.addEventListener("scroll", () => {
+  const cardWidth = cards[0].offsetWidth + 15;
+  index = Math.round(track.scrollLeft / cardWidth);
+
+  dots.forEach(d => d.classList.remove("active"));
+  if(dots[index]) dots[index].classList.add("active");
+});
+
+	
+	// ================= POPUP ============================
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popupImg");
+const popupTitle = document.getElementById("popupTitle");
+const popupText = document.getElementById("popupText");
+const popupList = document.getElementById("popupList");
+const thumbs = document.getElementById("thumbs");
+const whatsappBtn = document.getElementById("whatsappBtn");
+const closePopup = document.getElementById("closePopup");
+
+// abrir popup
+document.querySelectorAll(".linea-card").forEach(card => {
+  card.addEventListener("click", () => {
+    popup.classList.add("active");
+
+    const title = card.dataset.title;
+    const text = card.dataset.text;
+    const img = card.dataset.img;
+    const list = card.dataset.list.split(",");
+
+    popupImg.src = img;
+    popupTitle.textContent = title;
+    popupText.textContent = text;
+
+    // lista dinámica
+    popupList.innerHTML = "";
+    list.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      popupList.appendChild(li);
+    });
+
+    // galería dinámica
+    const gallery = card.dataset.gallery.split(",");
+    thumbs.innerHTML = "";
+    gallery.forEach(img => {
+      const thumb = document.createElement("img");
+      thumb.src = img;
+      thumb.addEventListener("click", () => {
+        popupImg.src = img;
+      });
+      thumbs.appendChild(thumb);
+    });
+
+    // WhatsApp dinámico
+    const numero = "573102246232";
+    const mensaje = `Hola, quiero cotizar la línea ${title}`;
+    whatsappBtn.href = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+    document.body.style.overflow = "hidden";
+    history.pushState({popup:true}, "");
+  });
+});
+
+// cerrar popup
+function cerrarPopup(){
+  popup.classList.remove("active");
+  document.body.style.overflow = "auto";
+}
+
+closePopup.addEventListener("click", cerrarPopup);
+
+popup.addEventListener("click", (e) => {
+  if(e.target === popup){
+    cerrarPopup();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if(e.key === "Escape"){
+    cerrarPopup();
+  }
+});
+
+window.addEventListener("popstate", () => {
+  if(popup.classList.contains("active")){
+    cerrarPopup();
+  }
+});
+
+	
+// ================= 360 VIEWER =================
+/* ================= MAPA DE COLORES ================= */
+const mapaColores = {
+  
+  01: "#2d1e35",
+  02: "#908b87",
+  03: "#616872",
+  04: "#3e5859",
+  05: "#374c69",
+  06: "#262239",
+  07: "#2c334d",
+  08: "#382a4b",
+  09: "#543966",
+  10: "#4b2640",
+  11: "#467ebd",
+  12: "#003f7b",
+  13: "#e3eaf4",
+  14: "#515151",
+  15: "#cd5aa9",
+  16: "#00b870",
+  17: "#f60f15",
+  18: "#0088bb",
+  19: "#f7f7f7",
+  20: "#ff6a00",
+  21: "#a9e400",
+  22: "#eef000",
+  23: "#000000",
+  24: "#f7f7f7",
+  25: "#ebd1cd",
+  26: "#e6bea4",
+  27: "#9fa0ba"
+};
+
+/* ================= AUTO ROTACIÓN ================= */
+let autoPlay = true;
+let autoInterval;
+
+/* ================= DATA ================= */ 
+	const productos = { 
+		admin: { 
+			nombre: "Administrativo", 
+			texto: "Uniforme corporativo elegante.", 
+			estilos: { 
+				moderno: { 
+					nombre: "moderno", 
+					colores: { 
+						01: [ "Administrativo-2-1.png","Administrativo-2-2.png","Administrativo-2-3.png","Administrativo-2-4.png", "Administrativo-2-5.png","Administrativo-2-6.png","Administrativo-2-7.png","Administrativo-2-8.png" ], 
+						02: [ "Administrativo-3-1.png","Administrativo-3-2.png","Administrativo-3-3.png","Administrativo-3-4.png", "Administrativo-3-5.png","Administrativo-3-6.png","Administrativo-3-7.png","Administrativo-3-8.png" ], 
+						03: [ "Administrativo-4-1.png","Administrativo-4-2.png","Administrativo-4-3.png","Administrativo-4-4.png", "Administrativo-4-5.png","Administrativo-4-6.png","Administrativo-4-7.png","Administrativo-4-8.png" ], 
+						04: [ "Administrativo-5-1.png","Administrativo-5-2.png","Administrativo-5-3.png","Administrativo-5-4.png", "Administrativo-5-5.png","Administrativo-5-6.png","Administrativo-5-7.png","Administrativo-5-8.png" ], 
+						05: [ "Administrativo-6-1.png","Administrativo-6-2.png","Administrativo-6-3.png","Administrativo-6-4.png", "Administrativo-6-5.png","Administrativo-6-6.png","Administrativo-6-7.png","Administrativo-6-8.png" ], 
+						06: [ "Administrativo-7-1.png","Administrativo-7-2.png","Administrativo-7-3.png","Administrativo-7-4.png", "Administrativo-7-5.png","Administrativo-7-6.png","Administrativo-7-7.png","Administrativo-7-8.png" ],
+						07: [ "Administrativo-8-1.png","Administrativo-8-2.png","Administrativo-8-3.png","Administrativo-8-4.png", "Administrativo-8-5.png","Administrativo-8-6.png","Administrativo-8-7.png","Administrativo-8-8.png" ], 
+						08: [ "Administrativo-9-1.png","Administrativo-9-2.png","Administrativo-9-3.png","Administrativo-9-4.png", "Administrativo-9-5.png","Administrativo-9-6.png","Administrativo-9-7.png","Administrativo-9-8.png" ], 
+						09: [ "Administrativo-10-1.png","Administrativo-10-2.png","Administrativo-10-3.png","Administrativo-10-4.png", "Administrativo-10-5.png","Administrativo-10-6.png","Administrativo-10-7.png","Administrativo-10-8.png" ], 
+						10: [ "Administrativo-11-1.png","Administrativo-11-2.png","Administrativo-11-3.png","Administrativo-11-4.png", "Administrativo-11-5.png","Administrativo-11-6.png","Administrativo-11-7.png","Administrativo-11-8.png" ] 
+					} 
+				} 
+			} 
+		}, 
+		salud: { 
+			nombre: "Asistencial", 
+			texto: "Comodidad y rendimiento en salud.", 
+			estilos: { 
+				clasico: { 
+					nombre: "Clásico", 
+					colores: { 
+						11: ["salud-a-1.png","salud-a-2.png","salud-a-3.png","salud-a-4.png","salud-a-5.png","salud-a-6.png","salud-a-7.png","salud-a-8.png"],
+						12: ["salud-ao-1.png","salud-ao-2.png","salud-ao-3.png","salud-ao-4.png","salud-ao-5.png","salud-ao-6.png","salud-ao-7.png","salud-ao-8.png"], 
+						16: ["salud-v-1.png","salud-v-2.png","salud-v-3.png","salud-v-4.png","salud-v-5.png","salud-v-6.png","salud-v-7.png","salud-v-8.png"], 
+						14: ["salud-g-1.png","salud-g-2.png","salud-g-3.png","salud-g-4.png","salud-g-5.png","salud-g-6.png","salud-g-7.png","salud-g-8.png"], 
+						13: ["salud-b-1.png","salud-b-2.png","salud-b-3.png","salud-b-4.png","salud-b-5.png","salud-b-6.png","salud-b-7.png","salud-b-8.png"], 
+						15: ["salud-r-1.png","salud-r-2.png","salud-r-3.png","salud-r-4.png","salud-r-5.png","salud-r-6.png","salud-r-7.png","salud-r-8.png"] 
+					} 
+				} 
+			} 
+		}, 
+		hotel: { 
+			nombre: "Hotelería", 
+			texto: "Elegancia y servicio.", 
+			estilos: { 
+				formal: { 
+					nombre: "Formal", 
+					colores: { 
+						26: ["hotel-r1-.png","hotel-r-2.png","hotel-r-3.png","hotel-r-4.png","hotel-r-5.png","hotel-r-6.png","hotel-r-7.png","hotel-r-8.png"], 
+						24: ["hotel-a-1.png","hotel-a-2.png","hotel-a-3.png","hotel-a-4.png","hotel-a-5.png","hotel-a-6.png","hotel-a-7.png","hotel-a-8.png"], 
+						25: ["hotel-b-1.png","hotel-b-2.png","hotel-b-3.png","hotel-b-4.png","hotel-b-5.png","hotel-b-6.png","hotel-b-7.png","hotel-b-8.png"], 
+						27: ["hotel-y-1.png","hotel-y-2.png","hotel-y-3.png","hotel-y-4.png","hotel-y-5.png","hotel-y-6.png","hotel-y-7.png","hotel-y-8.png"]
+					} 
+				} 
+			} 
+		}, 
+		operativo: { 
+			nombre: "Operativo", 
+			texto: "Alta resistencia.", 
+			estilos: { 
+				Alta_Visibilidad: { 
+					nombre: "Alta Visibilidad", 
+					colores: { 
+						20: ["operativo-n-1.png","operativo-n-2.png","operativo-n-3.png","operativo-n-4.png","operativo-n-5.png","operativo-n-6.png","operativo-n-7.png","operativo-n-8.png"], 
+						21: ["operativo-v-1.png","operativo-v-2.png","operativo-v-3.png","operativo-v-4.png","operativo-v-5.png","operativo-v-6.png","operativo-v-7.png","operativo-v-8.png"], 
+						22: ["operativo-a-1.png","operativo-a-2.png","operativo-a-3.png","operativo-a-4.png","operativo-a-5.png","operativo-a-6.png","operativo-a-7.png","operativo-a-8.png"] 
+					} 
+				}, 
+				industrial: { 
+					nombre: "Industrial", 
+					colores: { 
+						23: ["operativo-b-1.png","operativo-b-2.png","operativo-b-3.png","operativo-b-4.png","operativo-b-5.png","operativo-b-6.png","operativo-b-7.png","operativo-b-8.png"] } } } } 
+	};
+
+/* ================= ESTADO ================= */
+let productoActual = "admin";
+let estiloActual;
+let colorActual;
+
+/* ================= DOM ================= */
+const viewerImg = document.getElementById("viewerImg");
+const slider = document.getElementById("rotationSlider");
+const title = document.getElementById("viewerTitle");
+const text = document.getElementById("viewerText");
+
+const productsContainer = document.querySelector(".viewer-products");
+const stylesContainer = document.querySelector(".viewer-styles");
+const colorsContainer = document.querySelector(".viewer-colors");
+
+/* ================= INIT ================= */
+init();
+
+function init(){
+  renderProductos();
+  setProducto(productoActual);
+  iniciarAutoRotacion();
+}
+
+/* ================= AUTO ROTACIÓN ================= */
+function iniciarAutoRotacion(){
+  clearInterval(autoInterval);
+
+  autoInterval = setInterval(()=>{
+    if(!autoPlay) return;
+
+    let max = parseInt(slider.max);
+    let val = parseInt(slider.value);
+
+    val++;
+    if(val > max) val = 0;
+
+    slider.value = val;
+    viewerImg.src = getFrames()[val];
+
+  }, 200);
+}
+
+function detenerAuto(){
+  autoPlay = false;
+  reactivarAuto();
+}
+
+function reactivarAuto(){
+  setTimeout(()=>{
+    autoPlay = true;
+  }, 4000);
+}
+
+/* ================= PRODUCTOS ================= */
+function renderProductos(){
+  productsContainer.innerHTML = "";
+
+  Object.keys(productos).forEach(key=>{
+    const btn = document.createElement("button");
+    btn.textContent = productos[key].nombre;
+
+    btn.onclick = ()=>{
+      detenerAuto();
+      setProducto(key);
     };
-    update();
-  };
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  },options);
-  counters.forEach(c=>observer.observe(c));
-	// --- Carrusel infinito ---
-const track = document.querySelector('.track');
-const carousel = document.querySelector('.carousel');
 
-// Pausar carrusel al hover
-carousel.addEventListener('mouseenter', () => {
-  track.style.animationPlayState = 'paused';
-});
-carousel.addEventListener('mouseleave', () => {
-  track.style.animationPlayState = 'running';
-});
-// Función para abrir popup
-function openPopup(id) {
-  const popup = document.getElementById(id);
-  if (popup) {
-    popup.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // bloquea scroll de la página
-  }
+    productsContainer.appendChild(btn);
+  });
 }
 
-// Función para cerrar popup
-function closePopup(popup) {
-  popup.style.display = 'none';
-  document.body.style.overflow = ''; // restaura scroll de la página
+function setProducto(key){
+  productoActual = key;
+
+  const producto = productos[key];
+  title.textContent = producto.nombre;
+  text.textContent = producto.texto;
+
+  estiloActual = Object.keys(producto.estilos)[0];
+
+  renderStyles();
+  setEstilo(estiloActual);
+
+  activar(productsContainer, key, Object.keys(productos));
 }
 
-// Abrir popup al dar clic en botón detalle
-document.querySelectorAll('.detalle').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const id = btn.getAttribute('data-popup');
-    openPopup(id);
+/* ================= ESTILOS ================= */
+function renderStyles(){
+  stylesContainer.innerHTML = "";
+
+  const estilos = productos[productoActual].estilos;
+
+  Object.keys(estilos).forEach(key=>{
+    const btn = document.createElement("button");
+    btn.textContent = estilos[key].nombre;
+
+    btn.onclick = ()=>{
+      detenerAuto();
+      setEstilo(key);
+    };
+
+    stylesContainer.appendChild(btn);
   });
+}
+
+function setEstilo(key){
+  estiloActual = key;
+
+  const colores = productos[productoActual].estilos[key].colores;
+  colorActual = Object.keys(colores)[0];
+
+  renderColors();
+  setColor(colorActual);
+
+  activar(stylesContainer, key, Object.keys(productos[productoActual].estilos));
+}
+
+/* ================= COLORES ================= */
+function renderColors(){
+  colorsContainer.innerHTML = "";
+
+  const colores = productos[productoActual].estilos[estiloActual].colores;
+
+  Object.keys(colores).forEach(color=>{
+    const btn = document.createElement("button");
+
+    btn.style.background = mapaColores[color] || "#ccc";
+
+    if(color === "blanco"){
+      btn.style.border = "2px solid #ccc";
+    }
+
+    btn.title = color;
+
+    btn.onclick = ()=>{
+      detenerAuto();
+      setColor(color);
+    };
+
+    colorsContainer.appendChild(btn);
+  });
+}
+
+function setColor(color){
+  colorActual = color;
+  actualizarViewer();
+  activarColor();
+}
+
+/* ================= VIEWER ================= */
+function actualizarViewer(){
+  const frames = getFrames();
+
+  let indexActual = parseInt(slider.value) || 0;
+
+  if(indexActual > frames.length - 1){
+    indexActual = frames.length - 1;
+  }
+
+  slider.max = frames.length - 1;
+  slider.value = indexActual;
+
+  viewerImg.style.opacity = 0;
+
+  setTimeout(()=>{
+    viewerImg.src = frames[indexActual];
+    viewerImg.style.opacity = 1;
+  },100);
+
+  preload(frames);
+}
+
+/* ================= SLIDER ================= */
+slider.addEventListener("input", ()=>{
+  detenerAuto();
+  viewerImg.src = getFrames()[slider.value];
 });
 
-// Cerrar popup con ✕
-document.querySelectorAll('.popup .close').forEach(close => {
-  close.addEventListener('click', () => {
-    closePopup(close.closest('.popup'));
-  });
-});
+/* ================= HELPERS ================= */
+function getFrames(){
+  return productos[productoActual]
+    .estilos[estiloActual]
+    .colores[colorActual];
+}
 
-// Cerrar popup al hacer clic fuera del contenido
-document.querySelectorAll('.popup').forEach(p => {
-  p.addEventListener('click', e => {
-    if (e.target === p) closePopup(p);
+function activar(container, key, keys){
+  [...container.children].forEach((btn,i)=>{
+    btn.classList.toggle("active", keys[i] === key);
   });
-});
+}
 
-// Cerrar popup con tecla ESC
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.popup').forEach(p => {
-      if (p.style.display === 'flex') closePopup(p);
+function activarColor(){
+  [...colorsContainer.children].forEach(btn=>{
+    btn.classList.toggle("active", btn.title === colorActual);
+  });
+}
+
+/* ================= PRELOAD ================= */
+function preload(arr){
+  arr.forEach(src=>{
+    const img = new Image();
+    img.src = src;
+  });
+}
+/* ================= catalogo ===================================================================================== */
+
+	(function(){
+
+const productos = {
+  p1:{
+  nombre:"La Misión de Apoyo al Proceso de Paz en Colombia (MAPP/OEA)",
+  categoria:"corporativo",
+  descripcion:"Uniforme institucional diseñado para proyectar profesionalismo, confianza y coherencia. Con materiales de alta calidad y un diseño sobrio, garantiza comodidad y una imagen alineada con la labor de la Misión.",
+  imagenes:["oea1.jpg","oea2.jpg"],
+  frames:{
+    rojo:["salud3-1.png","salud3-2.png","salud3-3.png","salud3-4.png","salud3-5.png","salud3-6.png","salud3-7.png","salud3-8.png"]
+  }
+},
+  p2:{
+  nombre:"Uniforme Chef Corporativo",
+  categoria:"gastronomia",
+  descripcion:"Uniforme que combina elegancia y funcionalidad, diseñado para entornos gastronómicos exigentes. Ofrece comodidad, resistencia y una imagen profesional alineada con la identidad del equipo.",
+  imagenes:["chef1.jpg","chef2.jpg"],
+  frames:{
+    blanco:["salud2-1.png","salud2-2.png","salud2-3.png","salud2-4.png","salud2-5.png","salud2-6.png","salud2-7.png","salud2-8.png"]
+  }
+},
+	p3:{
+  nombre:"Uniforme Enfermera – Instituto Nacional de Cancerología GOLD",
+  categoria:"salud",
+  descripcion:"El uniforme de enfermería del Instituto Nacional de Cancerología GOLD está diseñado para proyectar confianza, profesionalismo y calidez...",
+  imagenes:["gold1.jpg","gold2.jpg"],
+  frames:{
+    negro:["salud1-1.png","salud1-2.png","salud1-3.png","salud1-4.png","salud1-5.png","salud1-6.png","salud1-7.png","salud1-8.png"]
+  }
+},
+	p4:{
+  nombre:"Brigadista CERESCOS – Línea Operativa",
+  categoria:"corporativo",
+  descripcion:"Uniforme resistente y funcional, diseñado para seguridad, visibilidad y movilidad en campo.",
+  imagenes:["cerescos1.jpg","cerescos2.jpg"],
+  frames:{
+    negro:["cerescos-1.png","cerescos-2.png","cerescos-3.png","cerescos-4.png","cerescos-5.png","cerescos-6.png","cerescos-7.png","cerescos-8.png"]
+  }
+},
+	p5:{
+  nombre:"Dentista Bocanova – Línea Clínica Premium",
+  categoria:"salud",
+  descripcion:"Uniforme clínico cómodo y elegante, ideal para proyectar confianza y profesionalismo.",
+  imagenes:["bocanova1.jpg","bocanova2.jpg"],
+  frames:{
+    negro:["bocanova-1.png","bocanova-2.png","bocanova-3.png","bocanova-4.png","bocanova-5.png","bocanova-6.png","bocanova-7.png","bocanova-8.png"]
+  }
+},
+	p6:{
+  nombre:"Recepción Bocanova – Línea Ejecutiva",
+  categoria:"salud",
+  descripcion:"Uniforme elegante que proyecta orden, confianza y atención profesional.",
+  imagenes:["bocanova11.jpg","bocanova12.jpg"],
+  frames:{
+    negro:["bocanova1-1.png","bocanova1-2.png","bocanova1-3.png","bocanova1-4.png","bocanova1-5.png","bocanova1-6.png","bocanova1-7.png","bocanova1-8.png"]
+  }
+},
+	p7:{
+  nombre:"Dentista Bocanova – Línea Confort Pro",
+  categoria:"salud",
+  descripcion:"Diseño moderno con ajuste ergonómico y materiales transpirables para el día a día.",
+  imagenes:["bocanova21.jpg","bocanova22.jpg"],
+  frames:{
+    negro:["bocanova2-1.png","bocanova2-2.png","bocanova2-3.png","bocanova2-4.png","bocanova2-5.png","bocanova2-6.png","bocanova2-7.png","bocanova2-8.png"]
+  }
+},
+	p8:{
+  nombre:"Recepción Bocanova – Línea Imagen",
+  categoria:"salud",
+  descripcion:"Diseño moderno y limpio, enfocado en presencia y experiencia de marca.",
+  imagenes:["bocanova31.jpg","bocanova32.jpg"],
+  frames:{
+    negro:["bocanova3-1.png","bocanova3-2.png","bocanova3-3.png","bocanova3-4.png","bocanova3-5.png","bocanova3-6.png","bocanova3-7.png","bocanova3-8.png"]
+  }
+},
+	p9:{
+  nombre:"Traje Corporativo – Línea Aero Ejecutiva",
+  categoria:"corporativo",
+  descripcion:"Uniforme elegante y funcional, diseñado para proyectar autoridad, servicio y presencia profesional en entornos aeroportuarios.",
+  imagenes:["dorado1.jpg","dorado2.jpg"],
+  frames:{
+    negro:["dorado-1.png","dorado-2.png","dorado-3.png","dorado-4.png","dorado-5.png","dorado-6.png","dorado-7.png","dorado-8.png"]
+  }
+},
+	p10:{
+  nombre:"nombre",
+  categoria:"corporativo",
+  descripcion:"descripcion.",
+  imagenes:["campestre1.jpg","campestre2.jpg"],
+  frames:{
+    negro:["campestre-1.png","campestre-2.png","campestre-3.png","campestre-4.png","campestre-5.png","campestre-6.png","campestre-7.png","campestre-8.png"]
+  }
+},
+	p11:{
+  nombre:"nombre",
+  categoria:"corporativo",
+  descripcion:"descripcion.",
+  imagenes:["pullman1.jpg","pullman2.jpg"],
+  frames:{
+    negro:["pullman-1.png","pullman-2.png","pullman-3.png","pullman-4.png","pullman-5.png","pullman-6.png","pullman-7.png","pullman-8.png"]
+  }
+},
+	p12:{
+  nombre:"nombre",
+  categoria:"corporativo",
+  descripcion:"descripcion.",
+  imagenes:["gold02.jpg","gold01.jpg"],
+  frames:{
+    negro:["gold-1.png","gold-2.png","gold-3.png","gold-4.png","gold-5.png","gold-6.png","gold-7.png","gold-8.png"]
+  }
+}
+};
+
+/* ELEMENTOS */
+const grid = document.querySelector("#catalogoGrid");
+const popup = document.querySelector("#catalogoPopup");
+const filtros = document.querySelectorAll(".filtro");
+
+if(!grid || !popup) return;
+
+const img = document.getElementById("catalogoImg");
+const title = document.getElementById("catalogoTitle");
+const desc = document.getElementById("catalogoDesc");
+const gallery = document.getElementById("catalogoGallery");
+
+const prev = document.getElementById("prevImg");
+const next = document.getElementById("nextImg");
+
+const open360Btn = document.getElementById("open360");
+
+const modal360 = document.getElementById("viewer360Modal");
+const img360 = document.getElementById("viewer360Img");
+const slider360 = document.getElementById("viewer360Slider");
+
+let images = [];
+let frames = [];
+let index = 0;
+
+/* ================= RENDER ================= */
+function render(filter="all"){
+
+  grid.innerHTML = "";
+
+  Object.keys(productos).forEach(id=>{
+
+    const p = productos[id];
+
+    if(filter !== "all" && p.categoria !== filter) return;
+
+    const card = document.createElement("div");
+    card.className = "catalogo-card";
+
+    card.innerHTML = `
+      <img src="${p.imagenes[0]}">
+      <div class="overlay">Ver</div>
+    `;
+
+    card.addEventListener("click",(e)=>{
+      e.stopPropagation();
+      openPopup(id);
     });
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+/* ================= FILTROS ================= */
+filtros.forEach(btn=>{
+  btn.addEventListener("click",()=>{
+
+    filtros.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filtro = btn.dataset.filter;
+    render(filtro);
+
+  });
+});
+
+/* ================= POPUP ================= */
+function openPopup(id){
+
+  const p = productos[id];
+
+  popup.classList.add("active");
+
+  title.textContent = p.nombre;
+  desc.textContent = p.descripcion;
+
+  images = p.imagenes;
+  index = 0;
+
+  img.src = images[0];
+
+  gallery.innerHTML = "";
+
+  images.forEach((src,i)=>{
+    const t = document.createElement("img");
+    t.src = src;
+
+    t.onclick = ()=>{
+      index = i;
+      img.src = src;
+    };
+
+    gallery.appendChild(t);
+  });
+
+  frames = p.frames[Object.keys(p.frames)[0]];
+}
+
+/* ================= CARRUSEL ================= */
+next.onclick = ()=>{
+  index++;
+  if(index >= images.length) index = 0;
+  img.src = images[index];
+};
+
+prev.onclick = ()=>{
+  index--;
+  if(index < 0) index = images.length -1;
+  img.src = images[index];
+};
+
+/* ================= 360 ================= */
+open360Btn.onclick = ()=>{
+  modal360.classList.add("active");
+
+  slider360.max = frames.length -1;
+  slider360.value = 0;
+
+  img360.src = frames[0];
+};
+
+slider360.oninput = ()=>{
+  img360.src = frames[slider360.value];
+};
+
+/* ================= CLOSE ================= */
+document.getElementById("catalogoClose").onclick = ()=>{
+  popup.classList.remove("active");
+};
+
+document.getElementById("close360").onclick = ()=>{
+  modal360.classList.remove("active");
+};
+
+modal360.onclick = (e)=>{
+  if(e.target === modal360){
+    modal360.classList.remove("active");
+  }
+};
+
+popup.onclick = (e)=>{
+  if(e.target === popup){
+    popup.classList.remove("active");
+  }
+};
+
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="Escape"){
+    popup.classList.remove("active");
+    modal360.classList.remove("active");
   }
 });
 
-// Cerrar popup con botón "volver/regresar"
-document.querySelectorAll('.popup .back').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const popup = btn.closest('.popup');
-    closePopup(popup);
-    history.back(); // opcional: usar historial de navegación
+/* INIT */
+render();
+
+})();
+	/* ================= CARRUSEL ================= */
+
+const catGrid = document.getElementById("catalogoGrid");
+const catPrev = document.getElementById("catPrev");
+const catNext = document.getElementById("catNext");
+
+let scrollAmount = 0;
+
+function getScrollStep(){
+  const card = catGrid.querySelector(".catalogo-card");
+  if(!card) return 300;
+  return card.offsetWidth + 25; // ancho + gap
+}
+
+catNext.addEventListener("click", ()=>{
+
+  scrollAmount += getScrollStep();
+
+  catGrid.scrollTo({
+    left: scrollAmount,
+    behavior: "smooth"
   });
+
 });
 
-// Abrir imagen grande al clic en miniatura
-document.querySelectorAll('.thumbs img').forEach(thumb => {
-  thumb.addEventListener('click', () => {
-    const src = thumb.getAttribute('src');
-    const modalImg = document.createElement('div');
-    modalImg.className = 'img-modal';
-    modalImg.innerHTML = `
-      <div class="img-box">
-        <img src="${src}">
-        <span class="img-close">&times;</span>
-      </div>`;
-    document.body.appendChild(modalImg);
-    document.body.style.overflow = 'hidden';
+catPrev.addEventListener("click", ()=>{
 
-    // Cerrar modal de imagen
-    modalImg.querySelector('.img-close').addEventListener('click', () => {
-      modalImg.remove();
-      document.body.style.overflow = '';
-    });
-    modalImg.addEventListener('click', e => {
-      if (e.target === modalImg) {
-        modalImg.remove();
-        document.body.style.overflow = '';
-      }
-    });
+  scrollAmount -= getScrollStep();
+
+  if(scrollAmount < 0) scrollAmount = 0;
+
+  catGrid.scrollTo({
+    left: scrollAmount,
+    behavior: "smooth"
   });
+
 });
 
+/* RESET SCROLL CUANDO FILTRAS */
 
-	
-	
+function resetCarrusel(){
+  scrollAmount = 0;
+  catGrid.scrollTo({ left:0 });
+}
 
+/* enganchar con tus filtros existentes */
 
-
-
-
-// Abrir popup
-document.querySelectorAll('.btn-proyecto').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const targetId = btn.getAttribute('data-popup');
-    const popup = document.getElementById(targetId);
-    if(popup){
-      popup.style.display = 'flex';
-      document.body.style.overflow = 'hidden'; // bloquea scroll de fondo
-    }
-  });
+document.querySelectorAll(".filtro").forEach(btn=>{
+  btn.addEventListener("click", resetCarrusel);
 });
+	</script>
 
-// Cerrar popup con la X
-document.querySelectorAll('.popup-proyecto-close').forEach(closeBtn => {
-  closeBtn.addEventListener('click', () => {
-    const popup = closeBtn.closest('.popup-proyecto');
-    popup.style.display = 'none';
-    document.body.style.overflow = ''; // restaura scroll
-  });
-});
-
-// Cerrar popup al hacer clic fuera del contenido
-document.querySelectorAll('.popup-proyecto').forEach(popup => {
-  popup.addEventListener('click', e => {
-    if(e.target === popup){
-      popup.style.display = 'none';
-      document.body.style.overflow = ''; // restaura scroll
-    }
-  });
-});
-
-// Galería: miniaturas SOLO cambian la imagen principal
-document.querySelectorAll('.popup-proyecto-gallery').forEach(gallery => {
-  const mainImg = gallery.querySelector('.popup-proyecto-main');
-  const thumbs = gallery.querySelectorAll('.popup-proyecto-thumbs img');
-  
-  thumbs.forEach(thumb => {
-    thumb.addEventListener('click', e => {
-      e.preventDefault();
-      mainImg.src = thumb.src; // reemplaza la imagen principal
-    });
-  });
-});
-
-
-	
-	
-	document.getElementById('formCotizacion').addEventListener('submit', function(e){
-  e.preventDefault();
-
-  // Captura de datos
-  const datos = {
-    nombre: this.nombre.value,
-    empresa: this.empresa.value,
-    email: this.email.value,
-    telefono: this.telefono.value,
-    tipo: this.tipo.value,
-    descripcion: this.descripcion.value
-  };
-
-  // Aquí puedes integrar con tu backend o servicio de correo
-  console.log("Solicitud enviada:", datos);
-
-  alert("Tu solicitud ha sido enviada. Nos pondremos en contacto pronto.");
-  this.reset();
-});
-
-</script>
-
-
-</body></html>
+</body>
+</html>
